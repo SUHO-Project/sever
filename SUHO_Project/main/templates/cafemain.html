@@ -35,15 +35,29 @@
         margin: 0;
         padding: 0;
       }
+
+      /* 팝업 중앙 배치 */
+#lastPopup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000; /* 오버레이보다 위에 표시 */
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
     </style>
     <title>Document</title>
   </head>
+
   <body>
     <div class="main-2">
       <div class="yellow-panel"></div>
       <div class="suho-coffee">SUHO COFFEE</div>
-      <div class="americano-retangle"></div>
-      <div class="_2000">
+      <div class="americano-retangle" onclick="buy('아메리카노')"></div>
+      <div class="_2000"  >
         <span>
           <span class="_2000-span">
             아메리카노
@@ -52,8 +66,8 @@
           <span class="_2000-span2">2000원</span>
         </span>
       </div>
-      <img class="americano" src="static/img/americano0.png" />
-      <div class="carmel-retangle"></div>
+      <img class="americano" src="static/img/americano0.png" onclick="buy('아메리카노')"/>
+      <div class="carmel-retangle" onclick="buy('카라멜마끼아또')"></div>
       <div class="_3700">
         <span>
           <span class="_3700-span">
@@ -121,5 +135,32 @@
       <div class="smoothe-button2"></div>
       <div class="div4">스무디</div>
     </div>
+
+
+    <div class="frame-70" id="lastPopup">
+      <div class="frame-71"></div>
+      <div class="popupdiv">
+        [정상승인]
+        <br />
+        영수증을 출력하시겠습니까?
+        
+      </div>
+      <div class="frame-72">
+        <div class="frame-74">
+          <div class="popupdiv2">출력</div>
+        </div>
+        <div class="frame-75">
+          <div class="popupdiv2" id="change">미출력</div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
+
+<script>
+  function buy(coffee) {
+    alert(coffee);
+    document.getElementById('lastPopup').style.display = 'block';
+    document.getElementById('change').innerHTML = coffee;
+  }
+</script>

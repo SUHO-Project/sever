@@ -65,12 +65,30 @@
   </div>
 
   <!-- 팝업과 오버레이 추가 -->
-  <div class="popup-overlay" id="popupOverlay" onclick="closePopup()"></div>
-  <div class="last-popup" id="lastPopup">
+  
+   <!--<div class="last-popup" id="lastPopup">
     <div class="popup2">[정상승인]</div>
     <div class="var">영수증을 출력하시겠습니까?</div>
     <div class="print" onclick="printReceipt()">출력</div>
     <div class="noprint" onclick="closePopup()">미출력</div>
+  </div>--> 
+
+  <div class="frame-70" id="lastPopup">
+    <div class="frame-71"></div>
+    <div class="popupdiv">
+      [정상승인]
+      <br />
+      영수증을 출력하시겠습니까?
+      
+    </div>
+    <div class="frame-72">
+      <div class="frame-74">
+        <div class="popupdiv2">출력</div>
+      </div>
+      <div class="frame-75">
+        <div class="popupdiv2">미출력</div>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -84,6 +102,8 @@
         document.getElementById('lastPopup').style.display = 'none';
         document.getElementById('popupOverlay').style.display = 'none';
     }
+onclick="function("아메리카노")"
+
 
   </script>
 </body>

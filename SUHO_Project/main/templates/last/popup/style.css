@@ -25,7 +25,7 @@
   position: relative;
   overflow: hidden;
 }
-.div {
+.popupdiv {
   color: #000000;
   text-align: center;
   font-family: "Roboto-Bold", sans-serif;
@@ -66,7 +66,7 @@
   position: relative;
   overflow: hidden;
 }
-.div2 {
+.popupdiv2 {
   color: #ffffff;
   text-align: center;
   font-family: "Roboto-Bold", sans-serif;
