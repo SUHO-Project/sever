@@ -6,3 +6,6 @@ def kiosk(request):
 
 def cafemain(request):
     return render(request,'cafemain.html')
+
+def fastfoodmain(request):
+    return render(request, 'fastfoodmain.html')
