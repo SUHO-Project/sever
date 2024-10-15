@@ -6,3 +6,10 @@ def kiosk(request):
 
 def cafemain(request):
     return render(request,'cafemain.html')
+
+def paydone(request):
+    return render(request, 'paydone.html')
+
+def last(requset):
+    return render(requset, 'last.html')
+

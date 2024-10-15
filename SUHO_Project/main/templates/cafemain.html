@@ -76,7 +76,7 @@
           <span class="_3700-span2">3700원</span>
         </span>
       </div>
-      <img class="caramel-macchiato" src="static/img/caramel-macchiato0.png" />
+      <img class="caramel-macchiato" src="static/img/caramel-macchiato0.png" onclick="buy('carmel-macchiato')" />
       <div class="cafemocha-retangle"></div>
       <div class="_37002">
         <span>
@@ -87,7 +87,7 @@
           <span class="_37002-span2">3700원</span>
         </span>
       </div>
-      <img class="cafe-mocha" src="static/img/cafe-mocha0.png" />
+      <img class="cafe-mocha" src="static/img/cafe-mocha0.png" onclick="buy('카페모카')" />
       <div class="cappuccino-retnagle"></div>
       <div class="_37003">
         <span>
@@ -98,7 +98,7 @@
           <span class="_37003-span2">3700원</span>
         </span>
       </div>
-      <img class="cappuccino" src="static/img/cappuccino0.png" />
+      <img class="cappuccino" src="static/img/cappuccino0.png" onclick="buy('cappuccino')" />
       <div class="checklist-retangle"></div>
       <div class="pay-retangle"></div>
       <div class="div">결제하기</div>
@@ -115,7 +115,7 @@
           <span class="_3000-span2">3000원</span>
         </span>
       </div>
-      <img class="cafe-latte" src="static/img/cafe-latte0.png" />
+      <img class="cafe-latte" src="static/img/cafe-latte0.png" onclick="buy('cafe-latte')" />
       <div class="valina-retangle"></div>
       <div class="_30002">
         <span>
@@ -127,7 +127,7 @@
         </span>
       </div>
       <div class="valina-latte">
-        <img class="image-36" src="static/img/valina-latte.png" />
+        <img class="image-36" src="static/img/valina-latte.png" onclick="buy('valina-latte')"/>
       </div>
       <div class="coffee-button2"></div>
       <div class="div3">커피</div>
@@ -136,84 +136,61 @@
     </div>
 
 
-
- <div class="americano-popup" id="americano_popup">
-  <div class="americano-popup">
-    <div class="group-35">
-      <div class="rectangle-107"></div>
-      <div class="frame-25">
-        <div class="_500">
-          <span>
-            <span class="_500-span">
-              샷추가
-              <br />
-              <br />
-            </span>
-            <span class="_500-span2">+500원</span>
-          </span>
+    <div class="frame-76" id="americano_popup">
+      <div class="frame-77">
+        <div class="popupdiv">선택하신 상품의 옵션을 선택해주세요</div>
+      </div>
+      <div class="frame-78">
+        <img class="popupamericano" src="static/img/americano0.png" />
+        <div class="popupdiv2">아메리카노</div>
+        <div class="popup_2000">2000원</div>
+      </div>
+      <div class="popupdiv3">온도(필수)</div>
+      <div class="frame-79">
+        <div class="frame-22">
+          <div class="popupdiv4">핫</div>
+        </div>
+        <div class="frame-23">
+          <div class="popupdiv4">아이스</div>
         </div>
       </div>
-      <div class="frame-24">
-        <div class="_2-1000">
-          <span>
-            <span class="_2-1000-span">
-              2샷추가
-              <br />
-              <br />
-            </span>
-            <span class="_2-1000-span2">+1000원</span>
-          </span>
+      <div class="popupdiv3">농도(선택, 단일선택)</div>
+      <div class="frame-80">
+        <div class="frame-222">
+          <div class="popupdiv4">연하게</div>
+          <div class="_0">+0원</div>
+        </div>
+        <div class="frame-232">
+          <div class="popupdiv4">샷추가</div>
+          <div class="_500">+500원</div>
+        </div>
+        <div class="frame-232">
+          <div class="popupdiv4">2샷추가</div>
+          <div class="_2">+1000원</div>
         </div>
       </div>
-      <div class="frame-23">
-        <div class="div">아이스</div>
-      </div>
-      <div class="rectangle-108"></div>
-      <div class="div2">선택하신 상품의 옵션을 선택해주세요</div>
-      <img class="americano" src="americano0.png" />
-      <div class="_2000">
-        <span>
-          <span class="_2000-span">아메리카노</span>
-          <span class="_2000-span2">2000원</span>
-        </span>
-      </div>
-      <div class="div3">농도(선택, 단일선택)</div>
-      <div class="div4">온도(필수)</div>
-      <div class="frame-22">
-        <div class="div5">핫</div>
-      </div>
-      <div class="frame-242">
-        <div class="_0">
-          <span>
-            <span class="_0-span">
-              연하게
-              <br />
-              <br />
-            </span>
-            <span class="_0-span2">+0원</span>
-          </span>
+      <div class="frame-81">
+        <div class="frame-223">
+          <div class="popupdiv5">취소</div>
         </div>
-      </div>
-      <div class="frame-26">
-        <div class="div6">취소</div>
-      </div>
-      <div class="frame-27">
-        <div class="div7">주문담기</div>
+        <div class="frame-233">
+          <div class="popupdiv5">주문담기</div>
+        </div>
       </div>
     </div>
-  </div>
+    
   
 <script>
   function buy(coffee) {
-    alert(coffee);
-    document.getElementById('americano_').style.display = 'block';
+    //alert(coffee);
+    document.getElementById('americano_popup').style.display = 'block';
+    document.getElementById('valina-latte').style.display = 'block';
+    document.getElementById('cafe-mocha').style.display = 'block';
+    document.getElementById('carmel-macchiato').style.display = 'block';
+    document.getElementById('cappuccino').style.display = 'block';
+    document.getElementById('cafe-latte').style.display = 'block';
+
     document.getElementById('change').innerHTML = coffee;
   }
-
-    // 페이지가 로드된 후 3초 뒤에 팝업을 열기
-    setTimeout(function() {
-        document.getElementById('americano_popup').style.display = 'block';
-    }, 3000); // 3000ms = 3초
-
-
+  
 </script>
