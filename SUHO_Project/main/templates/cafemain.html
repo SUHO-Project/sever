@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./vars.css" />
     <link rel="stylesheet" href="static/cafemain.css" />
 
     <style>
@@ -35,15 +34,29 @@
         margin: 0;
         padding: 0;
       }
+
+      /* 팝업 중앙 배치 */
+#americano_popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000; /* 오버레이보다 위에 표시 */
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
     </style>
     <title>Document</title>
   </head>
+
   <body>
     <div class="main-2">
       <div class="yellow-panel"></div>
       <div class="suho-coffee">SUHO COFFEE</div>
-      <div class="americano-retangle"></div>
-      <div class="_2000">
+      <div class="americano-retangle" onclick="buy('아메리카노')"></div>
+      <div class="_2000"  >
         <span>
           <span class="_2000-span">
             아메리카노
@@ -52,8 +65,8 @@
           <span class="_2000-span2">2000원</span>
         </span>
       </div>
-      <img class="americano" src="static/img/americano0.png" />
-      <div class="carmel-retangle"></div>
+      <img class="americano" src="static/img/americano0.png" onclick="buy('아메리카노')"/>
+      <div class="carmel-retangle" onclick="buy('카라멜마끼아또')"></div>
       <div class="_3700">
         <span>
           <span class="_3700-span">
@@ -121,5 +134,86 @@
       <div class="smoothe-button2"></div>
       <div class="div4">스무디</div>
     </div>
-  </body>
-</html>
+
+
+
+ <div class="americano-popup" id="americano_popup">
+  <div class="americano-popup">
+    <div class="group-35">
+      <div class="rectangle-107"></div>
+      <div class="frame-25">
+        <div class="_500">
+          <span>
+            <span class="_500-span">
+              샷추가
+              <br />
+              <br />
+            </span>
+            <span class="_500-span2">+500원</span>
+          </span>
+        </div>
+      </div>
+      <div class="frame-24">
+        <div class="_2-1000">
+          <span>
+            <span class="_2-1000-span">
+              2샷추가
+              <br />
+              <br />
+            </span>
+            <span class="_2-1000-span2">+1000원</span>
+          </span>
+        </div>
+      </div>
+      <div class="frame-23">
+        <div class="div">아이스</div>
+      </div>
+      <div class="rectangle-108"></div>
+      <div class="div2">선택하신 상품의 옵션을 선택해주세요</div>
+      <img class="americano" src="americano0.png" />
+      <div class="_2000">
+        <span>
+          <span class="_2000-span">아메리카노</span>
+          <span class="_2000-span2">2000원</span>
+        </span>
+      </div>
+      <div class="div3">농도(선택, 단일선택)</div>
+      <div class="div4">온도(필수)</div>
+      <div class="frame-22">
+        <div class="div5">핫</div>
+      </div>
+      <div class="frame-242">
+        <div class="_0">
+          <span>
+            <span class="_0-span">
+              연하게
+              <br />
+              <br />
+            </span>
+            <span class="_0-span2">+0원</span>
+          </span>
+        </div>
+      </div>
+      <div class="frame-26">
+        <div class="div6">취소</div>
+      </div>
+      <div class="frame-27">
+        <div class="div7">주문담기</div>
+      </div>
+    </div>
+  </div>
+  
+<script>
+  function buy(coffee) {
+    alert(coffee);
+    document.getElementById('americano_').style.display = 'block';
+    document.getElementById('change').innerHTML = coffee;
+  }
+
+    // 페이지가 로드된 후 3초 뒤에 팝업을 열기
+    setTimeout(function() {
+        document.getElementById('americano_popup').style.display = 'block';
+    }, 3000); // 3000ms = 3초
+
+
+</script>
