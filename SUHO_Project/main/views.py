@@ -13,3 +13,5 @@ def paydone(request):
 def last(requset):
     return render(requset, 'last.html')
 
+def fastfoodmain(request):
+    return render(request, 'fastfoodmain.html')

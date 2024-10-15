@@ -1,0 +1,131 @@
+.e109_1107 {
+    overflow: hidden;
+}
+
+/* 스타일 시작 */
+.e109_1107 {
+    background-color: #fff;
+    width: 320px;
+    height: 568px;
+    position: absolute;
+}
+
+.e109_1108 {
+    background-color: #fff;
+    width: 320px;
+    height: 35px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.ei109_1108_9_3 {
+    background-color: #fff;
+    width: 320px;
+    height: 35px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.ei109_1108_9_4 {
+    width: 20.76px;
+    height: 9.07px;
+    position: absolute;
+    left: 287px;
+    top: 13.87px;
+}
+
+.ei109_1108_9_5 {
+    opacity: .35;
+    width: 18.77px;
+    height: 9.07px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 2.67px;
+    border: 1px solid #000; /* 잘못된 클래스에서 가져옴 */
+}
+
+.ei109_1108_9_6 {
+    background-color: #000;
+    opacity: .4;
+    width: 1.13px;
+    height: 3.2px;
+    position: absolute;
+    left: 19.63px;
+    top: 2.93px;
+}
+
+.ei109_1108_9_7 {
+    background-color: #000;
+    width: 15.36px;
+    height: 5.87px;
+    position: absolute;
+    left: 1.71px;
+    top: 1.6px;
+    border-radius: 1.33px;
+}
+
+/* 추가 스타일 계속됨... */
+.e109_1187 {
+    color: #890f00;
+    width: 299px;
+    height: 46px;
+    position: absolute;
+    left: 11px;
+    top: 89px;
+    font-family: Roboto, sans-serif;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 1.25px;
+}
+
+.e212_2767 {
+    color: #890f00;
+    width: 222px;
+    height: 94px;
+    position: absolute;
+    left: 44px;
+    top: 157px;
+    font-family: Roboto, sans-serif;
+    text-align: center;
+    font-size: 40px;
+    letter-spacing: 1.25px;
+    font-weight: bold;
+    white-space: pre-line;
+}
+
+.e215_2768 {
+    width: 212px;
+    height: 111px;
+    position: absolute;
+    left: 44px;
+    top: 377px;
+}
+
+.e109_1188 {
+    background-color: #fcbe13;
+    width: 212px;
+    height: 111px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 31px;
+    z-index: 100; /* 다른 요소보다 앞에 오도록 z-index 추가 */
+}
+
+.button-1 {
+    position: relative; /* z-index가 적용되도록 설정 */
+    z-index: 101; /* 상자보다 앞에 오도록 z-index 추가 */
+    color: #000; /* 버튼 텍스트 색상 */
+    width: 100%; /* 버튼 너비를 부모 컨테이너에 맞춤 */
+    height: 100%; /* 버튼 높이를 부모 컨테이너에 맞춤 */
+    font-family: Roboto, sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 1.25px;
+    background-color: transparent; /* 배경색을 투명으로 설정 */
+    border: none; /* 버튼의 기본 테두리 제거 */
+    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+}
