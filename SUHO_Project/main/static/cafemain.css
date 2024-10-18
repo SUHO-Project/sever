@@ -506,6 +506,9 @@
   left: 0%;
   bottom: 81.34%;
   top: 12.68%;
+  cursor: pointer; /* 커서 스타일 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  line-height: 5.99%; /* 텍스트 세로 정렬 */
 }
 .div3 {
   color: #000000;
@@ -877,4 +880,17 @@
   width: 69px;
   height: 32px;
   position: relative;
+}
+
+.selected {
+  border: 2px solid red; /* 빨간색 테두리 */
+  box-sizing: border-box; /* 테두리 포함 */
+}
+
+.popupdiv4 {
+  display: inline-block; /* 버튼처럼 보이게 하기 위한 설정 */
+  padding: 10px 15px;
+  cursor: pointer;
+  border: 1px solid #ccc; /* 기본 테두리 */
+  margin: 5px; /* 버튼 간 간격 */
 }

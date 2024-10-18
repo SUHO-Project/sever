@@ -7,16 +7,8 @@
     <link rel="stylesheet" href="static/cafemain.css" />
 
     <style>
-      a,
-      button,
-      input,
-      select,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      * {
+      a, button, input, select, h1, h2, h3, h4, h5, *
+      {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
@@ -27,9 +19,8 @@
         -webkit-font-smoothing: antialiased;
       }
 
-      menu,
-      ol,
-      ul {
+      menu, ol, ul
+      {
         list-style-type: none;
         margin: 0;
         padding: 0;
@@ -55,7 +46,7 @@
     <div class="main-2">
       <div class="yellow-panel"></div>
       <div class="suho-coffee">SUHO COFFEE</div>
-      <div class="americano-retangle" onclick="buy('아메리카노')"></div>
+      <div class="americano-retangle" onclick="buy('americano')"></div>
       <div class="_2000"  >
         <span>
           <span class="_2000-span">
@@ -65,8 +56,8 @@
           <span class="_2000-span2">2000원</span>
         </span>
       </div>
-      <img class="americano" src="static/img/americano0.png" onclick="buy('아메리카노')"/>
-      <div class="carmel-retangle" onclick="buy('카라멜마끼아또')"></div>
+      <img class="americano" src="static/img/americano0.png" onclick="buy('americano')"/>
+      <div class="carmel-retangle" onclick="buy('caramel-macchiato')"></div>
       <div class="_3700">
         <span>
           <span class="_3700-span">
@@ -76,7 +67,7 @@
           <span class="_3700-span2">3700원</span>
         </span>
       </div>
-      <img class="caramel-macchiato" src="static/img/caramel-macchiato0.png" onclick="buy('carmel-macchiato')" />
+      <img class="caramel-macchiato" src="static/img/caramel-macchiato0.png" onclick="buy('caramel-macchiato')" />
       <div class="cafemocha-retangle"></div>
       <div class="_37002">
         <span>
@@ -87,7 +78,7 @@
           <span class="_37002-span2">3700원</span>
         </span>
       </div>
-      <img class="cafe-mocha" src="static/img/cafe-mocha0.png" onclick="buy('카페모카')" />
+      <img class="cafe-mocha" src="static/img/cafe-mocha0.png" onclick="buy('cafe-mocha')" />
       <div class="cappuccino-retnagle"></div>
       <div class="_37003">
         <span>
@@ -104,9 +95,9 @@
       <div class="div">결제하기</div>
       <div class="select-retangle"></div>
       <div class="div2">선택한 상품</div>
-      <img class="home-button" src="static/img/home-button0.png" />
+      <img class="home-button" src="static/img/home-button0.png" onclick="history.back()" />
       <div class="cafelatte-retangle"></div>
-      <div class="_3000">
+      <div class="_3000" onclick="buy('cafe-latte')">
         <span>
           <span class="_3000-span">
             카페라떼
@@ -120,7 +111,7 @@
       <div class="_30002">
         <span>
           <span class="_30002-span">
-            바닐라 라떼
+            바닐라라떼
             <br />
           </span>
           <span class="_30002-span2">3000원</span>
@@ -129,8 +120,8 @@
       <div class="valina-latte">
         <img class="image-36" src="static/img/valina-latte.png" onclick="buy('valina-latte')"/>
       </div>
-      <div class="coffee-button2"></div>
-      <div class="div3">커피</div>
+      <div class="coffee-button2" onclick="location.href='cafemain'"></div>
+      <div class="div3" onclick="toggleBorder(this)">커피</div>
       <div class="smoothe-button2"></div>
       <div class="div4">스무디</div>
     </div>
@@ -141,56 +132,97 @@
         <div class="popupdiv">선택하신 상품의 옵션을 선택해주세요</div>
       </div>
       <div class="frame-78">
-        <img class="popupamericano" src="static/img/americano0.png" />
-        <div class="popupdiv2">아메리카노</div>
-        <div class="popup_2000">2000원</div>
+        <img class="popupamericano" id="menuimg" src="static/img/americano0.png" />
+        <div class="popupdiv2" id="menuname">아메리카노</div>
+        <div class="popup_2000" id="menuprice">2000원</div>
       </div>
       <div class="popupdiv3">온도(필수)</div>
       <div class="frame-79">
         <div class="frame-22">
-          <div class="popupdiv4">핫</div>
+          <div class="popupdiv4" onclick="toggleBorder(this)">핫</div>
         </div>
         <div class="frame-23">
-          <div class="popupdiv4">아이스</div>
+          <div class="popupdiv4" onclick="toggleBorder(this)">아이스</div>
         </div>
       </div>
       <div class="popupdiv3">농도(선택, 단일선택)</div>
       <div class="frame-80">
         <div class="frame-222">
-          <div class="popupdiv4">연하게</div>
+          <div class="popupdiv4" onclick="toggleBorder(this)">연하게</div>
           <div class="_0">+0원</div>
         </div>
         <div class="frame-232">
-          <div class="popupdiv4">샷추가</div>
+          <div class="popupdiv4" onclick="toggleBorder(this)">샷추가</div>
           <div class="_500">+500원</div>
         </div>
         <div class="frame-232">
-          <div class="popupdiv4">2샷추가</div>
+          <div class="popupdiv4" onclick="toggleBorder(this)">2샷추가</div>
           <div class="_2">+1000원</div>
         </div>
       </div>
       <div class="frame-81">
         <div class="frame-223">
-          <div class="popupdiv5">취소</div>
+          <div class="popupdiv5" onclick="closePopup()">취소</div>
         </div>
         <div class="frame-233">
           <div class="popupdiv5">주문담기</div>
         </div>
       </div>
     </div>
+
     
-  
+    
+    <script>
+      // 커피 데이터를 객체로 정의
+      const coffeeData = {
+        "americano": {
+          name: "아메리카노",
+          price: "2000원",
+          image: "static/img/americano0.png"
+        },
+        "caramel-macchiato": {
+          name: "카라멜 <br> 마끼아또",
+          price: "3700원",
+          image: "static/img/caramel-macchiato0.png"
+        },
+        "cafe-mocha": {
+          name: "카페모카",
+          price: "3700원",
+          image: "static/img/cafe-mocha0.png"
+        },
+        "cappuccino": {
+          name: "카푸치노",
+          price: "3700원",
+          image: "static/img/cappuccino0.png"
+        },
+        "valina-latte": {
+          name: "바닐라라떼",
+          price: "3000원",
+          image: "static/img/valina-latte.png"
+        },
+        "cafe-latte": {
+          name: "카페라떼",
+          price: "3000원",
+          image: "static/img/cafe-latte0.png"
+        }
+
+
+      };
+      function closePopup() {
+        document.getElementById("americano_popup").style.display = "none";
+      }
+      function toggleBorder(element) {
+        element.classList.toggle("selected");
+      }
+    </script>
 <script>
   function buy(coffee) {
     //alert(coffee);
     document.getElementById('americano_popup').style.display = 'block';
-    document.getElementById('valina-latte').style.display = 'block';
-    document.getElementById('cafe-mocha').style.display = 'block';
-    document.getElementById('carmel-macchiato').style.display = 'block';
-    document.getElementById('cappuccino').style.display = 'block';
-    document.getElementById('cafe-latte').style.display = 'block';
+    document.getElementById('menuimg').src = coffeeData[coffee].image;
+    document.getElementById('menuname').innerHTML = coffeeData[coffee].name;
+    document.getElementById('menuprice').innerHTML = coffeeData[coffee].price;
 
-    document.getElementById('change').innerHTML = coffee;
   }
   
 </script>
