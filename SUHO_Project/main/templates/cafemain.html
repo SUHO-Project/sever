@@ -121,7 +121,7 @@
         <img class="image-36" src="static/img/valina-latte.png" onclick="buy('valina-latte')"/>
       </div>
       <div class="coffee-button2" onclick="location.href='cafemain'"></div>
-      <div class="div3" onclick="toggleBorder(this)">커피</div>
+      <div class="div3" onclick="">커피</div>
       <div class="smoothe-button2"></div>
       <div class="div4">스무디</div>
     </div>
@@ -139,38 +139,37 @@
       <div class="popupdiv3">온도(필수)</div>
       <div class="frame-79">
         <div class="frame-22">
-          <div class="popupdiv4" onclick="toggleBorder(this)">핫</div>
+          <button class="popupdiv4" >핫</button>
         </div>
         <div class="frame-23">
-          <div class="popupdiv4" onclick="toggleBorder(this)">아이스</div>
+          <button class="popupdiv4" >아이스</button>
         </div>
       </div>
       <div class="popupdiv3">농도(선택, 단일선택)</div>
       <div class="frame-80">
-        <div class="frame-222">
-          <div class="popupdiv4" onclick="toggleBorder(this)">연하게</div>
+        <button class="frame-222">
+          <div class="popupdiv4" >연하게</div>
           <div class="_0">+0원</div>
-        </div>
-        <div class="frame-232">
-          <div class="popupdiv4" onclick="toggleBorder(this)">샷추가</div>
+        </button>
+        <button class="frame-232">
+          <div class="popupdiv4" >샷추가</div>
           <div class="_500">+500원</div>
+        </button>
+        <button class="frame-232">
+          <div class="popupdiv4">2샷추가</div>
+          <div class="_2">+1000원</button>
         </div>
-        <div class="frame-232">
-          <div class="popupdiv4" onclick="toggleBorder(this)">2샷추가</div>
-          <div class="_2">+1000원</div>
-        </div>
-      </div>
-      <div class="frame-81">
-        <div class="frame-223">
-          <div class="popupdiv5" onclick="closePopup()">취소</div>
-        </div>
-        <div class="frame-233">
-          <div class="popupdiv5">주문담기</div>
+        <div class="frame-81">
+          <div class="frame-223">
+            <div class="popupdiv5" onclick="closePopup()">취소</div>
+          </div>
+          <div class="frame-233">
+            <div class="popupdiv5">주문담기</div>
+          </div>
         </div>
       </div>
     </div>
 
-    
     
     <script>
       // 커피 데이터를 객체로 정의
@@ -211,9 +210,16 @@
       function closePopup() {
         document.getElementById("americano_popup").style.display = "none";
       }
-      function toggleBorder(element) {
-        element.classList.toggle("selected");
+
+      function showOptionPopup() {
+        document.getElementById('option_popup').style.display = 'block';
       }
+
+      function closeOptionPopup() {
+        document.getElementById('option_popup').style.display = 'none';
+      }
+
+
     </script>
 <script>
   function buy(coffee) {

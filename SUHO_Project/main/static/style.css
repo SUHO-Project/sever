@@ -4,7 +4,7 @@
 }
 .iphone {
   background: #ffeaa1;
-  width: 320px;
+  width: 100%;
   height: 568px;
   position: relative;
   overflow: hidden;
@@ -196,11 +196,11 @@
 .coffee-circle {
   background: #ffffff;
   border-radius: 50%;
-  width: 25%;
-  height: 13.91%;
+  width: 80px;
+  height: 79px;
   position: absolute;
   right: 64.06%;
-  left: 10.94%;
+  left: calc(50% - 127px);
   bottom: 16.2%;
   top: 69.89%;
 }
@@ -209,7 +209,7 @@
   height: 7.92%;
   position: absolute;
   right: 67.19%;
-  left: 13.12%;
+  left: calc(50% - 125px);
   bottom: 19.19%;
   top: 72.89%;
   object-fit: cover;
@@ -220,7 +220,7 @@
   width: 152px;
   height: 32px;
   position: absolute;
-  left: 123px;
+  left: calc(50% - 39px);
   top: 446px;
 }
 .div5 {
