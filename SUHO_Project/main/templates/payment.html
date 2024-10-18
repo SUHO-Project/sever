@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="static/payment.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+  
+  
+  <style>
+   a,
+   button,
+   input,
+   select,
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   * {
+       box-sizing: border-box;
+       margin: 0;
+       padding: 0;
+       border: none;
+       text-decoration: none;
+       background: none;
+   
+       -webkit-font-smoothing: antialiased;
+       font-family: "Noto Sans KR" !important;
+   }
+   
+   menu, ol, ul {
+       list-style-type: none;
+       margin: 0;
+       padding: 0;
+   }
+   </style>
+  <title>Document</title>
+</head>
+<body>
+  <div class="i-phone-se-48">
+    <div class="frame-82">
+      <div class="step-1">STEP 1 포장을 선택하세요</div>
+    </div>
+    <div class="frame-83">
+      <div class="frame-84" id="frame84" data-value="포장">
+        <img class="image-93" src="static/img/image-930.png" />
+        <div class="_1">
+          포장
+          <br />
+          (1회용기 제공)
+        </div>
+      </div>
+      <div class="frame-85" id="frame85" data-value="매장">
+        <img class="image-94" src="static/img/image-940.png" />
+        <div class="div">
+          매장
+          <br />
+          (다회용기 제공)
+        </div>
+      </div>
+    </div>
+    <div class="frame-842">
+      <div class="step-1">STEP 1 포장을 선택하세요</div>
+    </div>
+    <div class="frame-852">
+      <div class="frame-843" id="frame843" data-value="카드결제 (삼성페이)">
+        <img class="image-71" src="static/img/image-710.png" />
+        <div class="div2">카드결제 (삼성페이)</div>
+      </div>
+      <div class="frame-853" id="frame853" data-value="앱카드 QR/바코드">
+        <img class="image-72" src="static/img/image-720.png" />
+        <div class="qr">앱카드 QR/바코드</div>
+      </div>
+      <div class="frame-86" id="frame86" data-value="쿠폰사용">
+        <img class="image-73" src="static/img/image-730.png" />
+        <div class="div2">쿠폰사용</div>
+      </div>
+    </div>
+    
+    <div class="frame-87">
+      <div class="frame-89">
+        <div class="div3">결제취소</div>
+      </div>
+      <div class="frame-90">
+        <div class="div3">추가주문</div>
+      </div>
+    </div>
+  </div>
+  
+</body>
+
+<script>
+
+  let selectedOption = ""; // 선택된 옵션을 저장하는 변수
+
+const frame84 = document.getElementById("frame84");
+const frame85 = document.getElementById("frame85");
+
+frame84.addEventListener("click", function() {
+  clearSelection();
+  frame84.classList.add("selected");
+  selectedOption = frame84.getAttribute("data-value"); // 선택된 값 저장
+  console.log("선택된 옵션:", selectedOption); // 선택된 값 확인
+});
+
+frame85.addEventListener("click", function() {
+  clearSelection();
+  frame85.classList.add("selected");
+  selectedOption = frame85.getAttribute("data-value"); // 선택된 값 저장
+});
+
+function clearSelection() {
+  frame84.classList.remove("selected");
+  frame85.classList.remove("selected");
+}
+
+let selectedPaymentOption = ""; // 선택된 결제 옵션을 저장하는 변수
+
+const frame843 = document.getElementById("frame843");
+const frame853 = document.getElementById("frame853");
+const frame86 = document.getElementById("frame86");
+
+frame843.addEventListener("click", function() {
+  clearPaymentSelection();
+  frame843.classList.add("selected");
+  selectedPaymentOption = frame843.getAttribute("data-value"); // 선택된 값 저장
+  console.log("선택된 결제 옵션:", selectedPaymentOption); // 선택된 값 확인
+});
+
+frame853.addEventListener("click", function() {
+  clearPaymentSelection();
+  frame853.classList.add("selected");
+  selectedPaymentOption = frame853.getAttribute("data-value"); // 선택된 값 저장
+  console.log("선택된 결제 옵션:", selectedPaymentOption); // 선택된 값 확인
+});
+
+frame86.addEventListener("click", function() {
+  clearPaymentSelection();
+  frame86.classList.add("selected");
+  selectedPaymentOption = frame86.getAttribute("data-value"); // 선택된 값 저장
+  console.log("선택된 결제 옵션:", selectedPaymentOption); // 선택된 값 확인
+});
+
+function clearPaymentSelection() {
+  frame843.classList.remove("selected");
+  frame853.classList.remove("selected");
+  frame86.classList.remove("selected");
+}
+
+</script>
+</html>

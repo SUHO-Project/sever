@@ -9,5 +9,6 @@ urlpatterns = [
     path('paydone',views.paydone, name='paydone'),
     path('last', views.last, name='last'),
     path('fastfoodmain', views.fastfoodmain, name='fastfoodmain'),
+    path('payment', views.payment, name="payment"),
     
 ]

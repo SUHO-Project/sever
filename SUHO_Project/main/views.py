@@ -15,3 +15,6 @@ def last(requset):
 
 def fastfoodmain(request):
     return render(request, 'fastfoodmain.html')
+
+def payment(request):
+    return render(request, 'payment.html')
