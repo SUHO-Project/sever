@@ -37,6 +37,32 @@
        margin: 0;
        padding: 0;
    }
+
+/* 팝업 스타일 */
+#paypopup {
+    background: #ffffff;
+    border-radius: 30px;
+    border-style: solid;
+    border-color: #000000;
+    border-width: 1px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    width: 320px;
+    height: 250px;
+    position: fixed; /* 수정: fixed로 변경하여 화면에 고정 */
+    top: 50%; /* 화면 세로 중앙 위치 */
+    left: 50%; /* 화면 가로 중앙 위치 */
+    transform: translate(-50%, -50%); /* 정확한 중앙 정렬 */
+    z-index: 9999; /* 다른 요소들 위에 표시되게 */
+    overflow: visible; /* overflow 속성을 visible로 변경 */
+}
+
+
+
    </style>
   <title>Document</title>
 </head>
@@ -83,10 +109,34 @@
     
     <div class="frame-87">
       <div class="frame-89">
-        <div class="div3">결제취소</div>
+        <div class="div3" onclick="window.location.href='cafemain'" >결제취소</div>
       </div>
-      <div class="frame-90">
-        <div class="div3">추가주문</div>
+      <div class="frame-90" onclick="paynow()">
+        <div class="div3">다음으로</div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="frame-95" id="paypopup" style="display:none">
+    <div class="ic">
+      <span>
+        <span class="ic-span">
+          신용 / 체크카드
+          <br />
+        </span>
+        <span class="ic-span2">
+          <br />
+          *그림과 같이 카드를 넣어주세요
+          <br />
+          (ic칩이 단말기에 투입되도록 넣어주세요)
+        </span>
+      </span>
+    </div>
+    <div class="frame-96">
+      <img class="image-76" src="static/img/image-760.png" />
+      <div class="frame-97">
+        <div class="credit_cancel" onclick="window.history.back()">취소</div>
       </div>
     </div>
   </div>
@@ -99,6 +149,17 @@
 
 const frame84 = document.getElementById("frame84");
 const frame85 = document.getElementById("frame85");
+
+
+function paynow() {
+  document.getElementById('paypopup').style.display = "block";
+
+    // 페이지가 로드된 후 3초 뒤에 paydone.html로 이동
+  setTimeout(function() {
+    window.location.href = 'paydone';  // paydone.html로 이동
+  }, 5000); // 3000ms = 3초
+}
+
 
 frame84.addEventListener("click", function() {
   clearSelection();
@@ -150,6 +211,7 @@ function clearPaymentSelection() {
   frame853.classList.remove("selected");
   frame86.classList.remove("selected");
 }
+
 
 </script>
 </html>
