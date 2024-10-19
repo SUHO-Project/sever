@@ -42,4 +42,3 @@ def create(request):
         form = CartForm()
 
     return render(request, 'cafemain.html', {'form': form})
-        

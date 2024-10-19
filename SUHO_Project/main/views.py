@@ -1,11 +1,14 @@
 from django.shortcuts import render
+from api.models import *
 
 # Create your views here.
 def kiosk(request):
     return render(request,'kiosk.html')
 
 def cafemain(request):
-    return render(request,'cafemain.html')
+    carts = Cart.objects.all()
+    
+    return render(request,'cafemain.html', {'carts':carts})
 
 def paydone(request):
     return render(request, 'paydone.html')

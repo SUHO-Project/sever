@@ -1,10 +1,14 @@
+html,body {
+  height: 100%;
+}
+
 .paydone,
 .paydone * {
   box-sizing: border-box;
 }
 .paydone {
   background: #ffffff;
-  width: 320px;
+  width: 100%;
   height: 568px;
   position: relative;
   overflow: hidden;
