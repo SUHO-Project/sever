@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="static/cafemain.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <style>
       a, button, input, select, h1, h2, h3, h4, h5, *
@@ -17,6 +22,7 @@
         background: none;
 
         -webkit-font-smoothing: antialiased;
+        font-family: "Noto Sans KR" !important;
       }
 
       menu, ol, ul
@@ -90,11 +96,34 @@
         </span>
       </div>
       <img class="cappuccino" src="static/img/cappuccino0.png" onclick="buy('cappuccino')" />
-      <div class="checklist-retangle"></div>
+      <div class="checklist-retangle">
+        <table>
+          <thead>
+          <tr>
+              <th>이름</th>
+              <th>수량</th>
+              <th>옵션</th>
+              <th>가격</th>
+              <th>취소</th>
+          </tr>
+          </thead>
+          <tbody>
+            {% for cart in carts %}
+          <tr>
+              <td>{{ cart.menu.menuName }}</td>
+              <td>{{ cart.menuQuantity }}</td>
+              <td>{{ cart.option1 }}<br> {{ cart.option2 }}</td>
+              <td>{{ cart.totalPrice }}원</td>
+              <td style="color: red" onclick="deleteCart({{ cart.id }})">취소</td>
+          </tr>
+          {% endfor %}
+          </tbody>
+      </table>
+      </div>
       <div class="pay-retangle">
         <div class="div">결제하기</div>
       </div>
-      <img class="home-button" src="static/img/home-button0.png" onclick="history.back()" />
+      <img class="home-button" src="static/img/home-button0.png" onclick="window.location.href='/'" />
       <div class="cafelatte-retangle"></div>
       <div class="_3000" onclick="buy('cafe-latte')">
         <span>
@@ -310,6 +339,7 @@
 
     
       let selectedMenu = null; // 현재 선택된 메뉴를 저장하는 변수
+      let selectedMenuName = "";
       let selectedOption1 = null;
       let selectedOption2 = null;
       // 커피 선택 함수
@@ -324,7 +354,7 @@
         const menuElement = document.querySelector(`.${coffeeData[coffee].retangle}`);
         menuElement.classList.add('selected');
         selectedMenu = menuElement; // 현재 선택된 메뉴 업데이트
-    
+        selectedMenuName = coffeeData[coffee].name;
         // 팝업 표시 및 정보 변경
         document.getElementById('americano_popup').style.display = 'block';
         document.getElementById('menuimg').src = coffeeData[coffee].image;
@@ -335,6 +365,17 @@
     
       // 팝업 닫기 함수
       function closePopup() {
+        if (selectedMenu) {
+          selectedMenu.classList.remove('selected');
+        }
+        selectedMenu=null;
+        selectedMenuName = "";
+        selectedOption1 = null;
+        selectedOption2 = null;
+        const first_options = document.querySelectorAll('.frame-79 button');
+      first_options.forEach(btn => btn.classList.remove('selected-option'));
+      const second_options = document.querySelectorAll('.frame-80 button');
+      second_options.forEach(btn => btn.classList.remove('selected-option'));
         document.getElementById("americano_popup").style.display = "none";
       }
 
@@ -361,6 +402,11 @@
 
     // 주문 담기 버튼 클릭 시 확인 팝업 표시
       function showConfirmationPopup() {
+        if (selectedOption1 == null) {
+          alert("온도를 선택해 주세요.")
+          return;
+        }
+        
         document.getElementById('Tem1').innerHTML = selectedOption1;
         document.getElementById('Den1').innerHTML = selectedOption2;
       const confirmationPopup = document.getElementById("confirmation_popup");
@@ -368,8 +414,49 @@
 
     } 
 
+    function saveCart() {
+      var formData = new FormData();
+      formData.append('menuName', selectedMenuName);
+      formData.append('menuQuantity', 1);
+      formData.append('option1', selectedOption1);
+      formData.append('option2', selectedOption2);
+        console.log(selectedMenuName);
+        console.log(selectedOption1);
+        console.log(selectedOption2);
+      $.ajax({
+        url: '/api/cart/create', // 서버에 요청을 보낼 URL
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function(response) {
+            window.location.reload();
+          },
+        error: function(xhr, status, error) {
+            console.error('Error:', error);
+            alert('카트 추가에 실패했습니다.');
+        }
+      });
+    }
+    const csrfToken = '{{ csrf_token }}';
+    function deleteCart(cartId) {
+        if (confirm('정말로 삭제하시겠습니까?')) {
+          $.ajax({
+            url: '/api/cart/'+cartId+"/", // 서버에 요청을 보낼 URL
+            type: 'DELETE',
+            success: function(response) {
+                window.location.reload();
+              },
+            error: function(xhr, status, error) {
+                console.error('Error:', error);
+                alert('삭제 실패했습니다.');
+            }
+          });
+        }
+    }
+
     // 확인 팝업 닫기
-      function closeConfirmationPopup() {
+    function closeConfirmationPopup() {
       const confirmationPopup = document.getElementById("confirmation_popup");
       confirmationPopup.style.display = "none"; // 확인 팝업 숨기기
     }
@@ -389,6 +476,7 @@
     }
 
     function confirmOrder() {
+      saveCart();
       document.getElementById('americano_popup').style.display = 'none';
       document.getElementById('confirmation_popup').style.display = 'none';
     }

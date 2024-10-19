@@ -284,14 +284,19 @@ html,body {
   object-fit: cover;
 }
 .checklist-retangle {
+  display: flex;
+  flex-direction: column;
+  gap:0px;
+  overflow-y:scroll;
   background: #ffffff;
-  width: 56.25%;
+  width: 68.25%;
   height: 26.41%;
   position: absolute;
   right: 40.31%;
   left: 3.44%;
   bottom: 3.17%;
   top: 70.42%;
+  box-shadow: 0 2px 5px rgba(0,0,0,.25);
 }
 .pay-button {
   position: absolute;
@@ -299,11 +304,11 @@ html,body {
 }
 .pay-retangle {
   background: #fd0505;
-  width: 32.19%;
+  width: 22.19%;
   height: 26.41%;
   position: absolute;
   right: 4.38%;
-  left: 63.44%;
+  left: 74.44%;
   bottom: 3.17%;
   top: 70.42%;
   display: flex; /* flexbox로 설정 */
@@ -1323,3 +1328,42 @@ html,body {
   top: 18px;
   overflow: hidden;
 }
+
+
+table {
+  font-size: 12px;
+  
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+th {
+  height: 10px;
+}
+  
+thead {
+  font-weight: bold;
+  color: #fff;
+  background: #73685d;
+}
+
+tbody {
+  overflow-y:scroll;
+}
+  
+ td, th {
+  padding: 1em .5em;
+  vertical-align: middle;
+  height:10px;
+}
+  
+ td {
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  background: #fff;
+  height: 10px !important;
+}
+
+tr {
+  height: 10px !important;
+}
+

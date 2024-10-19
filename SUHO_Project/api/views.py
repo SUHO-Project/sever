@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from rest_framework.views import APIView
+from django.http import HttpResponse, JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from django.core.exceptions import ObjectDoesNotExist
 from .models import *
 from .forms import *
@@ -12,7 +14,10 @@ def create(request):
             menu_name = form.cleaned_data['menuName']
             menu_quantity = form.cleaned_data['menuQuantity']
             option1 = form.cleaned_data['option1']
-            option2 = form.cleaned_data['option2']
+            if form.cleaned_data['option2'] == "null":
+                option2="기본"
+            else:
+                option2 = form.cleaned_data['option2']
 
             try:
                 # 입력된 메뉴 이름으로 Menu 객체를 찾음
@@ -20,6 +25,12 @@ def create(request):
                 
                 # totalPrice는 메뉴 가격과 수량을 곱해서 계산
                 total_price = menu.menuPrice * menu_quantity
+                
+                if option2 == "샷추가":
+                    total_price += 500
+                    
+                elif option2 == "2샷추가":
+                    total_price += 1000
 
                 # Cart 객체 생성
                 Cart.objects.create(
@@ -32,13 +43,23 @@ def create(request):
                 
 
                 # 생성 후 장바구니 목록 페이지로 리다이렉트
-                return HttpResponse("Cart created successfully!")
+                return JsonResponse({'message': 'Cart created successfully!'}, status=200)
             
             except ObjectDoesNotExist:
-                # 메뉴가 없을 경우 폼에 오류 메시지 추가
-                form.add_error('menuName', '입력하신 메뉴가 존재하지 않습니다.')
-
+                return JsonResponse({'error': 'Menu not found'}, status=404)
     else:
         form = CartForm()
 
-    return render(request, 'cafemain.html', {'form': form})
+    return JsonResponse({'error': 'Invalid form data'}, status=400)
+
+@csrf_exempt
+def delete(request, cartId):
+    try:
+        print(cartId)
+        print(Cart.objects.filter(id=cartId))
+        Cart.objects.filter(id=cartId).delete()
+        return JsonResponse({'message': 'Cart deleted successfully!'}, status=200)
+    except ObjectDoesNotExist:
+        return JsonResponse({'error': 'Menu not found'}, status=404)
+    
+

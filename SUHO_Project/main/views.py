@@ -3,6 +3,7 @@ from api.models import *
 
 # Create your views here.
 def kiosk(request):
+    Cart.objects.all().delete()
     return render(request,'kiosk.html')
 
 def cafemain(request):

@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Menu(models.Model):
-    menuName = models.CharField(max_length=100, default="unknown")
+    menuName = models.CharField(max_length=1000, default="unknown")
     menuPrice = models.IntegerField(default=0)
     
     
