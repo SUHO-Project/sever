@@ -44,6 +44,29 @@
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
+
+    #order-details-popup {
+    background: #ffffff;
+    border-style: solid;
+    border-color: #979797;
+    border-width: 1px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 250px;
+    height: 360px;
+    position: fixed;
+    top: 50%; /* 화면 세로 중앙 위치 */
+    left: 50%; /* 화면 가로 중앙 위치 */
+    transform: translate(-50%, -50%); /* 정확한 중앙 정렬 */
+    z-index: 9999; /* 다른 요소들 위에 표시되게 */
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+  }
+
+
     </style>
     <title>Document</title>
   </head>
@@ -120,7 +143,7 @@
           </tbody>
       </table>
       </div>
-      <div class="pay-retangle">
+      <div class="pay-retangle" onclick="confirmOrder()">
         <div class="div">결제하기</div>
       </div>
       <img class="home-button" src="static/img/home-button0.png" onclick="window.location.href='/'" />
@@ -200,81 +223,79 @@
       </div>
     </div>
 
-<!-- 확인 팝업 -->
-<div class="frame-86" id="confirmation_popup" style="display: none;">
-  <div class="div">
-    <div class="flex-container" style="flex-direction: column; align-items: center;">
-      <div style="display: flex; gap: 5px;">
-        <span class="div-span" id="Tem1">'아이스'</span>
-        <span class="div-span" id="Den1">'연하게'</span>
-      </div>
-      <span class="div-span2" style="margin-top: 2px;">를 선택하셨나요?</span> <!-- 간격 줄이기 위해 margin-top 조정 -->
-    </div>    
-  </div>
-  <div class="frame-91">
-    <div class="div2">
-      <span>
-        <span class="div-2-span" style="display: inline-block;">맞으시면</span>
-        <span class="div-2-span" style="display: inline-block;">확인</span>
-        <span class="div-2-span" style="display: inline-block;">아니면</span>
-        <span class="div-2-span" style="display: inline-block;">취소</span>
-        <span class="div-2-span5" style="display: inline-block;">버튼을 눌러주세요</span>
-      </span>
+  <!-- 확인 팝업 -->
+  <div class="frame-86" id="confirmation_popup" style="display: none;">
+    <div class="div">
+      <div class="flex-container" style="flex-direction: column; align-items: center;">
+        <div style="display: flex; gap: 5px;">
+          <span class="div-span" id="Tem1">'아이스'</span>
+          <span class="div-span" id="Den1">'연하게'</span>
+        </div>
+        <span class="div-span2" style="margin-top: 2px;">를 선택하셨나요?</span> <!-- 간격 줄이기 위해 margin-top 조정 -->
+      </div>    
     </div>
-  </div>
-  <div class="frame-92">
-    <div class="frame-93" onclick="confirmOrder()">
-      <div class="okay">확인</div>
-    </div>
-    <div class="frame-94" onclick="closeConfirmationPopup()">
-      <div class="cancel">취소</div>
-    </div>
-  </div>
-</div>
-
-
-
-<!-- 주문 세부 내역 팝업 -->
-<div class="order-details-popup" id="order-details-popup" >
-  <div class="frame-101">
-    <div class="order_list">주문 세부내역을 확인하여 주세요</div>
-  </div>
-  <div class="frame-102">
-    <div class="menu_check">아메리카노</div>
-    <div class="_1">1개</div>
-    <div class="cash">2000원</div>
-  </div>
-  <div class="frame-103">
-    <div class="frame-104">
-      <div class="amount">
+    <div class="frame-91">
+      <div class="div2">
         <span>
-          <span class="div-3-span">총</span>
-          <span class="div-3-span2"></span>
-          <span class="div-3-span3">결제금액</span>
+          <span class="div-2-span" style="display: inline-block;">맞으시면</span>
+          <span class="div-2-span" style="display: inline-block;">확인</span>
+          <span class="div-2-span" style="display: inline-block;">아니면</span>
+          <span class="div-2-span" style="display: inline-block;">취소</span>
+          <span class="div-2-span5" style="display: inline-block;">버튼을 눌러주세요</span>
         </span>
       </div>
-      <div class="cash">2000원</div>
     </div>
-  </div>
-  <div class="frame-1042">
-    <div class="frame-1043">
-      <div class="div3">
-        <span>
-          <span class="div-3-span4">총</span>
-          <span class="div-3-span5"></span>
-          <span class="div-3-span6">결제금액</span>
-        </span>
+    <div class="frame-92">
+      <div class="frame-93" onclick="saveCart()">
+        <div class="okay">확인</div>
       </div>
-      <div class="amount_check">2000원</div>
+      <div class="frame-94" onclick="closeConfirmationPopup()">
+        <div class="cancel">취소</div>
+      </div>
     </div>
   </div>
-    <div class="final_cancel">
-      <div class="final">취소하기</div>
-    </div>
-    <div class="final_okay">
-      <div class="final">결제하기</div>
-    </div>
 
+
+
+  <!-- 주문 세부 내역 팝업 -->
+  <div class="order-details-popup" id="order-details-popup" style="display:none">
+    <div class="frame-101">
+      <div class="order_list">주문 세부내역을 확인하여 주세요</div>
+    </div>
+    <div class="frame-102">
+      <table>
+        <tbody>
+          {% for cart in carts %}
+        <tr>
+            <td>{{ cart.menu.menuName }}</td>
+            <td>{{ cart.menuQuantity }}</td>
+            <td>{{ cart.option1 }}<br> {{ cart.option2 }}</td>
+            <td>{{ cart.totalPrice }}원</td>
+        </tr>
+        {% endfor %}
+        </tbody>  
+    </div>
+    <div class="frame-103">
+        <div class="frame-1043">
+          <div class="div3">
+            <span>
+              <span class="div-3-span4">총</span>
+              <span class="div-3-span5"></span>
+              <span class="div-3-span6">결제금액</span>
+            </span>
+          </div>  
+        </div>
+        <div class="amount_check">{{ total }}원</div>
+    </div>
+      <button class="final_cancel" onclick="window.location.href='cafemain'">
+        <div class="final">취소하기</div>
+      </button>
+      <button class="final_okay">
+        <div class="final" onclick="window.location.href='payment'">결제하기</div>
+      </button>
+  
+    </div>
+  </div>
 
 
     
@@ -342,6 +363,7 @@
       let selectedMenuName = "";
       let selectedOption1 = null;
       let selectedOption2 = null;
+      let realTotal = 0;
       // 커피 선택 함수
       function buy(coffee) {
         // 기존 선택된 메뉴의 테두리 제거
@@ -409,8 +431,8 @@
         
         document.getElementById('Tem1').innerHTML = selectedOption1;
         document.getElementById('Den1').innerHTML = selectedOption2;
-      const confirmationPopup = document.getElementById("confirmation_popup");
-      confirmationPopup.style.display = "block"; // 확인 팝업 표시
+        const confirmationPopup = document.getElementById("confirmation_popup");
+        confirmationPopup.style.display = "block"; // 확인 팝업 표시
 
     } 
 
@@ -461,25 +483,11 @@
       confirmationPopup.style.display = "none"; // 확인 팝업 숨기기
     }
 
-    // 주문 세부 내역 팝업 표시
-    function showOrderDetailsPopup() {
-      const popup = document.getElementById("order-details-popup");
-      if (popup) {
-        alert('fgh')
-        popup.style.display = "block"; // 팝업 표시
-      }
-    }
-
-    // 주문 세부 내역 팝업 닫기
-    function closeOrderDetailsPopup() {
-      document.getElementById("order-details-popup").style.display = "none"; // 팝업 숨기기
-    }
 
     function confirmOrder() {
-      saveCart();
       document.getElementById('americano_popup').style.display = 'none';
       document.getElementById('confirmation_popup').style.display = 'none';
+      document.getElementById("order-details-popup").style.display = "block"; // 팝업 숨기기
     }
-
 
     </script>

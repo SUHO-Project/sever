@@ -9,7 +9,11 @@ def kiosk(request):
 def cafemain(request):
     carts = Cart.objects.all()
     
-    return render(request,'cafemain.html', {'carts':carts})
+    total = 0
+    for cart in carts:
+        total += cart.totalPrice
+    
+    return render(request,'cafemain.html', {'carts':carts, 'total':total})
 
 def paydone(request):
     return render(request, 'paydone.html')
