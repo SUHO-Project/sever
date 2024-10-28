@@ -101,7 +101,7 @@ html,body {
   right: 74.87%;
   left: 8.75%;
   bottom: 63.73%;
-  top: 22.56%;
+  top: 23%;
   object-fit: cover;
 }
 .caramel-macchiato-button {
@@ -154,13 +154,13 @@ html,body {
   text-transform: uppercase;
 }
 .caramel-macchiato {
-  width: 18%;
-  height: 15%;
+  width: 17%;
+  height: 13.5%;
   position: absolute;
   right: 73.12%;
-  left: 9%;
+  left: 9.5%;
   bottom: 39.96%;
-  top: 45%;
+  top: 46%;
   object-fit: cover;
 }
 .cafe-mocha-button {
@@ -214,13 +214,13 @@ html,body {
   text-transform: uppercase;
 }
 .cafe-mocha {
-  width: 15.31%;
-  height: 11.44%;
+  width: 16%;
+  height: 12.5%;
   position: absolute;
   right: 42.5%;
   left: 42.19%;
   bottom: 40.49%;
-  top: 47.5%;
+  top: 47%;
   object-fit: cover;
 }
 .cappuccino-button {
@@ -275,12 +275,12 @@ html,body {
 }
 .cappuccino {
   width: 21.88%;
-  height: 12.32%;
+  height: 13%;
   position: absolute;
   right: 6.25%;
   left: 71.88%;
   bottom: 40.49%;
-  top: 46.5%;
+  top: 47%;
   object-fit: cover;
 }
 .checklist-retangle {
@@ -289,7 +289,7 @@ html,body {
   gap:0px;
   overflow-y:scroll;
   background: #ffffff;
-  width: 72.25%;
+  width: 68.25%;
   height: 26.41%;
   position: absolute;
   right: 40.31%;
@@ -304,11 +304,11 @@ html,body {
 }
 .pay-retangle {
   background: #fd0505;
-  width: 18.19%;
+  width: 22.19%;
   height: 26.41%;
   position: absolute;
   right: 4.38%;
-  left: 78.44%;
+  left: 74.44%;
   bottom: 3.17%;
   top: 70.42%;
   display: flex; /* flexbox로 설정 */
@@ -325,6 +325,7 @@ html,body {
   width: auto; /* 자동 너비 */
   height: 17px; /* 자동 높이 */
   color: white; /* 글자 색상 */
+  top: 5%;
 }
 .select-button {
   position: absolute;
@@ -394,13 +395,13 @@ html,body {
   text-transform: uppercase;
 }
 .cafe-latte {
-  width: 18%;
-  height: 15%;
+  width: 16.5%;
+  height: 13%;
   position: absolute;
   right: 73.62%;
-  left: 74%;
-  bottom: 63.38%;
-  top: 21.5%;
+  left: 75%;
+  bottom: 64.38%;
+  top: 22.5%;
   object-fit: cover;
 }
 .valina-latte-button {
@@ -455,7 +456,7 @@ html,body {
 .valina-latte {
   width: 15%;
   height: 13%;
-  top: 22%;
+  top: 22.5%;
 }
 
 .image-36 {
@@ -465,7 +466,7 @@ html,body {
   right: 40.62%;
   left: 41.88%;
   bottom: 63.38%;
-  top: 22.5%;
+  top: 23%;
   object-fit: cover;
 }
 .coffee-button {
@@ -530,9 +531,9 @@ html,body {
 }
 .frame-76 {
   background: #ffffff;
-  /* border-style: solid;
-  border-color: #000000;
-  border-width: 1.5px; */
+  border-style: solid;
+  border-color: #979797;
+  border-width: 1.5px;
   display: flex;
   flex-direction: column;
   gap: 0px;
@@ -908,7 +909,7 @@ html,body {
 }
 
 .div-span {
-  color: #b16000;
+  color: #fd0505;
   font-family: "Roboto-SemiBold", sans-serif;
   font-size: 17px;
   line-height: 17px;
@@ -937,7 +938,7 @@ html,body {
   font-weight: 500;
   position: absolute;
   left: calc(50% - 113.5px);
-  top: 5px;
+  top: 13px;
   width: 227px;
   height: 64px;
 }
@@ -1074,7 +1075,7 @@ html,body {
   background: #fcc813;
   align-self: stretch;
   flex-shrink: 0;
-  height: 12%;
+  height: 40px;
   position: relative;
   overflow: hidden;
 }
@@ -1110,10 +1111,9 @@ html,body {
   justify-content: flex-start;
   align-self: stretch;
   flex-shrink: 0;
-  height:56%;
+  height: 80%;
   position: relative;
   overflow-y: scroll;
-  padding-bottom: 10px;
 }
 
 .menu_check, ._1 {
@@ -1145,7 +1145,7 @@ html,body {
   height: 40px;
   position: absolute;
   left: calc(50% - 110px);
-  top: 260px;
+  top: 240px;
   overflow: hidden;
 }
 
@@ -1170,13 +1170,13 @@ html,body {
 .final_cancel {
   background: #979797;
   left: 8px;
-  top: 320px;
+  top: 310px;
 }
 
 .final_okay {
   background: #fc1313;
   left: 130px;
-  top: 320px;
+  top: 310px;
 }
 
 .final {
@@ -1200,6 +1200,7 @@ html,body {
 
 table {
   font-size: 12px;
+  
   width: 100%;
   border-collapse: collapse;
   text-align: center;
@@ -1219,7 +1220,7 @@ tbody {
 }
   
  td, th {
-  padding: 1em 0em;
+  padding: 1em .5em;
   vertical-align: middle;
   height:10px;
 }
