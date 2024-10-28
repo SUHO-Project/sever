@@ -195,10 +195,10 @@
       </div>
       <div class="popupdiv3">온도(필수)</div>
       <div class="frame-79">
-        <button class="frame-22" id="Tem" onclick="Tem_selectOption(this)" >
+        <button class="frame-22" id="TemSelect1" onclick="Tem_selectOption(this)" >
           <div class="popupdiv4" >핫</div>
         </button>
-        <button class="frame-23" id="Tem" onclick="Tem_selectOption(this)">
+        <button class="frame-23" id="TemSelect2" onclick="Tem_selectOption(this)">
           <div class="popupdiv4">아이스</div>
         </button>
       </div>
@@ -310,6 +310,21 @@
 
     
     <script>
+      $.ajax({
+        url: '/api/stt/speak', // 서버에 요청을 보낼 URL
+        type: 'POST',
+        data: JSON.stringify({ page:"cafemain", question: "원하시는 메뉴를 말씀해 주세요." }),
+        contentType: false,
+        processData: false,
+        success: function(response) {
+          buy(response.message);
+        },
+        error: function(xhr, status, error) {
+            console.error('Error:', error);
+            alert('실패했습니다.');
+        }
+      });
+
       // 커피 데이터를 객체로 정의
       const coffeeData = {
         "americano": {
@@ -391,10 +406,7 @@
           selectedMenuName = "카라멜마끼아또";
         }
         // 팝업 표시 및 정보 변경
-        document.getElementById('americano_popup').style.display = 'block';
-        document.getElementById('menuimg').src = coffeeData[coffee].image;
-        document.getElementById('menuname').innerHTML = coffeeData[coffee].name;
-        document.getElementById('menuprice').innerHTML = coffeeData[coffee].price;
+        openPopup(coffee);
       }
 
       function changeQuantity(n, cartId) {
@@ -413,7 +425,28 @@
           }
         });
       }
-    
+      
+      function openPopup(coffee) {
+        document.getElementById('americano_popup').style.display = 'block';
+        document.getElementById('menuimg').src = coffeeData[coffee].image;
+        document.getElementById('menuname').innerHTML = coffeeData[coffee].name;
+        document.getElementById('menuprice').innerHTML = coffeeData[coffee].price;
+
+        $.ajax({
+          url: '/api/stt/speak', // 서버에 요청을 보낼 URL
+          type: 'POST',
+          data: JSON.stringify({ page:"popup1", question: "온도를 선택해 주세요." }),
+          contentType: false,
+          processData: false,
+          success: function(response) {
+            Tem_selectOption(document.getElementById(response.message));
+          },
+          error: function(xhr, status, error) {
+              console.error('Error:', error);
+              alert('실패했습니다.');
+          }
+        });
+      }
     
       // 팝업 닫기 함수
       function closePopup() {

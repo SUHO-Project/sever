@@ -8,7 +8,7 @@ def listen(recognizer, audio):
     try:
         text = recognizer.recognize_google(audio, language='ko')
         text = text.strip()  # 앞뒤 공백 제거
-        print('[김태기]' + text)
+        print('[안가연]' + text)
         answer(text)
     except sr.UnknownValueError:
         print("인식 실패")  # 음성 인식 실패한 경우
@@ -89,6 +89,7 @@ def speak(text):
     file_name = 'voice.mp3'
     tts = gTTS(text=text, lang='ko')
     tts.save(file_name)
+    
     playsound(file_name)
     if os.path.exists(file_name):  # voice.mp3 파일 삭제
         os.remove(file_name)
