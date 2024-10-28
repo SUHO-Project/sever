@@ -289,7 +289,7 @@ html,body {
   gap:0px;
   overflow-y:scroll;
   background: #ffffff;
-  width: 68.25%;
+  width: 72.25%;
   height: 26.41%;
   position: absolute;
   right: 40.31%;
@@ -304,11 +304,11 @@ html,body {
 }
 .pay-retangle {
   background: #fd0505;
-  width: 22.19%;
+  width: 18.19%;
   height: 26.41%;
   position: absolute;
   right: 4.38%;
-  left: 74.44%;
+  left: 78.44%;
   bottom: 3.17%;
   top: 70.42%;
   display: flex; /* flexbox로 설정 */
@@ -1074,7 +1074,7 @@ html,body {
   background: #fcc813;
   align-self: stretch;
   flex-shrink: 0;
-  height: 40px;
+  height: 12%;
   position: relative;
   overflow: hidden;
 }
@@ -1110,9 +1110,10 @@ html,body {
   justify-content: flex-start;
   align-self: stretch;
   flex-shrink: 0;
-  height: 80%;
+  height:56%;
   position: relative;
   overflow-y: scroll;
+  padding-bottom: 10px;
 }
 
 .menu_check, ._1 {
@@ -1144,7 +1145,7 @@ html,body {
   height: 40px;
   position: absolute;
   left: calc(50% - 110px);
-  top: 240px;
+  top: 260px;
   overflow: hidden;
 }
 
@@ -1169,13 +1170,13 @@ html,body {
 .final_cancel {
   background: #979797;
   left: 8px;
-  top: 310px;
+  top: 320px;
 }
 
 .final_okay {
   background: #fc1313;
   left: 130px;
-  top: 310px;
+  top: 320px;
 }
 
 .final {
@@ -1199,7 +1200,6 @@ html,body {
 
 table {
   font-size: 12px;
-  
   width: 100%;
   border-collapse: collapse;
   text-align: center;
@@ -1219,7 +1219,7 @@ tbody {
 }
   
  td, th {
-  padding: 1em .5em;
+  padding: 1em 0em;
   vertical-align: middle;
   height:10px;
 }

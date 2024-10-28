@@ -4,6 +4,7 @@ html,body {
 
 .last,
 .last * {
+  font-family: "Noto Sans KR" !important;
   box-sizing: border-box;
 }
 .last {
