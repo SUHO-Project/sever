@@ -530,9 +530,9 @@ html,body {
 }
 .frame-76 {
   background: #ffffff;
-  border-style: solid;
+  /* border-style: solid;
   border-color: #000000;
-  border-width: 1.5px;
+  border-width: 1.5px; */
   display: flex;
   flex-direction: column;
   gap: 0px;
@@ -1103,7 +1103,7 @@ html,body {
   border-style: solid;
   border-color: transparent;
   border-width: 1px;
-  padding: 25px 10px;
+  /* padding: 25px 10px; */
   display: flex;
   flex-direction: row;
   align-items: flex-start;
