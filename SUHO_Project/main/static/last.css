@@ -1,14 +1,15 @@
 html,body {
   height: 100%;
+  width: 100%;
 }
 
 .last,
 .last * {
-  font-family: "Noto Sans KR" !important;
   box-sizing: border-box;
+  
 }
 .last {
-  background: #e8e7e7;
+  background: #ffffff;
   width: 100%;
   height: 100%;
   position: relative;
@@ -19,12 +20,12 @@ html,body {
   text-align: center;
   text-transform: uppercase;
   position: absolute;
-  right: 3.44%;
-  left: 3.12%;
+  right: 4.06%;
+  left: 2.5%;
   width: 93.44%;
-  bottom: 36.27%;
+  bottom: 37.32%;
   top: 26.94%;
-  height: 36.8%;
+  height: 35.74%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,48 +72,50 @@ html,body {
   top: 58.1%;
   object-fit: cover;
 }
-.fin-popup {
-  width: 94.38%;
-  height: 31.51%;
+.frame-110 {
+  background: #fcc813;
+  border-radius: 20px;
+  width: 250px;
+  height: 250px;
   position: absolute;
-  right: 2.5%;
-  left: 3.12%;
-  bottom: 34.33%;
-  top: 34.15%;
-}
-.fin-retangle {
-  background: #fff8de;
-  border-radius: 33px;
-  border-style: solid;
-  border-color: #000000;
-  border-width: 2px;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  right: 0%;
-  left: 0ch;
-  bottom: 0%;
-  top: 0%;
-  justify-content: center;
+  left: calc(50% - 125px);
+  top: calc(50% - 125px);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
 }
 .div {
-  color: black;
+  color: #000000;
   text-align: center;
-  font-family: "Roboto-Bold", sans-serif;
-  font-size: 20px;
-  /* letter-spacing: 1.25px; */
-  font-weight: 700;
+  font-family: "Roboto-SemiBold", sans-serif;
+  font-size: 18px;
+  letter-spacing: 1.25px;
+  font-weight: 600;
   text-transform: uppercase;
   position: absolute;
-  left: 27%;
-  width: 68.87%;
-  top: 27.37%;
-  height: 51.4%;
+  left: calc(50% - 121px);
+  bottom: 4.4%;
+  top: 60.8%;
+  height: 34.8%;
+  width: 243px;
   display: flex;
   align-items: center;
-  white-space: nowrap;
-  font-family: 'Jua', sans-serif; /* Jua 폰트 적용 */
-  font-size: 20px; /* 폰트 크기 조정 */
-  line-height: 1.5; /* 줄 간격 조정 */
-  
+  justify-content: center;
+}
+.frame-111 {
+  background: #fffed8;
+  width: 250px;
+  height: 42%;
+  position: absolute;
+  left: calc(50% - 125px);
+  bottom: 58%;
+  top: 0%;
+  overflow: hidden;
+}
+.last_victory {
+  width: 150px;
+  height: 151.51px;
+  position: absolute;
+  left: calc(50% - 75px);
+  top: calc(50% - 125px);
+  object-fit: cover;
 }
