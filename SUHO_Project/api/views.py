@@ -9,6 +9,7 @@ import json
 from .stt import *
 import speech_recognition as sr
 
+# Create your views here.
 def create(request):
     if request.method == 'POST':
         form = CartForm(request.POST)
@@ -16,33 +17,35 @@ def create(request):
             menu_name = form.cleaned_data['menuName']
             menu_quantity = form.cleaned_data['menuQuantity']
             option1 = form.cleaned_data['option1']
-            option2 = form.cleaned_data['option2'] if form.cleaned_data['option2'] != "null" else "기본"
+            if form.cleaned_data['option2'] == "null":
+                option2="기본"
+            else:
+                option2 = form.cleaned_data['option2']
+                
+            
 
             try:
                 menu = Menu.objects.get(menuName=menu_name)
-
+                
                 try:
                     cart_item = Cart.objects.get(menu=menu, option1=option1, option2=option2)
-
-                    # Increase the quantity
-                    cart_item.menuQuantity += menu_quantity
-
-                    # Update totalPrice
-                    cart_item.totalPrice = (cart_item.menuQuantity * menu.menuPrice)  # Total price based on updated quantity
+                    cart_item.menuQuantity += 1
+                    
+    
+                    cart_item.totalPrice += menu.menuPrice * menu_quantity
                     if option2 == "샷추가":
-                        cart_item.totalPrice += 500 * cart_item.menuQuantity  # 샷 추가 가격
+                        cart_item.totalPrice += 500 * menu_quantity
                     elif option2 == "2샷추가":
-                        cart_item.totalPrice += 1000 * cart_item.menuQuantity  # 2샷 추가 가격
+                        cart_item.totalPrice += 1000 * menu_quantity
 
                     cart_item.save()
 
                 except Cart.DoesNotExist:
-                    # Create new cart item
-                    total_price = (menu.menuPrice * menu_quantity)  # Initial total price based on quantity
+                    total_price = menu.menuPrice * menu_quantity
                     if option2 == "샷추가":
-                        total_price += 500 * menu_quantity  # 샷 추가 가격
+                        total_price += 500 * menu_quantity
                     elif option2 == "2샷추가":
-                        total_price += 1000 * menu_quantity  # 2샷 추가 가격
+                        total_price += 1000 * menu_quantity
 
                     Cart.objects.create(
                         menu=menu,
@@ -53,7 +56,7 @@ def create(request):
                     )
 
                 return JsonResponse({'message': 'Cart updated successfully!'}, status=200)
-
+            
             except Menu.DoesNotExist:
                 return JsonResponse({'error': 'Menu not found'}, status=404)
     else:
@@ -65,6 +68,8 @@ def create(request):
 def detail(request, cartId):
     if request.method == 'DELETE':
         try:
+            print(cartId)
+            print(Cart.objects.filter(id=cartId))
             Cart.objects.filter(id=cartId).delete()
             return JsonResponse({'message': 'Cart deleted successfully!'}, status=200)
         except ObjectDoesNotExist:
@@ -74,25 +79,17 @@ def detail(request, cartId):
             updateCart = Cart.objects.get(id=cartId)
             data = json.loads(request.body)
             updateQuantity = data.get('quantity', 0)
-
-            # Update the quantity and total price
+            
+            updateCart.totalPrice += (updateQuantity * updateCart.menu.menuPrice)
             updateCart.menuQuantity += updateQuantity
-
-            # Calculate the new total price based on the updated quantity
-            updateCart.totalPrice = (updateCart.menuQuantity * updateCart.menu.menuPrice)
-
-            if updateCart.option2 == "샷추가":
-                updateCart.totalPrice += 500 * updateCart.menuQuantity  # 샷 추가 가격
-            elif updateCart.option2 == "2샷추가":
-                updateCart.totalPrice += 1000 * updateCart.menuQuantity  # 2샷 추가 가격
-
+            
             if updateCart.menuQuantity <= 0:
                 updateCart.delete()
             else:
                 updateCart.save()
-
+            
             return JsonResponse({'message': 'Cart updated successfully!'}, status=200)
-
+            
         except ObjectDoesNotExist:
             return JsonResponse({'error': 'Menu not found'}, status=404)
     
@@ -112,6 +109,10 @@ def speakApi(request):
         answer = returnCafeMainSpeak(message)
     elif page == "popup1":
         answer = popup1(message)
+    elif page == "popup2":
+        answer = popup2(message)
+    elif page == "popup3":
+        answer = popup3(message)
     return JsonResponse({'message': answer}, status=200)
         
 
@@ -144,9 +145,33 @@ def returnCafeMainSpeak(message):
 def popup1(message):
     speak(message)
     answer = listen(r).replace(" ", "")
-    if "아이스" in answer:
+    if "아이스" in answer or "차가" in answer:
         return "TemSelect2"
-    elif "핫" in answer:
+    elif "핫" in answer or "따뜻" in answer or "뜨거" in answer:
         return "TemSelect1"
     else:
         popup1('없는 옵션을 선택하셨어요. 다시 선택해 주세요.')
+
+def popup2(message):
+    speak(message)
+    answer = listen(r).replace(" ", "")
+    if "기본" in answer:
+        return "기본"
+    elif "연하" in answer:
+        return "den1"
+    elif "샷추가" in answer or "원샷추가" in answer:
+        return "den3"
+    elif "투샷추가" in answer or "2샷추가":
+        return "den2"
+    else:
+        popup2('없는 옵션을 선택하셨어요. 다시 선택해 주세요.')
+    
+def popup3(message):
+    speak(message)
+    answer = listen(r).replace(" ", "")
+    if "네" in answer:
+        return True
+    elif "아니" in answer:
+        return False
+    else:
+        popup2('없는 옵션을 선택하셨어요. 다시 선택해 주세요.')
