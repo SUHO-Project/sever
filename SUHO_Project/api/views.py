@@ -6,6 +6,8 @@ from django.core.exceptions import ObjectDoesNotExist
 from .models import *
 from .forms import *
 import json
+from .stt import *
+import speech_recognition as sr
 
 def create(request):
     if request.method == 'POST':
@@ -93,8 +95,58 @@ def detail(request, cartId):
 
         except ObjectDoesNotExist:
             return JsonResponse({'error': 'Menu not found'}, status=404)
+    
+        
+# 메인 실행
+r = sr.Recognizer()
+m = sr.Microphone()
 
-    
-    
-    
+@csrf_exempt
+def speakApi(request):
+    page = json.loads(request.body).get("page")
+    message = json.loads(request.body).get('question')
+    answer = ""
+    if page == "kiosk":
+        answer = returnSpeak(message)
+    elif page == "cafemain":
+        answer = returnCafeMainSpeak(message)
+    elif page == "popup1":
+        answer = popup1(message)
+    return JsonResponse({'message': answer}, status=200)
+        
 
+def returnSpeak(message):
+    speak(message)
+    answer = listen(r)
+    if "카페" in answer or "커피" in answer:
+        return answer
+    else:
+        returnSpeak('없는 메뉴를 선택하셨어요. 다시 선택해 주세요.')
+
+def returnCafeMainSpeak(message):
+    speak(message)
+    answer = listen(r).replace(" ","")
+    if "아메리카노" in answer:
+        return "americano"
+    elif "카페라떼" in answer:
+        return "cafe-latte"
+    elif "바닐라라떼" in answer:
+        return "valina-latte"
+    elif "카라멜마끼아또" in answer:
+        return "caramel-macchiato"
+    elif "카페모카" in answer:
+        return "cafe-mocha"
+    elif "카푸치노" in answer:
+        return "cappuccino"
+    else:
+        returnCafeMainSpeak('없는 메뉴를 선택하셨어요. 다시 선택해 주세요.')
+
+def popup1(message):
+    speak(message)
+    answer = listen(r).replace(" ", "")
+    if "아이스" in answer:
+        return "TemSelect2"
+    elif "핫" in answer:
+        return "TemSelect1"
+    else:
+        popup1('없는 옵션을 선택하셨어요. 다시 선택해 주세요.')

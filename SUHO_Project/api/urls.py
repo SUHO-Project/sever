@@ -6,5 +6,5 @@ from . import views
 urlpatterns = [
     path('cart/create', views.create, name='create_cart'),
     path('cart/<int:cartId>/', views.detail, name="cart_detail"),
-    
+    path('stt/speak', views.speakApi, name="stt_speak"),
 ]
