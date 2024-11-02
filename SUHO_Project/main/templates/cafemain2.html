@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
-        <!-- jQuery CDN -->
+    <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <style>
@@ -204,15 +204,15 @@
       </div>
       <div class="popupdiv3">농도(선택, 단일선택)</div>
       <div class="frame-80">
-        <button class="frame-222" id = 'den' onclick="den_selectOption(this)">
+        <button class="frame-222" id = 'den1' onclick="den_selectOption(this)">
           <div class="popupdiv4" >연하게</div>
           <div class="_0">+0원</div>
         </button>
-        <button class="frame-232" id = 'den' onclick="den_selectOption(this)">
+        <button class="frame-232" id = 'den2' onclick="den_selectOption(this)">
           <div class="popupdiv4" >샷추가</div>
           <div class="_500">+500원</div>
         </button>
-        <button class="frame-2323 frame-232" id = 'den' onclick="den_selectOption(this)">
+        <button class="frame-2323 frame-232" id = 'den3' onclick="den_selectOption(this)">
           <div class="popupdiv4">2샷추가</div>
           <div class="_2">+1000원</button>
         </div>
@@ -297,11 +297,11 @@
         </div>
         <div class="amount_check">{{ total }}원</div>
     </div>
-      <button class="final_cancel" onclick="window.location.href='cafemain'">
+      <button class="final_cancel" onclick="window.location.href='cafemain2'">
         <div class="final">취소하기</div>
       </button>
       <button class="final_okay">
-        <div class="final" onclick="window.location.href='payment'">결제하기</div>
+        <div class="final" onclick="window.location.href='payment2'">결제하기</div>
       </button>
   
     </div>
@@ -310,20 +310,24 @@
 
     
     <script>
-      $.ajax({
-        url: '/api/stt/speak', // 서버에 요청을 보낼 URL
-        type: 'POST',
-        data: JSON.stringify({ page:"cafemain", question: "원하시는 메뉴를 말씀해 주세요." }),
-        contentType: false,
-        processData: false,
-        success: function(response) {
-          buy(response.message);
-        },
-        error: function(xhr, status, error) {
-            console.error('Error:', error);
-            alert('실패했습니다.');
-        }
-      });
+      // voiceOrder();
+
+      // function voiceOrder() {
+      //   $.ajax({
+      //     // url: '/api/stt/speak', // 서버에 요청을 보낼 URL
+      //     type: 'POST',
+      //     data: JSON.stringify({ page:"cafemain" }),
+      //     contentType: false,
+      //     processData: false,
+      //     success: function(response) {
+      //       buy(response.message);
+      //     },
+      //     error: function(xhr, status, error) {
+      //         console.error('Error:', error);
+      //         alert('실패했습니다.');
+      //     }
+      //   });
+      // }
 
       // 커피 데이터를 객체로 정의
       const coffeeData = {
@@ -409,22 +413,22 @@
         openPopup(coffee);
       }
 
-      function changeQuantity(n, cartId) {
-        $.ajax({
-          url: '/api/cart/' + cartId + "/", // 서버에 요청을 보낼 URL
-          type: 'PUT',
-          data: JSON.stringify({ quantity: n }),
-          contentType: false,
-          processData: false,
-          success: function(response) {
-              window.location.reload();
-            },
-          error: function(xhr, status, error) {
-              console.error('Error:', error);
-              alert('카트 추가에 실패했습니다.');
-          }
-        });
-      }
+      // function changeQuantity(n, cartId) {
+      //   $.ajax({
+      //     url: '/api/cart/' + cartId + "/", // 서버에 요청을 보낼 URL
+      //     type: 'PUT',
+      //     data: JSON.stringify({ quantity: n }),
+      //     contentType: false,
+      //     processData: false,
+      //     success: function(response) {
+      //         window.location.reload();
+      //       },
+      //     error: function(xhr, status, error) {
+      //         console.error('Error:', error);
+      //         alert('카트 추가에 실패했습니다.');
+      //     }
+      //   });
+      // }
       
       function openPopup(coffee) {
         document.getElementById('americano_popup').style.display = 'block';
@@ -432,21 +436,24 @@
         document.getElementById('menuname').innerHTML = coffeeData[coffee].name;
         document.getElementById('menuprice').innerHTML = coffeeData[coffee].price;
 
-        $.ajax({
-          url: '/api/stt/speak', // 서버에 요청을 보낼 URL
-          type: 'POST',
-          data: JSON.stringify({ page:"popup1", question: "온도를 선택해 주세요." }),
-          contentType: false,
-          processData: false,
-          success: function(response) {
-            Tem_selectOption(document.getElementById(response.message));
-          },
-          error: function(xhr, status, error) {
-              console.error('Error:', error);
-              alert('실패했습니다.');
-          }
-        });
+        // $.ajax({
+        //   // url: '/api/stt/speak', // 서버에 요청을 보낼 URL
+        //   type: 'POST',
+        //   // data: JSON.stringify({ page:"popup1", question: "온도를 선택해 주세요." }),
+        //   contentType: false,
+        //   processData: false,
+        //   success: function(response) {
+        //     Tem_selectOption(document.getElementById(response.message));
+        //     selectDen();
+        //   },
+        //   error: function(xhr, status, error) {
+        //       console.error('Error:', error);
+        //       alert('실패했습니다.');
+        //   }
+        // });
       }
+
+
     
       // 팝업 닫기 함수
       function closePopup() {
@@ -497,7 +504,50 @@
         const confirmationPopup = document.getElementById("confirmation_popup");
         confirmationPopup.style.display = "block"; // 확인 팝업 표시
 
+        // $.ajax({
+        //   // url: '/api/stt/speak', // 서버에 요청을 보낼 URL
+        //   type: 'POST',
+        //   // data: JSON.stringify({ page:"popup3", question: selectedOption1 + selectedOption2 + "을 선택하셨나요? 맞으시면 네, 아니라면 아니요 라고 말씀해주세요." }),
+        //   contentType: false,
+        //   processData: false,
+        //   success: function(response) {
+        //     if (response.message) {
+        //       saveCart();
+        //     } else {
+        //       closePopup();
+        //     }
+              
+        //     selectContinue();
+        //   },
+        //   error: function(xhr, status, error) {
+        //       console.error('Error:', error);
+        //       alert('실패했습니다.');
+        //   }
+        // });
+
     } 
+
+    // function selectContinue() {
+    //   $.ajax({
+    //     // url: '/api/stt/speak', // 서버에 요청을 보낼 URL
+    //     type: 'POST',
+    //     // data: JSON.stringify({ page:"popup3", question: selectedOption1 + "주문을 계속하시겠습니까? 추가 주문을 원하시면 네, 결제를 원하시면 아니요라고 답해주세요." }),
+    //     contentType: false,
+    //     processData: false,
+    //     success: function(response) {
+    //       if (response.message) {
+    //         voiceOrder();
+    //       } else {
+    //         confirmOrder();
+    //       }
+
+    //     },
+    //     error: function(xhr, status, error) {
+    //         console.error('Error:', error);
+    //         alert('실패했습니다.');
+    //     }
+    //   });
+    // }
 
     function saveCart() {
       var formData = new FormData();

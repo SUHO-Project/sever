@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>버거 선택</title>
+    <style>
+        body {
+            font-family: "Roboto-SemiBold", sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .hamburger-popup {
+            position: relative;
+            width: 288px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .burger-popup-rectangle {
+            width: 100%;
+            border-radius: 0px;
+        }
+
+        .div {
+            text-align: center;
+            font-size: 17px;
+            line-height: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .frame-98, .frame-99 {
+            background: #fcc813;
+            border-radius: 20px;
+            padding: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 123px;
+            height: 28px;
+            cursor: pointer;
+            margin: 5px auto; /* 중앙 정렬을 위해 margin 사용 */
+        }
+
+        .div2 {
+            color: #ffffff;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .div3 {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .div-3-span {
+            color: #000000;
+        }
+
+        .div-3-span2, .div-3-span4 {
+            color: #ff0000;
+            font-weight: bold;
+        }
+
+        .div-3-span5 {
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <div class="hamburger-popup">
+        <img class="burger-popup-rectangle" src="burger-popup-rectangle0.svg" />
+        <div class="div">
+            <span>
+                <span class="div-span">‘불고기버거</span>
+                <span class="div-span2">’</span>
+                <span class="div-span3">를 선택하셨나요?</span>
+            </span>
+        </div>
+        <div class="frame-98" onclick="confirmSelection()">
+            <div class="div2">확인</div>
+        </div>
+        <div class="frame-99" onclick="cancelSelection()">
+            <div class="div2">취소</div>
+        </div>
+        <div class="div3">
+            <span>
+                <span class="div-3-span">맞으시면</span>
+                <span class="div-3-span2">확인<br /></span>
+                <span class="div-3-span3">아니면</span>
+                <span class="div-3-span4">취소</span>
+                <span class="div-3-span5">버튼을 눌러주세요</span>
+            </span>
+        </div>
+    </div>
+    <script>
+        function confirmSelection() {
+            alert("버거가 선택되었습니다!");
+            window.close(); // 팝업을 닫습니다.
+        }
+
+        function cancelSelection() {
+            window.close(); // 팝업을 닫습니다.
+        }
+    </script>
+</body>
+</html>
