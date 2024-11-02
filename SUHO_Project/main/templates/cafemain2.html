@@ -308,6 +308,15 @@
   </div>
 
 
+  {% if carts %}
+    <script>
+        const cartsExist = true;
+    </script>
+{% else %}
+    <script>
+        const cartsExist = false;
+    </script>
+{% endif %}
     
     <script>
       // voiceOrder();
@@ -598,9 +607,14 @@
 
 
     function confirmOrder() {
-      document.getElementById('americano_popup').style.display = 'none';
-      document.getElementById('confirmation_popup').style.display = 'none';
-      document.getElementById("order-details-popup").style.display = "block"; // 팝업 숨기기
+      if(cartsExist) {
+        document.getElementById('americano_popup').style.display = 'none';
+        document.getElementById('confirmation_popup').style.display = 'none';
+        document.getElementById("order-details-popup").style.display = "block"; // 팝업 숨기기
+      }
+      else {
+        alert("메뉴를 담아주세요.")
+      }
     }
 
     </script>

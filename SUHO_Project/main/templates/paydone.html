@@ -104,6 +104,7 @@
         contentType: false,
         processData: false,
         success: function(response) {
+          receipt();
         },
         error: function(xhr, status, error) {
             console.error('Error:', error);
@@ -112,26 +113,29 @@
       });
     }
 
+    function receipt() {
+      // 페이지가 로드된 후 3초 뒤에 팝업을 열기
+        setTimeout(function() {
+          document.getElementById('lastPopup').style.display = 'block';
 
-    // 페이지가 로드된 후 3초 뒤에 팝업을 열기
-    setTimeout(function() {
-        document.getElementById('lastPopup').style.display = 'block';
+          $.ajax({
+            url: '/api/stt/speak', // 서버에 요청을 보낼 URL
+            type: 'POST',
+            data: JSON.stringify({ page:"receipt", question:  "영수증을 출력하시겠습니까?" }),
+            contentType: false,
+            processData: false,
+            success: function(response) {
+              window.location.href='last';
+            },
+            error: function(xhr, status, error) {
+                console.error('Error:', error);
+                console.log('실패했습니다.[selectedContinue function]');
+            }
+          });
+      }, 3000); // 3000ms = 3초
+    }
 
-        $.ajax({
-          url: '/api/stt/speak', // 서버에 요청을 보낼 URL
-          type: 'POST',
-          data: JSON.stringify({ page:"receipt", question:  "영수증을 출력하시겠습니까?" }),
-          contentType: false,
-          processData: false,
-          success: function(response) {
-            window.location.href='last';
-          },
-          error: function(xhr, status, error) {
-              console.error('Error:', error);
-              console.log('실패했습니다.[selectedContinue function]');
-          }
-        });
-    }, 3000); // 3000ms = 3초
+    
 
     function closePopup() {
         document.getElementById('lastPopup').style.display = 'none';
