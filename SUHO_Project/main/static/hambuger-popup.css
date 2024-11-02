@@ -1,0 +1,138 @@
+/* 기본 설정 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: none;
+    text-decoration: none;
+    background: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+#hamburger_Popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000; /* 오버레이보다 위에 표시 */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px; /* 내부 여백 추가 */
+}
+
+/* 팝업 내 요소 스타일 */
+.burger-popup-rectangle {
+    border-radius: 0;
+    width: 288px;
+    height: 100%;
+    position: absolute;
+    left: calc(50% - 144px);
+    bottom: 0;
+    top: 0;
+    overflow: visible;
+}
+
+.div {
+    text-align: center;
+    font-family: "Roboto-SemiBold", sans-serif;
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: 600;
+    position: absolute;
+    left: 40px;
+    top: 31px;
+}
+
+/* 색상 설정 및 다양한 텍스트 스타일 */
+.div-span,
+.div-span2,
+.div-3-span,
+.div-3-span3,
+.div-3-span5 {
+    color: #b16000; /* 주황색 */
+    font-family: "Roboto-SemiBold", sans-serif;
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: 600;
+}
+
+.div-span3,
+.div-3-span2,
+.div-3-span4 {
+    color: #000000; /* 검정색 */
+    font-family: "Roboto-Medium", sans-serif;
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: 500;
+}
+
+.div-3-span2,
+.div-3-span4 {
+    color: #ff0000; /* 빨간색 */
+}
+
+/* 버튼 스타일 */
+.frame-98,
+.frame-99 {
+    background: #fcc813; /* 버튼 배경색 */
+    border-radius: 20px;
+    padding: 6px 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 123px;
+    height: 28px;
+    position: absolute;
+    backdrop-filter: blur(2px);
+}
+
+.frame-98 {
+    left: 12px;
+    top: 154px;
+}
+
+.frame-99 {
+    left: 154px;
+    top: 153px;
+}
+
+/* 추가 텍스트 스타일 */
+.div2 {
+    color: #ffffff; /* 흰색 */
+    text-align: center;
+    font-family: "Roboto-SemiBold", sans-serif;
+    font-size: 15px;
+    line-height: 16px;
+    font-weight: 600;
+}
+
+.div3 {
+    text-align: center;
+    font-family: "Roboto-Medium", sans-serif;
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: 500;
+    position: absolute;
+    left: 36px;
+    top: 73px;
+}
+
+/* 팝업 내 버튼 스타일 */
+.popup button {
+    margin: 5px; /* 버튼 간격 */
+    padding: 10px 15px; /* 버튼 패딩 */
+    border: none; /* 버튼 테두리 제거 */
+    border-radius: 5px; /* 버튼 모서리 둥글게 */
+    cursor: pointer; /* 커서 포인터로 변경 */
+    background-color: #fcc813; /* 버튼 배경색 */
+    color: white; /* 버튼 글자색 */
+    font-family: "Roboto-SemiBold", sans-serif;
+}
+
+.popup button:hover {
+    background-color: #e0b814; /* 버튼 호버 색상 */
+}
