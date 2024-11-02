@@ -1111,7 +1111,7 @@ html,body {
     justify-content: flex-start;
     align-self: stretch;
     flex-shrink: 0;
-    height: 80%;
+    height: 50%;
     position: relative;
     overflow-y: scroll;
   }

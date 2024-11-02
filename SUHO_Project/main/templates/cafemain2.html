@@ -413,22 +413,22 @@
         openPopup(coffee);
       }
 
-      // function changeQuantity(n, cartId) {
-      //   $.ajax({
-      //     url: '/api/cart/' + cartId + "/", // 서버에 요청을 보낼 URL
-      //     type: 'PUT',
-      //     data: JSON.stringify({ quantity: n }),
-      //     contentType: false,
-      //     processData: false,
-      //     success: function(response) {
-      //         window.location.reload();
-      //       },
-      //     error: function(xhr, status, error) {
-      //         console.error('Error:', error);
-      //         alert('카트 추가에 실패했습니다.');
-      //     }
-      //   });
-      // }
+      function changeQuantity(n, cartId) {
+         $.ajax({
+           url: '/api/cart/' + cartId + "/", // 서버에 요청을 보낼 URL
+           type: 'PUT',
+           data: JSON.stringify({ quantity: n }),
+           contentType: false,
+           processData: false,
+           success: function(response) {
+               window.location.reload();
+             },
+           error: function(xhr, status, error) {
+               console.error('Error:', error);
+               alert('카트 추가에 실패했습니다.');
+           }
+         });
+       }
       
       function openPopup(coffee) {
         document.getElementById('americano_popup').style.display = 'block';
