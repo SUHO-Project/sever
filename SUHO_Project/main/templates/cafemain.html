@@ -307,10 +307,25 @@
     </div>
   </div>
 
-
+  {% if carts %}
+    <script>
+        const cartsExist = true;
+    </script>
+{% else %}
+    <script>
+        const cartsExist = false;
+    </script>
+{% endif %}
     
     <script>
-      voiceOrder();
+      $(document).ready(function() {
+        if (cartsExist) {
+            selectContinue();
+        } else {
+           voiceOrder();
+        }
+    });
+
 
       function voiceOrder() {
         $.ajax({
@@ -324,7 +339,7 @@
           },
           error: function(xhr, status, error) {
               console.error('Error:', error);
-              alert('실패했습니다.');
+              console.log('실패했습니다.');
           }
         });
       }
@@ -448,7 +463,7 @@
           },
           error: function(xhr, status, error) {
               console.error('Error:', error);
-              alert('실패했습니다.');
+              console.log('실패했습니다.');
           }
         });
       }
@@ -468,7 +483,7 @@
           },
           error: function(xhr, status, error) {
               console.error('Error:', error);
-              alert('실패했습니다.');
+              console.log('실패했습니다.');
           }
         });
       }
@@ -526,21 +541,25 @@
         $.ajax({
           url: '/api/stt/speak', // 서버에 요청을 보낼 URL
           type: 'POST',
-          data: JSON.stringify({ page:"popup3", question: selectedOption1 + selectedOption2 + "을 선택하셨나요? 맞으시면 네, 아니라면 아니요 라고 말씀해주세요." }),
+          data: JSON.stringify({ page:"popup3", question: selectedOption1 +" "+ selectedOption2 + "을 선택하셨나요? 맞으시면 네, 아니라면 아니요 라고 말씀해주세요." }),
           contentType: false,
           processData: false,
           success: function(response) {
             if (response.message) {
               saveCart();
+              closeConfirmationPopup();
+              closePopup();
             } else {
+              closeConfirmationPopup();
               closePopup();
             }
               
-            selectContinue();
+            
           },
           error: function(xhr, status, error) {
               console.error('Error:', error);
-              alert('실패했습니다.');
+              
+              console.log('실패했습니다');
           }
         });
 
@@ -550,7 +569,7 @@
       $.ajax({
         url: '/api/stt/speak', // 서버에 요청을 보낼 URL
         type: 'POST',
-        data: JSON.stringify({ page:"popup3", question: selectedOption1 + "주문을 계속하시겠습니까? 추가 주문을 원하시면 네, 결제를 원하시면 아니요라고 답해주세요." }),
+        data: JSON.stringify({ page:"popup3", question:  "주문을 계속하시겠습니까? 추가 주문을 원하시면 네, 결제를 원하시면 아니요라고 답해주세요." }),
         contentType: false,
         processData: false,
         success: function(response) {
@@ -563,7 +582,7 @@
         },
         error: function(xhr, status, error) {
             console.error('Error:', error);
-            alert('실패했습니다.');
+            console.log('실패했습니다.[selectedContinue function]');
         }
       });
     }
@@ -591,6 +610,7 @@
             alert('카트 추가에 실패했습니다.');
         }
       });
+
     }
     const csrfToken = '{{ csrf_token }}';
     function deleteCart(cartId) {
@@ -620,6 +640,25 @@
       document.getElementById('americano_popup').style.display = 'none';
       document.getElementById('confirmation_popup').style.display = 'none';
       document.getElementById("order-details-popup").style.display = "block"; // 팝업 숨기기
+      $.ajax({
+        url: '/api/stt/speak', // 서버에 요청을 보낼 URL
+        type: 'POST',
+        data: JSON.stringify({ page:"payment", question:  "주문을 확인하셨습니까? 결제를 원하시면 네. 취소를 원하시면 아니요라고 답해주세요." }),
+        contentType: false,
+        processData: false,
+        success: function(response) {
+          if (response.message) {
+            window.location.href='payment'
+          } else {
+            window.location.href='cafemain'
+          }
+
+        },
+        error: function(xhr, status, error) {
+            console.error('Error:', error);
+            console.log('실패했습니다.[confirmOrder function]');
+        }
+      });
     }
 
     </script>
