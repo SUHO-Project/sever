@@ -51,6 +51,10 @@ def payment2(request):
 def paydone2(request):
     return render(request, 'paydone2.html')
 
+def last2(request):
+    return render(request, 'last2.html')
+
+
 
 
 def fastfoodmain(request):
