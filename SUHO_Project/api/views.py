@@ -103,75 +103,182 @@ def speakApi(request):
     page = json.loads(request.body).get("page")
     message = json.loads(request.body).get('question')
     answer = ""
+    speak(message)
     if page == "kiosk":
-        answer = returnSpeak(message)
+        answer = returnSpeak()
     elif page == "cafemain":
-        answer = returnCafeMainSpeak(message)
+        answer = returnCafeMainSpeak()
     elif page == "popup1":
-        answer = popup1(message)
+        answer = popup1()
     elif page == "popup2":
-        answer = popup2(message)
+        answer = popup2()
     elif page == "popup3":
-        answer = popup3(message)
+        answer = popup3()
+    elif page == "payment":
+        answer = payment()
+    elif page == "payment2-1":
+        answer = payment2_1()
+    elif page == "payment2-2":
+        answer = payment2_2()
+    elif page == "payment2-3":
+        answer = payment2_3()
+    elif page == "receipt":
+        answer = receipt()
+    
+    
+    
     return JsonResponse({'message': answer}, status=200)
+    
         
 
-def returnSpeak(message):
-    speak(message)
-    answer = listen(r)
-    if "카페" in answer or "커피" in answer:
-        return answer
-    else:
-        returnSpeak('없는 메뉴를 선택하셨어요. 다시 선택해 주세요.')
+def returnSpeak():
+    while True:
+        answer = listen(r)
+        if answer is not None:
+            if "카페" in answer or "커피" in answer:
+                return answer
+            else:
+                speak('없는 메뉴를 선택하셨어요. 다시 선택해 주세요.')
+        else:
+            speak('다시 말씀해 주세요.')
 
-def returnCafeMainSpeak(message):
-    speak(message)
-    answer = listen(r).replace(" ","")
-    if "아메리카노" in answer:
-        return "americano"
-    elif "카페라떼" in answer:
-        return "cafe-latte"
-    elif "바닐라라떼" in answer:
-        return "valina-latte"
-    elif "카라멜마끼아또" in answer:
-        return "caramel-macchiato"
-    elif "카페모카" in answer:
-        return "cafe-mocha"
-    elif "카푸치노" in answer:
-        return "cappuccino"
-    else:
-        returnCafeMainSpeak('없는 메뉴를 선택하셨어요. 다시 선택해 주세요.')
+def returnCafeMainSpeak():
+    while True:
+        answer = listen(r)
+        
+        if answer is not None:
+            answer.replace(" ","")
+            if "아메리카노" in answer:
+                return "americano"
+            elif "카페라떼" in answer:
+                return "cafe-latte"
+            elif "바닐라라떼" in answer:
+                return "valina-latte"
+            elif "카라멜마끼아또" in answer:
+                return "caramel-macchiato"
+            elif "카페모카" in answer:
+                return "cafe-mocha"
+            elif "카푸치노" in answer:
+                return "cappuccino"
+            else:
+                returnCafeMainSpeak('없는 메뉴를 선택하셨어요. 다시 선택해 주세요.')
+        else:
+            speak('다시 말씀해 주세요.')
 
-def popup1(message):
-    speak(message)
-    answer = listen(r).replace(" ", "")
-    if "아이스" in answer or "차가" in answer:
-        return "TemSelect2"
-    elif "핫" in answer or "따뜻" in answer or "뜨거" in answer:
-        return "TemSelect1"
-    else:
-        popup1('없는 옵션을 선택하셨어요. 다시 선택해 주세요.')
+def popup1():
+    while True:
+        answer = listen(r)
+        if answer is not None:
+            answer = answer.replace(" ", "")
+            if "아이스" in answer or "차가" in answer:
+                return "TemSelect2"
+            elif "핫" in answer or "따뜻" in answer or "뜨거" in answer:
+                return "TemSelect1"
+            else:
+                speak('없는 옵션을 선택하셨어요. 다시 선택해 주세요.')
+        else:
+            speak('다시 말씀해 주세요.')
 
-def popup2(message):
-    speak(message)
-    answer = listen(r).replace(" ", "")
-    if "기본" in answer:
-        return "기본"
-    elif "연하" in answer:
-        return "den1"
-    elif "샷추가" in answer or "원샷추가" in answer:
-        return "den3"
-    elif "투샷추가" in answer or "2샷추가":
-        return "den2"
-    else:
-        popup2('없는 옵션을 선택하셨어요. 다시 선택해 주세요.')
+def popup2():
+    while True:
+        answer = listen(r)
+        if answer is not None:
+            answer = answer.replace(" ", "")
+            if "기본" in answer:
+                return "기본"
+            elif "연하" in answer:
+                return "den1"
+            elif "샷추가" in answer or "원샷추가" in answer:
+                return "den3"
+            elif "투샷추가" in answer or "2샷추가":
+                return "den2"
+            else:
+                speak('없는 옵션을 선택하셨어요. 다시 선택해 주세요.')
+        else:
+            speak("다시 말씀해 주세요.")
     
-def popup3(message):
-    speak(message)
-    answer = listen(r).replace(" ", "")
-    if "네" in answer:
-        return True
-    elif "아니" in answer:
-        return False
-    else:
-        popup2('없는 옵션을 선택하셨어요. 다시 선택해 주세요.')
+def popup3():
+    while True:
+        answer = listen(r)
+        
+        if answer is not None:
+            answer.replace(" ", "")
+            if "네" in answer:
+                return True
+            elif "아니" in answer:
+                return False
+            else:
+                speak('없는 옵션을 선택하셨어요. 다시 선택해 주세요.')
+        else:
+            speak('다시 말씀해 주세요.')
+            
+    
+def payment():
+    while True:
+        answer = listen(r)
+        
+        if answer is not None:
+            answer.replace(" ", "")
+            if "네" in answer:
+                return True
+            elif "아니" in answer:
+                return False
+            else:
+                speak('없는 옵션을 선택하셨어요. 다시 선택해 주세요.')
+        else:
+            speak('다시 말씀해 주세요.')
+
+def payment2_1():
+    while True:
+        answer = listen(r)
+        
+        if answer is not None:
+            answer.replace(" ", "")
+            if "포장" in answer:
+                return True
+            elif "매장" in answer:
+                return False
+            else:
+                speak('없는 옵션을 선택하셨어요. 다시 선택해 주세요.')
+        else:
+            speak('다시 말씀해 주세요.')
+
+def payment2_2():
+    while True:
+        answer = listen(r)
+        
+        if answer is not None:
+            answer.replace(" ", "")
+            if "앱카드" in answer or "큐알" in answer or "qr" in answer:
+                return "앱카드"
+            elif "카드" in answer or "삼성" in answer:
+                return "카드"
+            elif "쿠폰" in answer:
+                return "쿠폰"
+            else:
+                speak('없는 옵션을 선택하셨어요. 다시 선택해 주세요.')
+        else:
+            speak('다시 말씀해 주세요.')
+
+def payment2_3():
+    while True:
+        answer = listen(r)
+        
+        if answer is not None:
+            answer.replace(" ", "")
+            if "네" in answer:
+                return True
+            elif "아니요" in answer:
+                return False
+            else:
+                speak('없는 옵션을 선택하셨어요. 다시 선택해 주세요.')
+        else:
+            speak('다시 말씀해 주세요.')
+
+def receipt():
+    while True:
+        answer = listen(r)
+        if answer is not None:
+            return True
+        else:
+            speak('다시 말씀해 주세요.')

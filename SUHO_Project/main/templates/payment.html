@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   
   
   <style>
@@ -90,7 +92,7 @@
       </div>
     </div>
     <div class="frame-842">
-      <div class="step-1">STEP 1 포장을 선택하세요</div>
+      <div class="step-1">STEP 2 결제 방식을 선택하세요</div>
     </div>
     <div class="frame-852">
       <div class="frame-843" id="frame843" data-value="카드결제 (삼성페이)">
@@ -144,15 +146,104 @@
 </body>
 
 <script>
+  
+  $(document).ready(function() {
+    let selectedOption = ""; // 선택된 옵션을 저장하는 변수
 
-  let selectedOption = ""; // 선택된 옵션을 저장하는 변수
+    const frame84 = document.getElementById("frame84");
+    const frame85 = document.getElementById("frame85");
+    
+    voiceStart();
+});
 
-const frame84 = document.getElementById("frame84");
-const frame85 = document.getElementById("frame85");
+  function voiceStart() {
+    $.ajax({
+      url: '/api/stt/speak', // 서버에 요청을 보낼 URL
+      type: 'POST',
+      data: JSON.stringify({ page:"payment2-1", question:  "포장 방식을 선택하세요. 포장을 원하시면 포장, 매장에서 드시고 가시면 매장이라고 답해주세요." }),
+      contentType: false,
+      processData: false,
+      success: function(response) {
+        if (response.message) {
+          frame84Click();
+        } else {
+          frame85Click();
+        }
+        voiceNext();
+      },
+      error: function(xhr, status, error) {
+          console.error('Error:', error);
+          console.log('실패했습니다.[selectedContinue function]');
+      }
+    });
+  }
+
+  function voiceNext() {
+    $.ajax({
+      url: '/api/stt/speak', // 서버에 요청을 보낼 URL
+      type: 'POST',
+      data: JSON.stringify({ page:"payment2-2", question:  "결제 방식을 선택하세요." }),
+      contentType: false,
+      processData: false,
+      success: function(response) {
+        if (response.message == "카드") {
+          frame834Click();
+        } else if (response.message == "앱카드") {
+          frame853Click();
+        } else {
+          frame86Click();
+        }
+        voiceConfrim();
+      },
+      error: function(xhr, status, error) {
+          console.error('Error:', error);
+          console.log('실패했습니다.[selectedContinue function]');
+      }
+    });
+  }
+
+ function voiceConfrim() {
+  $.ajax({
+    url: '/api/stt/speak', // 서버에 요청을 보낼 URL
+    type: 'POST',
+    data: JSON.stringify({ page:"payment2-3", question:  "다음으로 넘어가길 원하시면 네, 결제 취소를 원하시면 아니요라고 답해주세요." }),
+    contentType: false,
+    processData: false,
+    success: function(response) {
+      if (response.message) {
+        paynow();
+      } else {
+        window.location.href='cafemain'
+      }
+      voiceNext();
+    },
+    error: function(xhr, status, error) {
+        console.error('Error:', error);
+        console.log('실패했습니다.[selectedContinue function]');
+    }
+  });
+ }
+
+
 
 
 function paynow() {
   document.getElementById('paypopup').style.display = "block";
+
+  $.ajax({
+    url: '/api/stt/speak', // 서버에 요청을 보낼 URL
+    type: 'POST',
+    data: JSON.stringify({ page:"", question:  "그림과 같이 카드를 넣어주세요." }),
+    contentType: false,
+    processData: false,
+    success: function(response) {
+      
+    },
+    error: function(xhr, status, error) {
+        console.error('Error:', error);
+        console.log('실패했습니다.[selectedContinue function]');
+    }
+  });
 
     // 페이지가 로드된 후 3초 뒤에 paydone.html로 이동
   setTimeout(function() {
@@ -160,18 +251,26 @@ function paynow() {
   }, 5000); // 3000ms = 3초
 }
 
-
-frame84.addEventListener("click", function() {
+function frame84Click() {
   clearSelection();
   frame84.classList.add("selected");
   selectedOption = frame84.getAttribute("data-value"); // 선택된 값 저장
   console.log("선택된 옵션:", selectedOption); // 선택된 값 확인
-});
+}
 
-frame85.addEventListener("click", function() {
+function frame85Click() {
   clearSelection();
   frame85.classList.add("selected");
   selectedOption = frame85.getAttribute("data-value"); // 선택된 값 저장
+}
+
+
+frame84.addEventListener("click", function() {
+  frame84Click();
+});
+
+frame85.addEventListener("click", function() {
+  frame85Click();
 });
 
 function clearSelection() {
@@ -185,25 +284,37 @@ const frame843 = document.getElementById("frame843");
 const frame853 = document.getElementById("frame853");
 const frame86 = document.getElementById("frame86");
 
-frame843.addEventListener("click", function() {
+function frame834Click() {
   clearPaymentSelection();
   frame843.classList.add("selected");
   selectedPaymentOption = frame843.getAttribute("data-value"); // 선택된 값 저장
   console.log("선택된 결제 옵션:", selectedPaymentOption); // 선택된 값 확인
-});
+}
 
-frame853.addEventListener("click", function() {
+function frame853Click() {
   clearPaymentSelection();
   frame853.classList.add("selected");
   selectedPaymentOption = frame853.getAttribute("data-value"); // 선택된 값 저장
   console.log("선택된 결제 옵션:", selectedPaymentOption); // 선택된 값 확인
-});
+}
 
-frame86.addEventListener("click", function() {
+function frame86Click() {
   clearPaymentSelection();
   frame86.classList.add("selected");
   selectedPaymentOption = frame86.getAttribute("data-value"); // 선택된 값 저장
   console.log("선택된 결제 옵션:", selectedPaymentOption); // 선택된 값 확인
+}
+
+frame843.addEventListener("click", function() {
+  frame834Click();
+});
+
+frame853.addEventListener("click", function() {
+  frame853Click();
+});
+
+frame86.addEventListener("click", function() {
+  frame86Click();
 });
 
 function clearPaymentSelection() {
