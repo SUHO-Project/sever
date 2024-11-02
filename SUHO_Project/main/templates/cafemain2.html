@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static/cafemain2.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+        <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+      a, button, input, select, h1, h2, h3, h4, h5, *
+      {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        border: none;
+        text-decoration: none;
+        background: none;
+
+        -webkit-font-smoothing: antialiased;
+        font-family: "Noto Sans KR" !important;
+      }
+
+      menu, ol, ul
+      {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* 팝업 중앙 배치 */
+    #americano_popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1000; /* 오버레이보다 위에 표시 */
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #order-details-popup {
+    background: #ffffff;
+    border-style: solid;
+    border-color: #979797;
+    border-width: 1px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 250px;
+    height: 360px;
+    position: fixed;
+    top: 50%; /* 화면 세로 중앙 위치 */
+    left: 50%; /* 화면 가로 중앙 위치 */
+    transform: translate(-50%, -50%); /* 정확한 중앙 정렬 */
+    z-index: 9999; /* 다른 요소들 위에 표시되게 */
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+  }
+
+
+    </style>
+    <title>coffee</title>
+  </head>
+
+  <body>
+    <div class="main-2">
+      <div class="yellow-panel"></div>
+      <div class="suho-coffee">SUHO COFFEE</div>
+      <div class="americano-retangle" onclick="buy('americano')"></div>
+      <div class="_2000"  >
+        <span>
+          <span class="_2000-span">
+            아메리카노
+            <br />
+          </span>
+          <span class="_2000-span2">2000원</span>
+        </span>
+      </div>
+      <img class="americano" src="static/img/americano0.png" onclick="buy('americano')"/>
+      <div class="carmel-retangle" onclick="buy('caramel-macchiato')"></div>
+      <div class="_3700">
+        <span>
+          <span class="_3700-span">
+            카라멜마끼아또
+            <br />
+          </span>
+          <span class="_3700-span2">3700원</span>
+        </span>
+      </div>
+      <img class="caramel-macchiato" src="static/img/caramel-macchiato0.png" onclick="buy('caramel-macchiato')" />
+      <div class="cafemocha-retangle"></div>
+      <div class="_37002">
+        <span>
+          <span class="_37002-span">
+            카페모카
+            <br />
+          </span>
+          <span class="_37002-span2">3500원</span>
+        </span>
+      </div>
+      <img class="cafe-mocha" src="static/img/cafe-mocha0.png" onclick="buy('cafe-mocha')" />
+      <div class="cappuccino-retnagle"></div>
+      <div class="_37003">
+        <span>
+          <span class="_37003-span">
+            카푸치노
+            <br />
+          </span>
+          <span class="_37003-span2">4000원</span>
+        </span>
+      </div>
+      <img class="cappuccino" src="static/img/cappuccino0.png" onclick="buy('cappuccino')" />
+      <div class="checklist-retangle">
+        <table>
+          <thead>
+          <tr>
+              <th>이름</th>
+              <th></th>
+              <th>수량</th>
+              <th></th>
+              <th>옵션</th>
+              <th>가격</th>
+              <th>취소</th>
+          </tr>
+          </thead>
+          <tbody>
+            {% for cart in carts %}
+          <tr>
+              <td>{{ cart.menu.menuName }}</td>
+              <td onclick="changeQuantity(-1, '{{ cart.id }}')"> <b>&nbsp;&nbsp;-&nbsp;&nbsp;</b></td>
+              <td>{{ cart.menuQuantity }}</td>
+              <td onclick="changeQuantity(1, '{{ cart.id }}')"> <b>&nbsp;&nbsp;+&nbsp;&nbsp;</b> </td>
+              <td>{{ cart.option1 }}<br> {{ cart.option2 }}</td>
+              <td>{{ cart.totalPrice }}원</td>
+              <td style="color: red" onclick="deleteCart('{{ cart.id }}')">취소</td>
+          </tr>
+          {% endfor %}
+          </tbody>
+      </table>
+      </div>
+      <div class="pay-retangle" onclick="confirmOrder()">
+        <div class="div">결제하기</div>
+      </div>
+      <img class="home-button" src="static/img/home-button0.png" onclick="window.location.href='/'" />
+      <div class="cafelatte-retangle"></div>
+      <div class="_3000" onclick="buy('cafe-latte')">
+        <span>
+          <span class="_3000-span">
+            카페라떼
+            <br />
+          </span>
+          <span class="_3000-span2">3200원</span>
+        </span>
+      </div>
+      <img class="cafe-latte" src="static/img/cafe-latte0.png" onclick="buy('cafe-latte')" />
+      <div class="valina-retangle"></div>
+      <div class="_30002">
+        <span>
+          <span class="_30002-span">
+            바닐라라떼
+            <br />
+          </span>
+          <span class="_30002-span2">3500원</span>
+        </span>
+      </div>
+      <div class="valina-latte">
+        <img class="image-36" src="static/img/valina-latte.png" onclick="buy('valina-latte')"/>
+      </div>
+      <div class="coffee-button2" onclick="location.href='cafemain'">
+        <div class="div3" onclick="">커피</div>
+      </div>
+      <div class="smoothe-button2">
+        <div class="div4">스무디</div>
+      </divdiv>
+    </div>
+
+
+    <div class="frame-76" id="americano_popup">
+      <div class="frame-77">
+        <div class="popupdiv">선택하신 상품의 옵션을 선택해주세요</div>
+      </div>
+      <div class="frame-78">
+        <img class="popupamericano" id="menuimg" src="static/img/americano0.png" />
+        <div class="popupdiv2" id="menuname">아메리카노</div>
+        <div class="popup_2000" id="menuprice">2000원</div>
+      </div>
+      <div class="popupdiv3">온도(필수)</div>
+      <div class="frame-79">
+        <button class="frame-22" id="TemSelect1" onclick="Tem_selectOption(this)" >
+          <div class="popupdiv4" >핫</div>
+        </button>
+        <button class="frame-23" id="TemSelect2" onclick="Tem_selectOption(this)">
+          <div class="popupdiv4">아이스</div>
+        </button>
+      </div>
+      <div class="popupdiv3">농도(선택, 단일선택)</div>
+      <div class="frame-80">
+        <button class="frame-222" id = 'den' onclick="den_selectOption(this)">
+          <div class="popupdiv4" >연하게</div>
+          <div class="_0">+0원</div>
+        </button>
+        <button class="frame-232" id = 'den' onclick="den_selectOption(this)">
+          <div class="popupdiv4" >샷추가</div>
+          <div class="_500">+500원</div>
+        </button>
+        <button class="frame-2323 frame-232" id = 'den' onclick="den_selectOption(this)">
+          <div class="popupdiv4">2샷추가</div>
+          <div class="_2">+1000원</button>
+        </div>
+        <div class="frame-81">
+          <div class="frame-223">
+            <div class="popupdiv5" onclick="closePopup()">취소</div>
+          </div>
+          <div class="frame-233" onclick="showConfirmationPopup()">
+            <div class="popupdiv5">주문담기</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- 확인 팝업 -->
+  <div class="frame-86" id="confirmation_popup" style="display: none;">
+    <div class="div">
+      <div class="flex-container" style="flex-direction: column; align-items: center;">
+        <div style="display: flex; gap: 5px;">
+          <span class="div-span" id="Tem1">'아이스'</span>
+          <span class="div-span" id="Den1">'연하게'</span>
+        </div>
+        <span class="div-span2" style="margin-top: 2px;">를 선택하셨나요?</span> <!-- 간격 줄이기 위해 margin-top 조정 -->
+      </div>    
+    </div>
+    <div class="frame-91">
+      <div class="div2">
+        <span>
+          <span class="div-2-span" style="display: inline-block;">맞으시면</span>
+          <span class="div-2-span" style="display: inline-block;">확인</span>
+          <span class="div-2-span" style="display: inline-block;">아니면</span>
+          <span class="div-2-span" style="display: inline-block;">취소</span>
+          <span class="div-2-span5" style="display: inline-block;">버튼을 눌러주세요</span>
+        </span>
+      </div>
+    </div>
+    <div class="frame-92">
+      <div class="frame-93" onclick="saveCart()">
+        <div class="okay">확인</div>
+      </div>
+      <div class="frame-94" onclick="closeConfirmationPopup()">
+        <div class="cancel">취소</div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- 주문 세부 내역 팝업 -->
+  <div class="order-details-popup" id="order-details-popup" style="display:none">
+    <div class="frame-101">
+      <div class="order_list">주문 세부내역을 확인하여 주세요</div>
+    </div>
+    <div class="frame-102">
+      <table>
+        <tbody>
+          {% for cart in carts %}
+        <tr>
+            <td>{{ cart.menu.menuName }}</td>
+            <td>{{ cart.menuQuantity }}</td>
+            <td>{{ cart.option1 }}<br> {{ cart.option2 }}</td>
+            <td>{{ cart.totalPrice }}원</td>
+        </tr>
+        {% endfor %}
+        </tbody>  
+
+      </table>
+    </div>
+
+
+
+    
+    <div class="frame-103">
+        <div class="frame-1043">
+          <div class="div3">
+            <span>
+              <span class="div-3-span4">총</span>
+              <span class="div-3-span5"></span>
+              <span class="div-3-span6">결제금액</span>
+            </span>
+          </div>  
+        </div>
+        <div class="amount_check">{{ total }}원</div>
+    </div>
+      <button class="final_cancel" onclick="window.location.href='cafemain'">
+        <div class="final">취소하기</div>
+      </button>
+      <button class="final_okay">
+        <div class="final" onclick="window.location.href='payment'">결제하기</div>
+      </button>
+  
+    </div>
+  </div>
+
+
+    
+    <script>
+      $.ajax({
+        url: '/api/stt/speak', // 서버에 요청을 보낼 URL
+        type: 'POST',
+        data: JSON.stringify({ page:"cafemain", question: "원하시는 메뉴를 말씀해 주세요." }),
+        contentType: false,
+        processData: false,
+        success: function(response) {
+          buy(response.message);
+        },
+        error: function(xhr, status, error) {
+            console.error('Error:', error);
+            alert('실패했습니다.');
+        }
+      });
+
+      // 커피 데이터를 객체로 정의
+      const coffeeData = {
+        "americano": {
+          name: "아메리카노",
+          price: "2000원",
+          image: "static/img/americano0.png",
+          retangle: 'americano-retangle'
+        },
+        "caramel-macchiato": {
+          name: "카라멜 <br> 마끼아또",
+          price: "3700원",
+          image: "static/img/caramel-macchiato0.png",
+          retangle: 'carmel-retangle'
+        },
+        "cafe-mocha": {
+          name: "카페모카",
+          price: "3500원",
+          image: "static/img/cafe-mocha0.png",
+          retangle: 'cafemocha-retangle'
+        },
+        "cappuccino": {
+          name: "카푸치노",
+          price: "4000원",
+          image: "static/img/cappuccino0.png",
+          retangle: 'cappuccino-retnagle',
+        },
+        "valina-latte": {
+          name: "바닐라라떼",
+          price: "3500원",
+          image: "static/img/valina-latte.png",
+          retangle: 'valina-retangle'
+        },
+        "cafe-latte": {
+          name: "카페라떼",
+          price: "3200원",
+          image: "static/img/cafe-latte0.png",
+          retangle: 'cafelatte-retangle'
+        }
+      };
+
+      const select_checkred = {
+        "frame-22": {
+          name: "핫",
+        },
+        "frame-23": {
+          name: "아이스",
+        },
+        "frame-222": {
+          name: "연하게",
+        },
+        "frame-232": {
+          name: "샷추가",
+        },
+        "frame-2323": {
+          name: "2샷추가",
+        },
+      };
+
+    
+      let selectedMenu = null; // 현재 선택된 메뉴를 저장하는 변수
+      let selectedMenuName = "";
+      let selectedOption1 = null;
+      let selectedOption2 = null;
+      let realTotal = 0;
+      // 커피 선택 함수
+      function buy(coffee) {
+        // 기존 선택된 메뉴의 테두리 제거
+        if (selectedMenu) {
+          selectedMenu.classList.remove('selected');
+        }
+        
+
+        // 현재 선택된 메뉴에 테두리 추가
+        const menuElement = document.querySelector(`.${coffeeData[coffee].retangle}`);
+        menuElement.classList.add('selected');
+        selectedMenu = menuElement; // 현재 선택된 메뉴 업데이트
+        selectedMenuName = coffeeData[coffee].name;
+        if (coffee == 'caramel-macchiato') {
+          selectedMenuName = "카라멜마끼아또";
+        }
+        // 팝업 표시 및 정보 변경
+        openPopup(coffee);
+      }
+
+      function changeQuantity(n, cartId) {
+        $.ajax({
+          url: '/api/cart/' + cartId + "/", // 서버에 요청을 보낼 URL
+          type: 'PUT',
+          data: JSON.stringify({ quantity: n }),
+          contentType: false,
+          processData: false,
+          success: function(response) {
+              window.location.reload();
+            },
+          error: function(xhr, status, error) {
+              console.error('Error:', error);
+              alert('카트 추가에 실패했습니다.');
+          }
+        });
+      }
+      
+      function openPopup(coffee) {
+        document.getElementById('americano_popup').style.display = 'block';
+        document.getElementById('menuimg').src = coffeeData[coffee].image;
+        document.getElementById('menuname').innerHTML = coffeeData[coffee].name;
+        document.getElementById('menuprice').innerHTML = coffeeData[coffee].price;
+
+        $.ajax({
+          url: '/api/stt/speak', // 서버에 요청을 보낼 URL
+          type: 'POST',
+          data: JSON.stringify({ page:"popup1", question: "온도를 선택해 주세요." }),
+          contentType: false,
+          processData: false,
+          success: function(response) {
+            Tem_selectOption(document.getElementById(response.message));
+          },
+          error: function(xhr, status, error) {
+              console.error('Error:', error);
+              alert('실패했습니다.');
+          }
+        });
+      }
+    
+      // 팝업 닫기 함수
+      function closePopup() {
+        if (selectedMenu) {
+          selectedMenu.classList.remove('selected');
+        }
+        selectedMenu=null;
+        selectedMenuName = "";
+        selectedOption1 = null;
+        selectedOption2 = null;
+        const first_options = document.querySelectorAll('.frame-79 button');
+      first_options.forEach(btn => btn.classList.remove('selected-option'));
+      const second_options = document.querySelectorAll('.frame-80 button');
+      second_options.forEach(btn => btn.classList.remove('selected-option'));
+        document.getElementById("americano_popup").style.display = "none";
+      }
+
+    // 팝업 옵션 버튼 클릭 시 테두리 추가 함수
+    function Tem_selectOption(clickedOption) {
+    // 모든 옵션 버튼에서 클래스 제거
+      const first_options = document.querySelectorAll('.frame-79 button');
+      first_options.forEach(btn => btn.classList.remove('selected-option'));
+
+    // 클릭한 버튼에 선택 클래스 추가
+      clickedOption.classList.add('selected-option');
+      selectedOption1 = select_checkred[clickedOption.className.split(' ')[0]].name;
+      // options(clickedOption.className.split(' ')[0]);
+
+    }
+    function den_selectOption(clickedOption) {
+      const second_options = document.querySelectorAll('.frame-80 button');
+      second_options.forEach(btn => btn.classList.remove('selected-option'));
+      clickedOption.classList.add('selected-option');
+      selectedOption2 = select_checkred[clickedOption.className.split(' ')[0]].name;
+      // options(clickedOption.className.split(' ')[0]);
+
+    }
+
+    // 주문 담기 버튼 클릭 시 확인 팝업 표시
+      function showConfirmationPopup() {
+        if (selectedOption1 == null) {
+          alert("온도를 선택해 주세요.")
+          return;
+        }
+        
+        document.getElementById('Tem1').innerHTML = selectedOption1;
+        document.getElementById('Den1').innerHTML = selectedOption2;
+        const confirmationPopup = document.getElementById("confirmation_popup");
+        confirmationPopup.style.display = "block"; // 확인 팝업 표시
+
+    } 
+
+    function saveCart() {
+      var formData = new FormData();
+      formData.append('menuName', selectedMenuName);
+      formData.append('menuQuantity', 1);
+      formData.append('option1', selectedOption1);
+      formData.append('option2', selectedOption2);
+        console.log(selectedMenuName);
+        console.log(selectedOption1);
+        console.log(selectedOption2);
+      $.ajax({
+        url: '/api/cart/create', // 서버에 요청을 보낼 URL
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function(response) {
+            window.location.reload();
+          },
+        error: function(xhr, status, error) {
+            console.error('Error:', error);
+            alert('카트 추가에 실패했습니다.');
+        }
+      });
+    }
+    const csrfToken = '{{ csrf_token }}';
+    function deleteCart(cartId) {
+        if (confirm('정말로 삭제하시겠습니까?')) {
+          $.ajax({
+            url: '/api/cart/'+cartId+"/", // 서버에 요청을 보낼 URL
+            type: 'DELETE',
+            success: function(response) {
+                window.location.reload();
+              },
+            error: function(xhr, status, error) {
+                console.error('Error:', error);
+                alert('삭제 실패했습니다.');
+            }
+          });
+        }
+    }
+
+    // 확인 팝업 닫기
+    function closeConfirmationPopup() {
+      const confirmationPopup = document.getElementById("confirmation_popup");
+      confirmationPopup.style.display = "none"; // 확인 팝업 숨기기
+    }
+
+
+    function confirmOrder() {
+      document.getElementById('americano_popup').style.display = 'none';
+      document.getElementById('confirmation_popup').style.display = 'none';
+      document.getElementById("order-details-popup").style.display = "block"; // 팝업 숨기기
+    }
+
+    </script>

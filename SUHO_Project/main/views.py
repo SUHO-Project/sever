@@ -26,3 +26,12 @@ def fastfoodmain(request):
 
 def payment(request):
     return render(request, 'payment.html')
+
+def cafemain2(request):
+    return render(request, 'cafemain2.html')
+
+def start(request):
+    return render(request, 'start.html')
+
+
+
