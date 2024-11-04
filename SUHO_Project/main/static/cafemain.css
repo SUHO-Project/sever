@@ -95,13 +95,13 @@ html,body {
   text-transform: uppercase;
 }
 .americano {
-  width: 16.38%;
-  height: 12.32%;
-  position: absolute;
+  width: 20%;
+  height: 16.5%;
   right: 74.87%;
-  left: 8.75%;
-  bottom: 63.73%;
-  top: 23%;
+  left: 7.5%;
+  position: absolute;
+  bottom: 60%;
+  top: 22%;
   object-fit: cover;
 }
 .caramel-macchiato-button {
@@ -155,13 +155,14 @@ html,body {
 }
 .caramel-macchiato {
   width: 17%;
-  height: 13.5%;
+  height: 12.5%;
   position: absolute;
   right: 73.12%;
-  left: 9.5%;
+  left: 8.5%;
   bottom: 39.96%;
-  top: 46%;
+  top: 47.5%;
   object-fit: cover;
+  
 }
 .cafe-mocha-button {
   position: absolute;
@@ -215,12 +216,12 @@ html,body {
 }
 .cafe-mocha {
   width: 16%;
-  height: 12.5%;
+  height: 12%;
   position: absolute;
   right: 42.5%;
   left: 42.19%;
   bottom: 40.49%;
-  top: 47%;
+  top: 48%;
   object-fit: cover;
 }
 .cappuccino-button {
@@ -274,13 +275,13 @@ html,body {
   text-transform: uppercase;
 }
 .cappuccino {
-  width: 21.88%;
-  height: 13%;
+  width: 18%;
+  height: 12%;
   position: absolute;
   right: 6.25%;
-  left: 71.88%;
+  left: 73%;
   bottom: 40.49%;
-  top: 47%;
+  top: 48%;
   object-fit: cover;
 }
 .checklist-retangle {
@@ -384,6 +385,8 @@ html,body {
   font-weight: 700;
   text-transform: uppercase;
   white-space: nowrap;
+  position: relative;
+  left: -12%;
   
 }
 ._3000-span2 {
@@ -393,15 +396,17 @@ html,body {
   letter-spacing: 1.25px;
   font-weight: 700;
   text-transform: uppercase;
+  position: relative;
+  left: -12%;
 }
 .cafe-latte {
-  width: 16.5%;
-  height: 13%;
+  width: 15%;
+  height: 12.5%;
   position: absolute;
   right: 73.62%;
-  left: 75%;
+  left: 75.7%;
   bottom: 64.38%;
-  top: 22.5%;
+  top: 24%;
   object-fit: cover;
 }
 .valina-latte-button {
@@ -460,11 +465,11 @@ html,body {
 }
 
 .image-36 {
-  width: 17.5%;
-  height: 12.32%;
+  width: 20%;
+  height: 15%;
   position: absolute;
   right: 40.62%;
-  left: 41.88%;
+  left: 40%;
   bottom: 63.38%;
   top: 23%;
   object-fit: cover;
