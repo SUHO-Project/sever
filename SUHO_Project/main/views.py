@@ -66,7 +66,7 @@ def fastfoodbuger(request):
     total = 0
     for cart in carts:
         total += cart.totalPrice
-    return render(request,'fastfoodbuger.html')
+    return render(request,'fastfoodbuger.html', {'carts':carts, 'total':total})
 
 def buger_popup(request):
     return render(request, 'buger_popup.html')
