@@ -14,13 +14,14 @@
 </head>
 <body>
   <div class="main-2">
+    <img class="home-button" src="static/img/home-button0.png" onclick="window.location.href='/'"/>
     <!-- 메인 화면 컨텐츠 -->
     <div class="rectangle-120"></div>
-    <img class="home-button" src="static/img/home-button0.png" />
+    
     <div class="board"></div>
 
     <!-- 햄버거 메뉴 제목 -->
-    <div class="hamburguer-button">
+    <div class="hamburguer-button" >
       <div class="text-bold">햄버거</div>
     </div>
     
@@ -90,7 +91,6 @@
       </div>
       <img class="doubleteriburger" src="static/img/doubleteriburger.png" />
     </div>
-    <img class="arrow-left-button" src="static/img/arrow-left.png" />
     <div class="text-right-div2">사이드</div>
     <div class="text-right-div3">음료</div>
     <div class="gray-rectangle"></div>
@@ -110,9 +110,9 @@
       <div class="text-right">취소하기</div>
     </div>
 
-    <div class="payment-button">
-      <div class="payment-retangle"></div>
-      <div class="text-right">결제하기</div>
+    <div class="payment-button" onclick="window.location.href=''">
+      <div class="payment-retangle" ></div>
+      <div class="text-right" onc>결제하기</div>
     </div>
   </div>
 
@@ -245,6 +245,54 @@
       <div class="frame-99" onclick="closeMenuConfirmationPopup()">취소</div>
     </div>
   </div>
+
+
+    <!-- 주문 세부 내역 팝업 -->
+    <div class="order-details-popup" id="order-details-popup" style="display:none">
+      <div class="frame-101">
+        <div class="order_list">주문 세부내역을 확인하여 주세요</div>
+      </div>
+      <div class="frame-102">
+        <table>
+          <tbody>
+            {% for cart in carts %}
+          <tr>
+              <td>{{ cart.menu.menuName }}</td>
+              <td>{{ cart.menuQuantity }}</td>
+              <td>{{ cart.option1 }}<br> {{ cart.option2 }}</td>
+              <td>{{ cart.totalPrice }}원</td>
+          </tr>
+          {% endfor %}
+          </tbody>  
+  
+        </table>
+      </div>
+  
+  
+  
+      
+      <div class="frame-103">
+          <div class="frame-1043">
+            <div class="div3">
+              <span>
+                <span class="div-3-span4">총</span>
+                <span class="div-3-span5"></span>
+                <span class="div-3-span6">결제금액</span>
+              </span>
+            </div>  
+          </div>
+          <div class="amount_check">{{ total }}원</div>
+      </div>
+        <button class="final_cancel" onclick="window.location.href='cafemain'">
+          <div class="final">취소하기</div>
+        </button>
+        <button class="final_okay">
+          <div class="final" onclick="window.location.href='payment'">결제하기</div>
+        </button>
+    
+      </div>
+    </div>
+  
   
   <script>
     // 상태 변수를 추가하여 선택된 메뉴가 버거인지 세트 디저트인지 확인

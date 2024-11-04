@@ -1,3 +1,8 @@
+html,body {
+  height: 100%;
+  
+}
+
 /* 기본 설정 */
 body, a, button, input, select, h1, h2, h3, h4, h5, * {
     box-sizing: border-box;
@@ -19,41 +24,44 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
   .main-2,
   .main-2 * {
     box-sizing: border-box;
+
   }
   
   .main-2 {
     background: #ffffff;
-    width: 320px;
-    height: 568px;
     position: relative;
     overflow: hidden;
+    width: 100% !important;
+    height: 100% !important;
   }
   
   .rectangle-120 {
     background: rgba(217, 217, 217, 0.63);
-    width: 322px;
-    height: 54px;
+    width: 110%;
+    height: 60px;
     position: absolute;
-    left: -2px;
-    top: 514px;
+    left: 0px;
+    top: 91%;
   }
   
   .home-button {
-    width: 11.25%;
-    height: 6.34%;
+    width: 6.56%;
+    height: 3.7%;
     position: absolute;
-    right: 74.69%;
-    left: 14.06%;
-    bottom: 1.58%;
-    top: 92.08%;
+    right: 82.19%;
+    left: 11.25%;
+    bottom: 89.08%;
+    top: 4%;
     transform-origin: 0 0;
     transform: rotate(0deg) scale(-1, 1);
     object-fit: cover;
+
+    z-index: 99
   }
   
   .board {
     background: #fcc813;
-    width: 321px;
+    width: 100%;
     height: 88px;
     position: absolute;
     left: 0px;
@@ -69,13 +77,13 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
     gap: 10px;
     align-items: center;
     justify-content: center;
-    width: 22.81%;
-    height: 6.51%;
+    width: 33%;
+    height:5%;
     position: absolute;
     right: 70.94%;
-    left: 6.25%;
+    left: 0%;
     bottom: 84.51%;
-    top: 8.98%;
+    top: 8.5%;
     white-space: nowrap;
   }
   
@@ -109,10 +117,10 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
   }
   
   .teriburger-button {
-    width: 144px;
+    width: 170px;
     height: 76px;
     position: absolute;
-    left: 6px;
+    left: 20px;
     top: 114px;
   }
   
@@ -126,6 +134,7 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
     width: 144px;
     height: 76px;
     position: absolute;
+
   }
   
   .teriburger {
@@ -173,7 +182,7 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
     width: 144px;
     height: 76px;
     position: absolute;
-    left: 155px;
+    left: 200px;
     top: 113px;
   }
   
@@ -187,10 +196,10 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
   }
   
   .shrimpburger-button {
-    width: 144px;
+    width: 170px;
     height: 76px;
     position: absolute;
-    left: 6px;
+    left: 20px;
     top: 208px;
   }
   
@@ -207,7 +216,7 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
     width: 144px;
     height: 76px;
     position: absolute;
-    left: 155px;
+    left: 200px;
     top: 207px;
     display: flex;
     flex-direction: column;
@@ -225,10 +234,10 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
   }
   
   .cheeseburger-button {
-    width: 144px;
+    width: 170px;
     height: 76px;
     position: absolute;
-    left: 7px;
+    left: 20px;
     top: 302px;
   }
   
@@ -245,7 +254,7 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
     width: 144px;
     height: 76px;
     position: absolute;
-    left: 155px;
+    left: 200px;
     top: 302px;
   }
   
@@ -257,17 +266,11 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
     top: 8px;
     object-fit: cover;
   }
-  
-  .arrow-left-button {
-    position: absolute;
-    left: 286px;
-    top: 54px;
-    overflow: visible;
-  }
+
   
   .text-right-div2,
   .text-right-div3 {
-    text-align: right;
+    text-align: center;
     font-family: "Roboto-Bold", sans-serif;
     font-size: 13px;
     letter-spacing: 1.25px;
@@ -278,23 +281,24 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+ 
   }
   
   .text-right-div2 {
-    left: 133px;
+    left: 180px;
   }
   
   .text-right-div3 {
-    left: 227px;
+    left: 300px;
   }
   
   .gray-rectangle {
     background: rgba(217, 217, 217, 0.63);
-    width: 322px;
-    height: 30px;
+    width: 100%;
+    height: 6%;
     position: absolute;
     left: 0px;
-    top: 393px;
+    top: 410px;
   }
   
   /* 주문 내역 */
@@ -302,8 +306,8 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
     text-align: center;
     text-transform: uppercase;
     position: absolute;
-    left: 7px;
-    top: 395px;
+    left: 40px;
+    top: 415px;
     width: 279px;
     display: flex;
     align-items: center;
@@ -313,10 +317,10 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
   /* 취소하기 & 결제하기 버튼 */
   .cancel-button,
   .payment-button {
-    width: 106px;
-    height: 39px;
+    width: 110px;
+    height: 40px;
     position: absolute;
-    top: 523px;
+    top: 92.5%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -340,7 +344,7 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
   
   .cancel-retangle,
   .payment-retangle {
-    width: 106px;
+    width: 100px;
     height: 39px;
     position: absolute;
   }
@@ -418,7 +422,7 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 123px;
+    width: 110px;
     height: 28px;
     cursor: pointer;
   }
@@ -438,7 +442,7 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 285px;
+    width: 290px;
     height: 410px;
     background: #ffffff;
     border: 1px solid #000000;
@@ -529,7 +533,7 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
   
   .popup-group-68 .popup-cancel-btn,
   .popup-group-68 .popup-confirm-btn {
-    width: 100px;
+    width: 120px;
     height: 40px;
     font-size: 15px;
     font-weight: 700;
@@ -543,7 +547,7 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
   }
   
   .popup-group-68 .popup-confirm-btn {
-    background-color: rgba(255, 0, 0, 0.5);
+    background-color: rgb(255 0 0);
     color: #ffffff;
   }
   
@@ -644,10 +648,10 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
   
   .popup-group-70 .popup-cancel-btn,
   .popup-group-70 .popup-confirm-btn {
-    width: 100px;
+    width: 120px;
     height: 40px;
     font-size: 15px;
-    font-weight: 700;
+    font-weight: 600;
     border: none;
     border-radius: 5px;
   }
@@ -658,7 +662,194 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
   }
   
   .popup-group-70 .popup-confirm-btn {
-    background-color: rgba(255, 0, 0, 0.5);
+    background-color: rgb(255 0 0);
     color: #ffffff;
+  }
+  
+
+  .order-details-popup {
+    background: #ffffff;
+    border-style: solid;
+    border-color: #979797;
+    border-width: 1px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 250px;
+    height: 360px;
+    position: fixed;
+    top: 50%; /* 화면 세로 중앙 위치 */
+    left: 50%; /* 화면 가로 중앙 위치 */
+    transform: translate(-50%, -50%); /* 정확한 중앙 정렬 */
+    z-index: 9999; /* 다른 요소들 위에 표시되게 */
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+  
+  }
+  
+  .frame-101 {
+    background: #fcc813;
+    align-self: stretch;
+    flex-shrink: 0;
+    height: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .order_list {
+    color: #000000;
+    text-align: center;
+    font-family: "Roboto-Bold", sans-serif;
+    font-size: 13px;
+    letter-spacing: 1.25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: absolute;
+    left: 50%;
+    top: 12px;
+    transform: translateX(-50%);
+    width: 214px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+  
+  }
+  
+  .frame-102 {
+    border-style: solid;
+    border-color: transparent;
+    border-width: 1px;
+    /* padding: 25px 10px; */
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-self: stretch;
+    flex-shrink: 0;
+    height: 50%;
+    position: relative;
+    overflow-y: scroll;
+  }
+  
+  .menu_check, ._1 {
+    color: #000000;
+    text-align: center;
+    font-family: "Roboto-Bold", sans-serif;
+    font-size: 13px;
+    letter-spacing: 1.25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .frame-103 {
+    border-style: solid;
+    border-color: #000000;
+    border-width: 1px;
+    padding: 0px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 220px;
+    height: 40px;
+    position: absolute;
+    left: calc(50% - 110px);
+    top: 240px;
+    overflow: hidden;
+  }
+  
+  
+  .amount_check {
+    color: #ff0000;
+    position: absolute;
+    left: 150px;
+    top: 22%;
+    width: 94px;
+    height: 15px;
+  }
+  
+  .final_cancel, .final_okay {
+    flex-shrink: 0;
+    width: 110px;
+    height: 30px;
+    position: absolute;
+    overflow: hidden;
+  }
+  
+  .final_cancel {
+    background: #979797;
+    left: 8px;
+    top: 310px;
+  }
+  
+  .final_okay {
+    background: #fc1313;
+    left: 130px;
+    top: 310px;
+  }
+  
+  .final {
+    color: #ffffff;
+    text-align: center;
+    font-family: "Roboto-SemiBold", sans-serif;
+    font-size: 17px;
+    line-height: 30px;
+    font-weight: 600;
+    position: absolute;
+    left: 13px;
+    top: 3px;
+    width: 83px;
+    height: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  
+  table {
+    font-size: 12px;
+    
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+  }
+  th {
+    height: 10px;
+  }
+    
+  thead {
+    font-weight: bold;
+    color: #fff;
+    background: #73685d;
+  }
+  
+  tbody {
+    overflow-y:scroll;
+  }
+    
+   td, th {
+    padding: 1em .5em;
+    vertical-align: middle;
+    height:10px;
+  }
+    
+   td {
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    background: #fff;
+    height: 10px !important;
+  }
+  
+  tr {
+    height: 10px !important;
   }
   
