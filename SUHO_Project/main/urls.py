@@ -16,11 +16,15 @@ urlpatterns = [
     path('payment2', views.payment2, name='payment2'),
     path('paydone2', views.paydone2, name='paydone2'),
     path('last2', views.last2, name='last2'),
+    path('smoothie', views.smoothie, name='smoothie'),
+    path('ade', views.ade, name='ade'),
+
 
     path('fastfoodmain', views.fastfoodmain, name='fastfoodmain'),
     path('fastfoodbuger', views.fastfoodbuger, name='fastfoodbuger'),
     path('buger_popup', views.buger_popup, name='buger_popup'),
-    
+    # path('fastfood_side', views.fastfood_side, name='fastfood_side'),
+    # path('fastfood_drink', views.fastfood_drink, name='fastfood_drink'),
 
 
 

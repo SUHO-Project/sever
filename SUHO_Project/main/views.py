@@ -35,6 +35,11 @@ def cafemain2(request):
         total += cart.totalPrice
     return render(request,'cafemain2.html', {'carts':carts, 'total':total})
 
+def smoothie(request):
+    return render(request, 'smoothie.html')
+
+def ade(request):
+    return render(request, 'ade.html')
 
 
 
@@ -70,7 +75,6 @@ def fastfoodbuger(request):
 
 def buger_popup(request):
     return render(request, 'buger_popup.html')
-
 
 
 

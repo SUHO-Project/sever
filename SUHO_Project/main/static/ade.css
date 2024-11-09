@@ -94,16 +94,16 @@ html,body {
     font-weight: 700;
     text-transform: uppercase;
   }
-  .americano {
-    width: 20%;
-    height: 16.5%;
+.americano {
+    width: 14%;
+    height: 12%;
     right: 74.87%;
-    left: 7.5%;
+    left: 10%;
     position: absolute;
     bottom: 60%;
-    top: 22%;
+    top: 23.5%;
     object-fit: cover;
-  }
+}
   .caramel-macchiato-button {
     position: absolute;
     inset: 0;
@@ -144,6 +144,8 @@ html,body {
     font-weight: 700;
     text-transform: uppercase;
     white-space: nowrap;
+    margin-left: 5%;
+
   }
   ._3700-span2 {
     color: #fcc813;
@@ -154,11 +156,11 @@ html,body {
     text-transform: uppercase;
   }
   .caramel-macchiato {
-    width: 17%;
-    height: 12.5%;
+    width: 15%;
+    height: 12%;
     position: absolute;
     right: 73.12%;
-    left: 8.5%;
+    left: 9.5%;
     bottom: 39.96%;
     top: 47.5%;
     object-fit: cover;
@@ -203,6 +205,7 @@ html,body {
     font-weight: 700px;
     text-transform: uppercase;
     white-space: nowrap;
+    margin-left: 15%;
   
   }
   ._37002-span2 {
@@ -212,17 +215,19 @@ html,body {
     letter-spacing: 1.25px;
     font-weight: 700;
     text-transform: uppercase;
+    position: relative;
+    left: -5%;
   }
   .cafe-mocha {
-    width: 16%;
-    height: 12%;
+    width: 24%;
+    height: 14.5%;
     position: absolute;
     right: 42.5%;
-    left: 42.19%;
+    left: 38.5%;
     bottom: 40.49%;
-    top: 48%;
+    top: 46.7%;
     object-fit: cover;
-  }
+    } 
   .cappuccino-button {
     position: absolute;
     inset: 0;
@@ -263,6 +268,7 @@ html,body {
     font-weight: 700;
     text-transform: uppercase;
     white-space: nowrap;
+    margin-left: 12%;
     
   }
   ._37003-span2 {
@@ -274,15 +280,15 @@ html,body {
     text-transform: uppercase;
   }
   .cappuccino {
-    width: 18%;
-    height: 12%;
+    width: 25%;
+    height: 14.5%;
     position: absolute;
     right: 6.25%;
-    left: 73%;
+    left: 71%;
     bottom: 40.49%;
-    top: 48%;
+    top: 46.2%;
     object-fit: cover;
-  }
+}
   .checklist-retangle {
     display: flex;
     flex-direction: column;
@@ -384,6 +390,7 @@ html,body {
     font-weight: 700;
     text-transform: uppercase;
     white-space: nowrap;
+    margin-left: -15%;
     
   }
   ._3000-span2 {
@@ -393,17 +400,18 @@ html,body {
     letter-spacing: 1.25px;
     font-weight: 700;
     text-transform: uppercase;
+    margin-left: -10%;
   }
   .cafe-latte {
-    width: 15%;
-    height: 12.5%;
+    width: 11%;
+    height: 14%;
     position: absolute;
     right: 73.62%;
-    left: 75.7%;
+    left: 77.5%;
     bottom: 64.38%;
-    top: 24%;
+    top: 23.5%;
     object-fit: cover;
-  }
+}
   .valina-latte-button {
     position: absolute;
     inset: 0;
@@ -460,21 +468,21 @@ html,body {
   }
   
   .image-36 {
-    width: 20%;
-    height: 15%;
+    width: 16%;
+    height: 12%;
     position: absolute;
     right: 40.62%;
-    left: 40%;
+    left: 42.5%;
     bottom: 63.38%;
-    top: 23%;
+    top: 23.5%;
     object-fit: cover;
-  }
+}
   .coffee-button {
     position: absolute;
     inset: 0;
   }
   .coffee-button2 {
-    background: #e8e7e7;
+    background: #fcc813;
     width: 33.12%;
     height: 5.99%;
     position: absolute;
@@ -482,14 +490,15 @@ html,body {
     left: 0%;
     bottom: 81.34%;
     top: 12.68%;
-    cursor: pointer; /* 커서 스타일 */
-    display: flex; /* Flexbox로 설정 */
-    align-items: center; /* 세로 중앙 정렬 */
-    justify-content: center; /* 가로 중앙 정렬 */
-  }
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
   
   .div3 {
     color: #000000;
+    font-family: "Roboto-Bold", sans-serif;
     font-size: 13px;
     letter-spacing: 1.25px;
     font-weight: 700;
@@ -509,10 +518,25 @@ html,body {
     left: 33.12%;
     bottom: 81.34%;
     top: 12.68%;
+    display: flex; /* Flexbox로 설정 */
+    align-items: center; /* 세로 중앙 정렬 */
+    justify-content: center; /* 가로 중앙 정렬 */
+  }
+
+  .ade-button2 {
+    background: #e8e7e7;
+    width: 34%;
+    height: 5.99%;
+    position: absolute;
+    right: 33.75%;
+    bottom: 81.34%;
+    top: 12.68%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    align-items: center; 
+    justify-content: center; 
+    left: 66.5%;
+  }
+
   
   .div4 {
     color: #000000;
@@ -520,186 +544,13 @@ html,body {
     letter-spacing: 1.25px;
     font-weight: 700;
     text-transform: uppercase;
-    left: 10%;
-    }
-  
-    .ade-button2 {
-      background: #fcc813;
-      width: 33.12%;
-      height: 5.99%;
-      position: absolute;
-      right: 33.75%;
-      bottom: 81.34%;
-      top: 12.68%;
-      display: flex;
-      align-items: center; 
-      justify-content: center; 
-      left: 66.5%;
-    }
+    position: fixed;
+    left: 44%;
+    top: 14.2%;
+  }
 
-    .div5 {
-      color: #000000;
-      font-size: 13px;
-      letter-spacing: 1.25px;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
   
   
-  .frame-76,
-  .frame-76 * {
-    box-sizing: border-box;
-  }
-  .frame-76 {
-    background: #ffffff;
-    border-style: solid;
-    border-color: #979797;
-    border-width: 1.5px;
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-    align-items: center;
-    justify-content: flex-start;
-    width: 256px;
-    height: 350px;
-    position: relative;
-    overflow: hidden;
-  }
-  .frame-77 {
-    background: #fcc813;
-    padding: 10px;
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-    align-self: stretch;
-    flex-shrink: 0;
-    height: 39px;
-    position: relative;
-    overflow: hidden;
-  }
-  .popupdiv {
-    color: #000000;
-    text-align: center;
-    font-family: "Roboto-Bold", sans-serif;
-    font-size: 13.5px;
-    letter-spacing: 1.25px;
-    font-weight: 700;
-    text-transform: uppercase;
-    position: relative;
-    align-self: stretch;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .frame-78 {
-    padding: 10px;
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-    align-self: stretch;
-    flex-shrink: 0;
-    height: 89px;
-    position: relative;
-    overflow: hidden;
-  }
-  .popupamericano {
-    flex-shrink: 0;
-    width: 60px;
-    height: 70px;
-    position: relative;
-    object-fit: cover;
-  }
-  .popupdiv2 {
-    color: #000000;
-    text-align: left;
-    font-family: "Roboto-Bold", sans-serif;
-    font-size: 13px;
-    letter-spacing: 1.25px;
-    font-weight: 700;
-    text-transform: uppercase;
-    position: relative;
-    flex: 1;
-    height: 21px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-  }
-  .popup_2000 {
-    color: #ff0000;
-    text-align: left;
-    font-family: "Roboto-Bold", sans-serif;
-    font-size: 13px;
-    letter-spacing: 1.25px;
-    font-weight: 700;
-    text-transform: uppercase;
-    position: relative;
-    flex: 1;
-    height: 21px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-  }
-  .popupdiv3 {
-    color: #000000;
-    text-align: left;
-    font-family: "Roboto-Bold", sans-serif;
-    font-size: 13px;
-    letter-spacing: 1.25px;
-    font-weight: 700;
-    text-transform: uppercase;
-    position: relative;
-    width: 206px;
-    height: 21px;
-    padding-left: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-  }
-  .frame-79 {
-    padding: 10px 10px 10px 15px;
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-    align-items: center;
-    justify-content: flex-start;
-    align-self: stretch;
-    flex-shrink: 0;
-    height: 47px;
-    position: relative;
-    overflow: hidden;
-  }
-  .frame-22 {
-    border-style: solid;
-    border-color: #979797;
-    border-width: 2px;
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    width: 60px;
-    height: 25px;
-    position: relative;
-  }
-  .popupdiv4 {
-    color: #000000;
-    text-align: left;
-    font-family: "Roboto-Bold", sans-serif;
-    font-size: 13px;
-    letter-spacing: 1.25px;
-    font-weight: 700;
-    text-transform: uppercase;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-  }
   .frame-23 {
     border-style: solid;
     border-color: #979797;
@@ -1070,27 +921,7 @@ html,body {
   
   
   
-  .order-details-popup {
-    background: #ffffff;
-    border-style: solid;
-    border-color: #979797;
-    border-width: 1px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: flex-start;
-    justify-content: flex-start;
-    width: 250px;
-    height: 360px;
-    position: fixed;
-    top: 50%; /* 화면 세로 중앙 위치 */
-    left: 50%; /* 화면 가로 중앙 위치 */
-    transform: translate(-50%, -50%); /* 정확한 중앙 정렬 */
-    z-index: 9999; /* 다른 요소들 위에 표시되게 */
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
-  
-  }
+
   
   .frame-101 {
     background: #fcc813;
@@ -1101,25 +932,6 @@ html,body {
     overflow: hidden;
   }
   
-  .order_list {
-    color: #000000;
-    text-align: center;
-    font-family: "Roboto-Bold", sans-serif;
-    font-size: 13px;
-    letter-spacing: 1.25px;
-    font-weight: 700;
-    text-transform: uppercase;
-    position: absolute;
-    left: 50%;
-    top: 12px;
-    transform: translateX(-50%);
-    width: 214px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-  
-  }
   
   .frame-102 {
     border-style: solid;
@@ -1256,4 +1068,10 @@ html,body {
     height: 10px !important;
   }
   
-  
+  .div5 {
+    color: #000000;
+    font-size: 13px;
+    letter-spacing: 1.25px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }

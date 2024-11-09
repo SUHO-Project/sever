@@ -528,6 +528,27 @@ html,body {
   font-weight: 700;
   text-transform: uppercase;
 }
+.ade-button2 {
+  background: #fcc813;
+  width: 33.12%;
+  height: 5.99%;
+  position: absolute;
+  right: 33.75%;
+  bottom: 81.34%;
+  top: 12.68%;
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  left: 66.5%;
+}
+
+.div5 {
+  color: #000000;
+  font-size: 13px;
+  letter-spacing: 1.25px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
 
 
 .frame-76,
