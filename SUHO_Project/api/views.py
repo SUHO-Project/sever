@@ -91,6 +91,8 @@ def createFastFood(request):
 
                 except Cart.DoesNotExist:
                     total_price = menu.menuPrice * menu_quantity
+                    print(option1)
+                    print(option2)
                     total_price += Menu.objects.get(menuName=option1).menuPrice * menu_quantity
                     total_price += Menu.objects.get(menuName=option2).menuPrice * menu_quantity
 
