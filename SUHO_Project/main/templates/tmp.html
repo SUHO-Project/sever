@@ -1,0 +1,89 @@
+<script>
+    // 상태 변수를 추가하여 선택된 메뉴가 버거인지 세트 디저트인지 확인
+    let isDessertSelection = false;
+    let burger = "";
+    let option1 = "";
+    let option2 = "";
+
+    // 메뉴 선택 확인 팝업 열기
+    function openMenuConfirmationPopup(menuName, isDessert = false) {
+      if (!isDessert) {
+        burger = menuName;
+      } else {
+        if(option1 == "") {
+          option2 = menuName;
+        } else {
+          option1 = menuName;
+        }
+      }
+      document.getElementById("selected_menu_name").textContent = menuName;
+      document.getElementById("menu_confirmation_popup").style.display = "block";
+      isDessertSelection = isDessert; // 세트 디저트 선택 여부 저장
+    }
+
+    function closePopup(popupId) {
+      menuName = "";
+      option1 = "";
+      option2 = "";
+      document.getElementById(popupId).style.display = "none";
+    }
+
+    function closeMenuConfirmationPopup() {
+      document.getElementById("menu_confirmation_popup").style.display = "none";
+    }
+
+    // 세트 디저트 선택 후 음료 팝업으로 이동
+    function confirmDessertSelection() {
+      closePopup("dessert_selection_popup");
+      document.getElementById("drink_selection_popup").style.display = "block";
+
+    }
+
+    function complete() {
+      var formData = new FormData();
+      formData.append('menuName', burger);
+      formData.append('menuQuantity', 1);
+      formData.append('option1', option1);
+      formData.append('option2', option2);
+        console.log(burger);
+        console.log(option1);
+        console.log(option2);
+      $.ajax({
+        url: '/api/cart/create', // 서버에 요청을 보낼 URL
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function(response) {
+            window.location.reload();
+          },
+        error: function(xhr, status, error) {
+            console.error('Error:', error);
+            alert('카트 추가에 실패했습니다.');
+        }
+      });
+    }
+
+    // 세트 디저트 팝업 열기
+    function showDessertPopup() {
+      document.getElementById("drink_selection_popup").style.display = "none";
+      //document.getElementById("dessert_selection_popup").style.display = "block";
+    }
+
+    // 세트 음료 팝업 열기
+    function showDrinkPopup() {
+      document.getElementById("dessert_selection_popup").style.display = "none";
+      document.getElementById("drink_selection_popup").style.display = "block";
+    }
+
+    // 메뉴 확인 팝업에서 확인을 눌렀을 때 실행할 동작을 세트 디저트와 버거 선택에 따라 분리
+    function confirmDessertToDrink() {
+      closeMenuConfirmationPopup();
+        document.getElementById("dessert_selection_popup").style.display = "block";
+    }
+
+    // 세트 디저트 메뉴에서 포테이토 클릭 시 메뉴 확인 팝업 열기
+    function openDessertMenuConfirmationPopup(dessertName) {
+      openMenuConfirmationPopup(dessertName, true); // 세트 디저트 메뉴로 설정하여 메뉴 확인 팝업 열기
+    }
+</script>
