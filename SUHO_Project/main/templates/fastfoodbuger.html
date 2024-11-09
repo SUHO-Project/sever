@@ -1,6 +1,6 @@
-<!DOCTYPE html>
 {% load static %}
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -12,6 +12,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+<style>
+  .selected {
+    border: 2px solid red; /* 빨간색 테두리 */
+    border-radius: 5px; /* 테두리 모서리 둥글게 */
+}
+
+</style>
 <body>
   <div class="main-2">
     <img class="home-button" src="static/img/home-button0.png" onclick="window.location.href='/'"/>
@@ -21,12 +28,12 @@
     <div class="board"></div>
 
     <!-- 햄버거 메뉴 제목 -->
-    <div class="hamburguer-button" >
+    <div class="hamburguer-button" onclick="window.location.href='fastfoodbuger'" >
       <div class="text-bold">햄버거</div>
     </div>
     
     <!-- 메뉴 버튼 예제 (데리버거) -->
-    <div class="teriburger-button" onclick="openMenuConfirmationPopup('데리버거')">
+    <div id="burger-button" class="teriburger-button" onclick="openMenuConfirmationPopup(this, '데리버거', false, false)">
       <div class="teriburger-retangle"></div>
       <img class="teriburger" src="static/img/teriburger.png" />
       <div class="price-3300">
@@ -37,7 +44,7 @@
       </div>
     </div>
     <!-- Other burger buttons... -->
-    <div class="chicken-button" onclick="openMenuConfirmationPopup('치킨버거')">
+    <div id="burger-button" class="chicken-button" onclick="openMenuConfirmationPopup(this, '치킨버거', false, false)">
       <div class="chicken-retangle"></div>
       <img class="chicken" src="static/img/chickenburger.png" />
       <div class="price-4000">
@@ -48,7 +55,7 @@
       </div>
     </div>
 
-    <div class="shrimpburger-button" onclick="openMenuConfirmationPopup('새우버거')">
+    <div id="burger-button" class="shrimpburger-button" onclick="openMenuConfirmationPopup(this, '새우버거', false, false)">
       <div class="shrimp-retangle"></div>
       <div class="price-4500">
         <span>
@@ -59,7 +66,7 @@
       <img class="shrimpburger" src="static/img/shrimpburger.png" />
     </div>
 
-    <div class="bulgogiburger-button" onclick="openMenuConfirmationPopup('불고기버거')">
+    <div id="burger-button" class="bulgogiburger-button" onclick="openMenuConfirmationPopup(this, '불고기버거', false, false)">
       <div class="bulgogiburger-retangle"></div>
       <div class="price-45002">
         <span>
@@ -70,7 +77,7 @@
       <img class="bulgogiburger" src="static/img/bulgogiburger.png" />
     </div>
 
-    <div class="cheeseburger-button" onclick="openMenuConfirmationPopup('치즈버거')">
+    <div id="burger-button" class="cheeseburger-button" onclick="openMenuConfirmationPopup(this, '치즈버거', false, false)">
       <div class="cheeseburger-retangle"></div>
       <div class="price-5200">
         <span>
@@ -81,7 +88,7 @@
       <img class="cheeseburger" src="static/img/cheeseburger.png" />
     </div>
 
-    <div class="doubleteriburger-button" onclick="openMenuConfirmationPopup('더블데리버거')">
+    <div id="burger-button" class="doubleteriburger-button" onclick="openMenuConfirmationPopup(this, '더블데리버거', false, false)">
       <div class="doubleteriburger-retangle"></div>
       <div class="price-45003">
         <span>
@@ -98,11 +105,40 @@
     <!-- 주문 내역, 취소, 결제 버튼 -->
     <div class="order-summary">
       <span>
-        <span class="text-bold-0">총주문내역</span>
-        <span class="text-bold-0-2">0</span>
-        <span class="text-bold-0-3">개</span>
-        <span class="text-bold-0-5">0</span>
+        <span class="text-bold-0">총 가격</span>
+        <span class="text-bold-0-2">{{ total }}</span>
+        <span class="text-bold-0-3">원</span>
+        <span class="text-bold-0-5"></span>
       </span>
+    </div>
+
+    <div class="checklist-retangle">
+      <table>
+        <thead>
+        <tr>
+            <th>이름</th>
+            <th></th>
+            <th>수량</th>
+            <th></th>
+            <th>옵션</th>
+            <th>가격</th>
+            <th>취소</th>
+        </tr>
+        </thead>
+        <tbody>
+          {% for cart in carts %}
+        <tr>
+            <td>{{ cart.menu.menuName }}</td>
+            <td onclick="changeQuantity(-1, '{{ cart.id }}')"> <b>&nbsp;&nbsp;-&nbsp;&nbsp;</b></td>
+            <td>{{ cart.menuQuantity }}</td>
+            <td onclick="changeQuantity(1, '{{ cart.id }}')"> <b>&nbsp;&nbsp;+&nbsp;&nbsp;</b> </td>
+            <td>{{ cart.option1 }}<br> {{ cart.option2 }}</td>
+            <td>{{ cart.totalPrice }}원</td>
+            <td style="color: red" onclick="deleteCart('{{ cart.id }}')">취소</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
     </div>
 
     <div class="cancel-button">
@@ -110,8 +146,8 @@
       <div class="text-right">취소하기</div>
     </div>
 
-    <div class="payment-button" onclick="showOrderDetailsPopup()">
-      <div class="payment-retangle"></div>
+    <div class="payment-button" onclick="pay()">
+      <div class="payment-retangle" ></div>
       <div class="text-right">결제하기</div>
     </div>
 
@@ -123,42 +159,42 @@
       <div class="popup-category-item" onclick="showDrinkPopup()">세트_음료</div>
     </div>
     <div class="popup-items-container">
-      <div class="popup-item" onclick="openDessertMenuConfirmationPopup('포테이토')">
+      <div class="popup-item" onclick="openMenuConfirmationPopup(this, '포테이토', true, false)">
         <img class="popup-item-image" src="static/img/potato.png" alt="포테이토" />
         <div class="popup-item-text">
           <span>포테이토</span>
           <span class="popup-price">1500</span>
         </div>
       </div>
-      <div class="popup-item" onclick="openDessertMenuConfirmationPopup('포테이토(L)')">
+      <div class="popup-item" onclick="openMenuConfirmationPopup(this, '포테이토(L)', true, false)">
         <img class="popup-item-image" src="static/img/potato-1.png" alt="포테이토(L)" />
         <div class="popup-item-text">
           <span>포테이토(L)</span>
           <span class="popup-price">2000</span>
         </div>
       </div>
-      <div class="popup-item" onclick="openDessertMenuConfirmationPopup('치즈스틱')">
+      <div class="popup-item" onclick="openMenuConfirmationPopup(this, '치즈스틱', true, false)">
         <img class="popup-item-image" src="static/img/cheese_stick.png" alt="치즈스틱" />
         <div class="popup-item-text">
           <span>치즈스틱</span>
           <span class="popup-price">2000</span>
         </div>
       </div>
-      <div class="popup-item" onclick="openDessertMenuConfirmationPopup('치킨너겟')">
+      <div class="popup-item" onclick="openMenuConfirmationPopup(this, '치킨너겟', true, false)">
         <img class="popup-item-image" src="static/img/chicken_nuggets.png" alt="치킨너겟" />
         <div class="popup-item-text">
           <span>치킨너겟</span>
           <span class="popup-price">2000</span>
         </div>
       </div>
-      <div class="popup-item" onclick="openDessertMenuConfirmationPopup('롱치즈스틱')">
+      <div class="popup-item" onclick="openMenuConfirmationPopup(this, '롱치즈스틱', true, false)">
         <img class="popup-item-image" src="static/img/long_cheese_stick.png" alt="롱치즈스틱" />
         <div class="popup-item-text">
           <span>롱치즈스틱</span>
           <span class="popup-price">2000</span>
         </div>
       </div>
-      <div class="popup-item no-selection" onclick="openDessertMenuConfirmationPopup('선택없음')">
+      <div class="popup-item no-selection" onclick="openMenuConfirmationPopup(this, '선택없음', true, false)">
         <div class="popup-item-text">
           <span>선택없음</span>
           <span class="popup-price">0</span>
@@ -167,7 +203,7 @@
     </div>
     <div class="popup-buttons">
       <button class="popup-cancel-btn" onclick="closePopup('dessert_selection_popup')">취소하기</button>
-      <button class="popup-confirm-btn" onclick="confirmDessertSelection()">선택완료</button>
+      <button class="popup-confirm-btn" onclick="complete()">선택완료</button>
     </div>
   </div>
 
@@ -179,42 +215,42 @@
       <div class="popup-category-item popup-selected" onclick="showDrinkPopup()">세트_음료</div>
     </div>
     <div class="popup-items-container">
-      <div class="popup-item" onclick="openMenuConfirmationPopup('콜라')">
+      <div class="popup-item" onclick="openMenuConfirmationPopup(this, '콜라', false, true)">
         <img class="popup-item-image" src="static/img/coke.png" alt="콜라" />
         <div class="popup-item-text">
           <span>콜라</span>
           <span class="popup-price">2000</span>
         </div>
       </div>
-      <div class="popup-item" onclick="openMenuConfirmationPopup('사이다')">
+      <div class="popup-item" onclick="openMenuConfirmationPopup(this, '사이다', false, true)">
         <img class="popup-item-image" src="static/img/sprite.png" alt="사이다" />
         <div class="popup-item-text">
           <span>사이다</span>
           <span class="popup-price">2000</span>
         </div>
       </div>
-      <div class="popup-item" onclick="openMenuConfirmationPopup('아이스티')">
+      <div class="popup-item" onclick="openMenuConfirmationPopup(this, '아이스티', false, true)">
         <img class="popup-item-image" src="static/img/icedtea.png" alt="아이스티" />
         <div class="popup-item-text">
           <span>아이스티</span>
           <span class="popup-price">2500</span>
         </div>
       </div>
-      <div class="popup-item" onclick="openMenuConfirmationPopup('오렌지주스')">
+      <div class="popup-item" onclick="openMenuConfirmationPopup(this, '오렌지주스', false, true)">
         <img class="popup-item-image" src="static/img/orange_juice.png" alt="오렌지주스" />
         <div class="popup-item-text">
           <span>오렌지주스</span>
           <span class="popup-price">2500</span>
         </div>
       </div>
-      <div class="popup-item" onclick="openMenuConfirmationPopup('레몬에이드')">
+      <div class="popup-item" onclick="openMenuConfirmationPopup(this, '레몬에이드', false, true)">
         <img class="popup-item-image" src="static/img/lemonade.png" alt="레몬에이드" />
         <div class="popup-item-text">
           <span>레몬에이드</span>
           <span class="popup-price">2500</span>
         </div>
       </div>
-      <div class="popup-item no-selection" onclick="openMenuConfirmationPopup('선택없음')">
+      <div class="popup-item no-selection" onclick="openMenuConfirmationPopup(this, '선택없음', false, true)">
         <div class="popup-item-text">
           <span>선택없음</span>
           <span class="popup-price">0</span>
@@ -223,7 +259,7 @@
     </div>
     <div class="popup-buttons">
       <button class="popup-cancel-btn" onclick="closePopup('drink_selection_popup')">취소하기</button>
-      <button class="popup-confirm-btn">선택완료</button>
+      <button class="popup-confirm-btn" onclick = "complete()">선택완료</button>
     </div>
   </div>
 
@@ -240,7 +276,7 @@
       아니면 <span class="highlight">취소</span> 버튼을 눌러주세요</span>
     </div>
     <div class="button-container">
-      <div class="frame-98" onclick="confirmDessertToDrink()">확인</div>
+      <div class="frame-98" onclick="confirmMenu()">확인</div>
       <div class="frame-99" onclick="closeMenuConfirmationPopup()">취소</div>
     </div>
   </div>
@@ -282,7 +318,7 @@
           </div>
           <div class="amount_check">{{ total }}원</div>
       </div>
-        <button class="final_cancel" onclick="closePopup()">
+        <button class="final_cancel" onclick="window.location.href='fastfoodbuger'">
           <div class="final">취소하기</div>
         </button>
         <button class="final_okay">
@@ -294,67 +330,134 @@
   
   
   <script>
-    // 상태 변수를 추가하여 선택된 메뉴가 버거인지 세트 디저트인지 확인
-    let isDessertSelection = false;
+    let burger = "";
+    let option1 = "";
+    let option2 = "";
 
-    // 메뉴 선택 확인 팝업 열기
-    function openMenuConfirmationPopup(menuName, isDessert = false) {
+    let menuNameGlobal = "";
+
+    let isOptionGlobal1 = false;
+    let isOptionGlobal2 = false;
+    
+    let isBurger = true;
+
+    function openMenuConfirmationPopup(element, menuName, isOption1, isOption2) {
+
       document.getElementById("selected_menu_name").textContent = menuName;
       document.getElementById("menu_confirmation_popup").style.display = "block";
-      isDessertSelection = isDessert; // 세트 디저트 선택 여부 저장
+      
+      menuNameGlobal = menuName;
+      isOptionGlobal1 = isOption1;
+      isOptionGlobal2 = isOption2;
+
     }
 
     function closePopup(popupId) {
       document.getElementById(popupId).style.display = "none";
+      isBurger = true;
+    }
+
+    function confirmMenu() {
+      closePopup("menu_confirmation_popup");
+      if (isBurger) {
+        document.getElementById("dessert_selection_popup").style.display = "block";
+      }
+
+      if(isOptionGlobal1) {
+        option1 = menuNameGlobal;
+      } else if (isOptionGlobal2) {
+        option2 = menuNameGlobal;
+      } else {
+        burger = menuNameGlobal;
+        isBurger = false;
+      }
+
+      isOptionGlobal1 = false;
+      isOptionGlobal2 = false;
+      menuNameGlobal = "";
+    }
+
+    function showDrinkPopup() {
+      document.getElementById("dessert_selection_popup").style.display = "none";
+      document.getElementById("drink_selection_popup").style.display = "block";
+    }
+
+    function showDessertPopup() {
+      document.getElementById("drink_selection_popup").style.display = "none";
+      document.getElementById("dessert_selection_popup").style.display = "block";
     }
 
     function closeMenuConfirmationPopup() {
       document.getElementById("menu_confirmation_popup").style.display = "none";
     }
 
-    // 세트 디저트 선택 후 음료 팝업으로 이동
-    function confirmDessertSelection() {
-      closePopup("dessert_selection_popup");
-      document.getElementById("drink_selection_popup").style.display = "block";
-    }
-
-    // 세트 디저트 팝업 열기
-    function showDessertPopup() {
-      document.getElementById("drink_selection_popup").style.display = "none";
-      document.getElementById("dessert_selection_popup").style.display = "block";
-    }
-
-    // 세트 음료 팝업 열기
-    function showDrinkPopup() {
-      document.getElementById("dessert_selection_popup").style.display = "none";
-      document.getElementById("drink_selection_popup").style.display = "block";
-    }
-
-    // 메뉴 확인 팝업에서 확인을 눌렀을 때 실행할 동작을 세트 디저트와 버거 선택에 따라 분리
-    function confirmDessertToDrink() {
-      closeMenuConfirmationPopup();
-      if (isDessertSelection) {
-        // 세트 디저트 선택 시, 세트 음료 팝업으로 이동
-        document.getElementById("drink_selection_popup").style.display = "block";
-      } else {
-        // 버거 선택 시, 세트 디저트 팝업으로 이동
-        document.getElementById("dessert_selection_popup").style.display = "block";
+    function complete() {
+      if(option1 == "" || option2 == "") {
+        alert("옵션을 선택하세요.");
+        return;
       }
+
+      var formData = new FormData();
+      formData.append('menuName', burger);
+      formData.append('menuQuantity', 1);
+      formData.append('option1', option1);
+      formData.append('option2', option2);
+        console.log(burger);
+        console.log(option1);
+        console.log(option2);
+      $.ajax({
+        url: '/api/cart/create', // 서버에 요청을 보낼 URL
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function(response) {
+            window.location.reload();
+          },
+        error: function(xhr, status, error) {
+            console.error('Error:', error);
+            alert('카트 추가에 실패했습니다.');
+        }
+      });
     }
 
-    function showOrderDetailsPopup() {
-      document.getElementById("order-details-popup").style.display = "block";
-    document.getElementById("payment-button").addEventListener("click", showOrderDetailsPopup);
+    function deleteCart(cartId) {
+      if (confirm('정말로 삭제하시겠습니까?')) {
+        $.ajax({
+          url: '/api/cart/'+cartId+"/", // 서버에 요청을 보낼 URL
+          type: 'DELETE',
+          success: function(response) {
+              window.location.reload();
+            },
+          error: function(xhr, status, error) {
+              console.error('Error:', error);
+              alert('삭제 실패했습니다.');
+          }
+        });
+      }
   }
 
-  function closePopup() {
-    document.getElementById('order-details-popup').style.display = 'none';
+
+  function changeQuantity(n, cartId) {
+    $.ajax({
+      url: '/api/cart/' + cartId + "/", // 서버에 요청을 보낼 URL
+      type: 'PUT',
+      data: JSON.stringify({ quantity: n }),
+      contentType: false,
+      processData: false,
+      success: function(response) {
+          window.location.reload();
+        },
+      error: function(xhr, status, error) {
+          console.error('Error:', error);
+          alert('카트 추가에 실패했습니다.');
+      }
+    });
   }
 
-    // 세트 디저트 메뉴에서 포테이토 클릭 시 메뉴 확인 팝업 열기
-    function openDessertMenuConfirmationPopup(dessertName) {
-      openMenuConfirmationPopup(dessertName, true); // 세트 디저트 메뉴로 설정하여 메뉴 확인 팝업 열기
-    }
+  function pay() {
+    document.getElementById("order-details-popup").style.display = "block";
+  }
   </script>
 </body>
 </html>
