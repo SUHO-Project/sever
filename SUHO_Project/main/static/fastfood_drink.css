@@ -1,0 +1,938 @@
+html,body {
+    height: 100%;
+    
+  }
+  
+  /* 기본 설정 */
+  body, a, button, input, select, h1, h2, h3, h4, h5, * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      border: none;
+      text-decoration: none;
+      background: none;
+      -webkit-font-smoothing: antialiased;
+      font-family: "Noto Sans KR" !important;
+    }
+    
+    menu, ol, ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .main-2,
+    .main-2 * {
+      box-sizing: border-box;
+  
+    }
+    
+    .main-2 {
+      background: #ffffff;
+      position: relative;
+      overflow: hidden;
+      width: 100% !important;
+      height: 100% !important;
+    }
+    
+    .rectangle-120 {
+      background: rgba(217, 217, 217, 0.63);
+      width: 110%;
+      height: 60px;
+      position: absolute;
+      left: 0px;
+      top: 91%;
+    }
+    
+    .home-button {
+      width: 6.56%;
+      height: 3.7%;
+      position: absolute;
+      right: 82.19%;
+      left: 11.25%;
+      bottom: 89.08%;
+      top: 4%;
+      transform-origin: 0 0;
+      transform: rotate(0deg) scale(-1, 1);
+      object-fit: cover;
+  
+      z-index: 99
+    }
+    
+    .board {
+      background: #fcc813;
+      width: 100%;
+      height: 18.66%;
+      position: absolute;
+      right: 0%;
+      left: 0%;
+      bottom: 81.34%;
+      top: 0%;
+  }
+
+  .suho-coffee {
+    color: #000000;
+    text-align: center;
+    font-family: "Roboto-Bold", sans-serif;
+    font-size: 18px;
+    letter-spacing: 1.25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: absolute;
+    right: 34.69%;
+    left: 35%;
+    width: 30.31%;
+    bottom: 94.01%;
+    top: 3.35%;
+    height: 2.64%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+    
+    /* 햄버거 버튼 */
+    .hamburguer-button {
+      background: #fcc813;
+      width: 33.12%;
+      height: 6%;
+      position: absolute;
+      right: 66.88%;
+      left: 0%;
+      bottom: 81.34%;
+      top: 12.6%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  .side-button {
+    background: #fcc813;
+    width: 33.12%;
+    height: 5.99%;
+    position: absolute;
+    right: 33.75%;
+    left: 33.12%;
+    bottom: 81.34%;
+    top: 12.6%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  .drink-button {
+    background: #e8e7e7;
+    width: 34%;
+    height: 5.99%;
+    position: absolute;
+    right: 33.75%;
+    bottom: 81.34%;
+    top: 12.6%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 66.5%;
+  }
+  
+    
+    /* 텍스트 공통 스타일 */
+    .text-bold,
+    .text-bold-4000,
+    .text-bold-4500,
+    .text-bold-45002,
+    .text-bold-5200,
+    .text-bold-45003,
+    .text-bold-0-4,
+    .text-bold-0-5 {
+      color: #000000;
+      font-size: 13px;
+      letter-spacing: 1.25px;
+      font-weight: 700;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+  
+    .text-bold-0, .text-bold-0-3 {
+      font-size: 18px;
+      font-weight: 600;
+    }
+  
+    .text-bold-0-2 {
+      color: red;
+      font-weight: 600;
+  
+    }
+  
+  
+    
+    .text-right {
+      text-align: right;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    
+    .teriburger-button {
+      width: 170px;
+      height: 76px;
+      position: absolute;
+      left: 20px;
+      top: 130px;
+    }
+    
+    .teriburger-retangle,
+    .shrimp-retangle,
+    .bulgogiburger-retangle,
+    .chicken-retangle,
+    .cheeseburger-retangle,
+    .doubleteriburger-retangle {
+      background: #ffffff;
+      width: 144px;
+      height: 76px;
+      position: absolute;
+      z-index: -1;
+  
+    }
+  
+    
+    .teriburger {
+        width: 35px;
+        height: 70px;
+        position: absolute;
+        left: 15px;
+        top: 11px;
+        object-fit: cover;
+    }
+    
+    /* 가격 텍스트 */
+    .price-3300,
+    .price-4000,
+    .price-4500,
+    .price-45002,
+    .price-5200,
+    .price-45003 {
+      text-align: center;
+      font-size: 13px;
+      letter-spacing: 1.25px;
+      font-weight: 700;
+      text-transform: uppercase;
+      position: absolute;
+      left: 80px;
+      top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .price-red-4000,
+    .price-red-4500,
+    .price-red-45002,
+    .price-red-5200,
+    .price-red-45003 {
+      color: #ff0000;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+.price-red-3300 {
+        color: #ff0000;
+        font-size: 13px;
+        text-transform: uppercase; 
+        margin-left: -30px;
+    }
+
+    .text-bold-3300 {
+        color: #000000;
+        font-size: 13px;
+        letter-spacing: 1.25px;
+        font-weight: 700;
+        text-transform: uppercase;
+        white-space: nowrap;
+    }
+
+
+    
+    .chicken-button {
+      width: 144px;
+      height: 76px;
+      position: absolute;
+      left: 200px;
+      top: 130px;
+    }
+    .chicken {
+        width: 80px;
+        height: 70px;
+        position: absolute;
+        left: -5px;
+        top: 10px;
+        object-fit: cover;
+    }
+    
+    .shrimpburger-button {
+      width: 170px;
+      height: 76px;
+      position: absolute;
+      left: 20px;
+      top: 220px;
+    }
+    
+    .shrimpburger {
+        width: 62px;
+        height: 71px;
+        position: absolute;
+        left: 3px;
+        top: 5px;
+        object-fit: cover;
+    }
+    
+    .bulgogiburger-button {
+      width: 144px;
+      height: 76px;
+      position: absolute;
+      left: 200px;
+      top: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .bulgogiburger {
+        width: 80px;
+        height: 65px;
+        position: absolute;
+        left: -5px;
+        top: 7px;
+        object-fit: cover;
+    }
+    
+    .cheeseburger-button {
+      width: 170px;
+      height: 76px;
+      position: absolute;
+      left: 20px;
+      top: 305px;
+    }
+    
+    .cheeseburger {
+        width: 85px;
+        height: 70px;
+        position: absolute;
+        top: 6px;
+        object-fit: cover;
+    }
+    
+    .doubleteriburger-button {
+      width: 144px;
+      height: 76px;
+      position: absolute;
+      left: 200px;
+      top: 305px;
+    }
+    
+    .doubleteriburger {
+      width: 62px;
+      height: 70px;
+      position: absolute;
+      left: 5px;
+      top: 10px;
+      object-fit: cover;
+  }
+  
+  
+    
+    .text-right-div2,
+    .text-right-div3 {
+      text-align: center;
+      font-size: 13px;
+      letter-spacing: 1.25px;
+      font-weight: 700;
+      text-transform: uppercase;
+      position: absolute;
+      top: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+   
+    }
+  
+  
+    .text-right-div2 {
+      left: 180px;
+    }
+    
+    .text-right-div3 {
+      left: 300px;
+    }
+    
+    .gray-rectangle {
+      background: rgba(217, 217, 217, 0.63);
+      width: 100%;
+      height: 8%;
+      position: absolute;
+      left: 0px;
+      top: 400px;
+  }
+  
+    /* 주문 내역 */
+  .order-summary {
+      text-align: center;
+      text-transform: uppercase;
+      position: absolute;
+      left: 40px;
+      top: 410px;
+      width: 279px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  
+    /* 취소하기 & 결제하기 버튼 */
+    .cancel-button,
+    .payment-button {
+      width: 150px;
+      height: 40px;
+      position: absolute;
+      top: 92.5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 600;
+      text-transform: uppercase;
+      border-radius: 5px;
+      transform: translateX(8%);
+    }
+    
+    .cancel-button {
+      left: 180px;
+      background-color: #ffffff;
+      border: 1.5px solid #979797;
+  }
+    
+    .payment-button {
+      left: 20px;
+      background-color: #ff0000;
+      color: #ffffff;
+    }
+    
+    .cancel-retangle,
+    .payment-retangle {
+      width: 100px;
+      height: 39px;
+      position: absolute;
+    }
+    
+    /* 팝업 스타일 */
+    .hamburger-popup,
+    .hamburger-popup * {
+      box-sizing: border-box;
+    }
+    
+    .hamburger-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 288px;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      z-index: 1000;
+    }
+    
+    .div {
+      text-align: center;
+      font-size: 17px;
+      line-height: 24px;
+      font-weight: 600;
+      margin-bottom: 20px; /* 두 줄 띄우기 */
+    }
+    
+    .div-span {
+      color: #b16000;
+      font-size: 17px;
+      line-height: 24px;
+      font-weight: 600;
+    }
+    
+    .div-span3 {
+      color: #000000;
+      font-size: 17px;
+      line-height: 24px;
+      font-weight: 600;
+    }
+    
+    .div3 {
+      text-align: center;
+      font-size: 17px;
+      line-height: 24px;
+      font-weight: 500;
+      margin-bottom: 10px; /* 한 줄 띄우기 */
+    }
+    
+    .highlight {
+      color: #ff0000 !important; /* 빨간색 텍스트 */
+    }
+    
+    /* 버튼 컨테이너 */
+    .button-container {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 10px;
+    }
+    
+    .frame-98,
+    .frame-99 {
+      background: #fcc813;
+      border-radius: 20px;
+      padding: 6px 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 110px;
+      height: 28px;
+      cursor: pointer;
+    }
+    
+    .div2 {
+      color: #ffffff;
+      text-align: center;
+      font-size: 15px;
+      line-height: 16px;
+      font-weight: 600;
+    }
+    
+    /* 세트 디저트 팝업 스타일 */
+    .popup-group-68 {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 290px;
+      height: 410px;
+      background: #ffffff;
+      border: 1px solid #000000;
+      border-radius: 32px;
+      z-index: 1000;
+    }
+    
+    .popup-group-68 .popup-title {
+      text-align: center;
+      font-size: 15px;
+      color: #000000;
+      font-weight: 700;
+      margin: 10px 0;
+    }
+    
+    .popup-group-68 .popup-category {
+      display: flex;
+      justify-content: space-around;
+      font-size: 12px;
+    }
+    
+    .popup-group-68 .popup-category-item {
+      padding: 5px 10px;
+      text-align: center;
+    }
+    
+    .popup-group-68 .popup-selected {
+      border-bottom: 2px solid #000000;
+    }
+    
+    .popup-group-68 .popup-items-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 10px 0;
+    }
+    
+    .popup-group-68 .popup-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 120px;
+      margin: -5px 0;
+      text-align: center;
+    }
+    
+    .popup-group-68 .popup-item-image {
+      width: 100px;
+      height: 55px;
+      margin-bottom: 5px;
+      object-fit: contain;
+  }
+    
+    .popup-group-68 .popup-item-text {
+      font-size: 13px;
+    }
+    
+    .popup-group-68 .popup-item-text span {
+      display: block;
+      line-height: 1.2;
+    }
+    
+    .popup-group-68 .popup-price {
+      color: #ff0000;
+    }
+    
+    .popup-group-68 .popup-item.no-selection .popup-item-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .popup-group-68 .popup-item.no-selection .popup-price {
+      margin-top: 3px;
+      color: #ff0000;
+    }
+    
+    .popup-group-68 .popup-buttons {
+      left: 0.8%;
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      position: absolute;
+      bottom: 20px;
+      top: 355px;
+      width: 100%;
+  }
+    
+    .popup-group-68 .popup-cancel-btn,
+    .popup-group-68 .popup-confirm-btn {
+      width: 120px;
+      height: 40px;
+      font-size: 15px;
+      font-weight: 700;
+      border: none;
+      border-radius: 5px;
+      margin-right: 5px; 
+    }
+    
+    .popup-group-68 .popup-cancel-btn {
+      background-color: #e8e8e8;
+      color: #000000;
+    }
+    
+    .popup-group-68 .popup-confirm-btn {
+      background-color: rgb(255 0 0);
+      color: #ffffff;
+    }
+    
+    /* 세트 음료 팝업 스타일 */
+    .popup-group-70 {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 285px;
+      height: 410px;
+      background: #ffffff;
+      border: 1px solid #000000;
+      border-radius: 32px;
+      z-index: 1000;
+    }
+    
+    .popup-group-70 .popup-title {
+      text-align: center;
+      font-size: 15px;
+      color: #000000;
+      font-weight: 700;
+      margin: 10px 0;
+    }
+    
+    .popup-group-70 .popup-category {
+      display: flex;
+      justify-content: space-around;
+      font-size: 12px;
+    }
+    
+    .popup-group-70 .popup-category-item {
+      padding: 5px 10px;
+      text-align: center;
+    }
+    
+    .popup-group-70 .popup-selected {
+      border-bottom: 2px solid #000000;
+    }
+    
+    .popup-group-70 .popup-items-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 10px 0;
+    }
+    
+    .popup-group-70 .popup-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 120px;
+      margin: -5px 0;
+      text-align: center;
+    }
+    
+    .popup-group-70 .popup-item-image {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 5px;
+      object-fit: contain;
+    }
+    
+    .popup-group-70 .popup-item-text {
+      font-size: 13px;
+    }
+    
+    .popup-group-70 .popup-item-text span {
+      display: block;
+      line-height: 1.2;
+    }
+    
+    .popup-group-70 .popup-price {
+      color: #ff0000;
+    }
+    
+    .popup-group-70 .popup-item.no-selection .popup-item-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .popup-group-70 .popup-item.no-selection .popup-price {
+      margin-top: 3px;
+      color: #ff0000;
+    }
+    
+    .popup-group-70 .popup-buttons {
+      display: flex;
+      justify-content: space-around;
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+    }
+    
+    .popup-group-70 .popup-cancel-btn,
+    .popup-group-70 .popup-confirm-btn {
+      width: 120px;
+      height: 40px;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      border-radius: 5px;
+    }
+    
+    .popup-group-70 .popup-cancel-btn {
+      background-color: #e8e8e8;
+      color: #000000;
+    }
+    
+    .popup-group-70 .popup-confirm-btn {
+      background-color: rgb(255 0 0);
+      color: #ffffff;
+    }
+    
+  
+    .order-details-popup {
+      background: #ffffff;
+      border-style: solid;
+      border-color: #979797;
+      border-width: 1px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+      justify-content: flex-start;
+      width: 250px;
+      height: 360px;
+      position: fixed;
+      top: 50%; /* 화면 세로 중앙 위치 */
+      left: 50%; /* 화면 가로 중앙 위치 */
+      transform: translate(-50%, -50%); /* 정확한 중앙 정렬 */
+      z-index: 9999; /* 다른 요소들 위에 표시되게 */
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+    
+    }
+    
+    .frame-101 {
+      background: #fcc813;
+      align-self: stretch;
+      flex-shrink: 0;
+      height: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .order_list {
+      color: #000000;
+      text-align: center;
+      font-size: 13px;
+      letter-spacing: 1.25px;
+      font-weight: 700;
+      text-transform: uppercase;
+      position: absolute;
+      left: 50%;
+      top: 12px;
+      transform: translateX(-50%);
+      width: 214px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+    
+    }
+    
+    .frame-102 {
+      border-style: solid;
+      border-color: transparent;
+      border-width: 1px;
+      /* padding: 25px 10px; */
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: flex-start;
+      align-self: stretch;
+      flex-shrink: 0;
+      height: 50%;
+      position: relative;
+      overflow-y: scroll;
+    }
+    
+    .menu_check, ._1 {
+      color: #000000;
+      text-align: center;
+      font-size: 13px;
+      letter-spacing: 1.25px;
+      font-weight: 700;
+      text-transform: uppercase;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .frame-103 {
+      border-style: solid;
+      border-color: #000000;
+      border-width: 1px;
+      padding: 0px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 220px;
+      height: 40px;
+      position: absolute;
+      left: calc(50% - 110px);
+      top: 240px;
+      overflow: hidden;
+    }
+    
+    
+    .amount_check {
+      color: #ff0000;
+      position: absolute;
+      left: 150px;
+      top: 22%;
+      width: 94px;
+      height: 15px;
+    }
+    
+    .final_cancel, .final_okay {
+      flex-shrink: 0;
+      width: 110px;
+      height: 30px;
+      position: absolute;
+      overflow: hidden;
+    }
+    
+    .final_cancel {
+      background: #979797;
+      left: 8px;
+      top: 310px;
+    }
+    
+    .final_okay {
+      background: #fc1313;
+      left: 130px;
+      top: 310px;
+    }
+    
+    .final {
+      color: #ffffff;
+      text-align: center;
+      font-size: 17px;
+      line-height: 30px;
+      font-weight: 600;
+      position: absolute;
+      left: 13px;
+      top: 3px;
+      width: 83px;
+      height: 23px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .checklist-retangle {
+      display: flex;
+      flex-direction: column;
+      gap:0px;
+      overflow-y:scroll;
+      background: #ffffff;
+      width: 100%;
+      height: 23.41%;
+      position: absolute;
+      bottom: 3.17%;
+      top: 67.42%;
+      /* box-shadow: 0 2px 5px rgba(0,0,0,.25); */
+    }
+    
+    table {
+      font-size: 12px;
+      
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+    }
+    th {
+      height: 10px;
+    }
+      
+    thead {
+      font-weight: bold;
+      color: #fff;
+      background: #73685d;
+    }
+    
+    tbody {
+      overflow-y:scroll;
+    }
+      
+     td, th {
+      padding: 1em .5em;
+      vertical-align: middle;
+      height:10px;
+      top: 5px;
+    }
+      
+     td {
+      border-bottom: 1px solid rgba(0,0,0,.1);
+      background: #fff;
+      height: 10px !important;
+    }
+    
+    tr {
+      height: 10px !important;
+    }
+    

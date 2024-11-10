@@ -65,6 +65,7 @@ def last2(request):
 def fastfoodmain(request):
     return render(request, 'fastfoodmain.html')
 
+
 def fastfoodbuger(request):
     carts = Cart.objects.all()
     
@@ -75,6 +76,13 @@ def fastfoodbuger(request):
 
 def buger_popup(request):
     return render(request, 'buger_popup.html')
+
+def fastfood_side(request):
+    return render(request, 'fastfood_side.html')
+
+def fastfood_drink(request):
+    return render(request, 'fastfood_drink.html')
+
 
 
 

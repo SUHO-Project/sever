@@ -23,8 +23,8 @@ urlpatterns = [
     path('fastfoodmain', views.fastfoodmain, name='fastfoodmain'),
     path('fastfoodbuger', views.fastfoodbuger, name='fastfoodbuger'),
     path('buger_popup', views.buger_popup, name='buger_popup'),
-    # path('fastfood_side', views.fastfood_side, name='fastfood_side'),
-    # path('fastfood_drink', views.fastfood_drink, name='fastfood_drink'),
+    path('fastfood_side', views.fastfood_side, name='fastfood_side'),
+    path('fastfood_drink', views.fastfood_drink, name='fastfood_drink'),
 
 
 

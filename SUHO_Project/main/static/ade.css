@@ -79,8 +79,7 @@ html,body {
   }
   ._2000-span {
     color: #000000;
-    font-family: "Roboto-Bold", sans-serif;
-    font-size: 12px;
+    font-size: 13px;
     letter-spacing: 1.25px;
     font-weight: 700;
     text-transform: uppercase;
@@ -88,8 +87,7 @@ html,body {
   }
   ._2000-span2 {
     color: #fcc813;
-    font-family: "Roboto-Bold", sans-serif;
-    font-size: 10px;
+    font-size: 12.5px;
     letter-spacing: 1.25px;
     font-weight: 700;
     text-transform: uppercase;
@@ -138,8 +136,7 @@ html,body {
   }
   ._3700-span {
     color: #000000;
-    font-family: "Roboto-Bold", sans-serif;
-    font-size: 11.3px;
+    font-size: 13px;
     letter-spacing: 1.25px;
     font-weight: 700;
     text-transform: uppercase;
@@ -149,11 +146,12 @@ html,body {
   }
   ._3700-span2 {
     color: #fcc813;
-    font-family: "Roboto-Bold", sans-serif;
-    font-size: 11px;
+    font-size: 12.5px;
     letter-spacing: 1.25px;
     font-weight: 700;
     text-transform: uppercase;
+    margin-left: 5%;
+
   }
   .caramel-macchiato {
     width: 15%;
@@ -199,24 +197,21 @@ html,body {
   }
   ._37002-span {
     color: #000000;
-    font-family: "Roboto-Bold", sans-serif;
-    font-size: 12px;
+    font-size: 13px;
     letter-spacing: 1.25px;
     font-weight: 700px;
     text-transform: uppercase;
     white-space: nowrap;
-    margin-left: 15%;
+    margin-left: 18%;
   
   }
   ._37002-span2 {
     color: #fcc813;
-    font-family: "Roboto-Bold", sans-serif;
-    font-size: 11px;
+    font-size: 12.5px;
     letter-spacing: 1.25px;
     font-weight: 700;
     text-transform: uppercase;
     position: relative;
-    left: -5%;
   }
   .cafe-mocha {
     width: 24%;
@@ -262,8 +257,7 @@ html,body {
   }
   ._37003-span {
     color: #000000;
-    font-family: "Roboto-Bold", sans-serif;
-    font-size: 12px;
+    font-size: 13px;
     letter-spacing: 1.25px;
     font-weight: 700;
     text-transform: uppercase;
@@ -273,8 +267,7 @@ html,body {
   }
   ._37003-span2 {
     color: #fcc813;
-    font-family: "Roboto-Bold", sans-serif;
-    font-size: 11px;
+    font-size: 12.5px;
     letter-spacing: 1.25px;
     font-weight: 700;
     text-transform: uppercase;
@@ -284,7 +277,7 @@ html,body {
     height: 14.5%;
     position: absolute;
     right: 6.25%;
-    left: 71%;
+    left: 70%;
     bottom: 40.49%;
     top: 46.2%;
     object-fit: cover;
@@ -384,8 +377,7 @@ html,body {
   }
   ._3000-span {
     color: #000000;
-    font-family: "Roboto-Bold", sans-serif;
-    font-size: 12px;
+    font-size: 13px;
     letter-spacing: 1.25px;
     font-weight: 700;
     text-transform: uppercase;
@@ -395,21 +387,20 @@ html,body {
   }
   ._3000-span2 {
     color: #fcc813;
-    font-family: "Roboto-Bold", sans-serif;
-    font-size: 11px;
+    font-size: 12.5px;
     letter-spacing: 1.25px;
     font-weight: 700;
     text-transform: uppercase;
     margin-left: -10%;
   }
   .cafe-latte {
-    width: 11%;
-    height: 14%;
+    width: 10.5%;
+    height: 15%;
     position: absolute;
     right: 73.62%;
     left: 77.5%;
     bottom: 64.38%;
-    top: 23.5%;
+    top: 22.8%;
     object-fit: cover;
 }
   .valina-latte-button {
@@ -446,8 +437,7 @@ html,body {
   }
   ._30002-span {
     color: #000000;
-    font-family: "Roboto-Bold", sans-serif;
-    font-size: 12px;
+    font-size: 13px;
     letter-spacing: 1.25px;
     font-weight: 700;
     text-transform: uppercase;
@@ -455,8 +445,7 @@ html,body {
   }
   ._30002-span2 {
     color: #fcc813;
-    font-family: "Roboto-Bold", sans-serif;
-    font-size: 11px;
+    font-size: 12.5px;
     letter-spacing: 1.25px;
     font-weight: 700;
     text-transform: uppercase;
@@ -498,7 +487,6 @@ html,body {
   
   .div3 {
     color: #000000;
-    font-family: "Roboto-Bold", sans-serif;
     font-size: 13px;
     letter-spacing: 1.25px;
     font-weight: 700;
