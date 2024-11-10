@@ -1256,4 +1256,153 @@ html,body {
     height: 10px !important;
   }
   
+   
+  .order-details-popup {
+    background: #ffffff;
+    border-style: solid;
+    border-color: #979797;
+    border-width: 1px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 250px;
+    height: 360px;
+    position: fixed;
+    top: 50%; /* 화면 세로 중앙 위치 */
+    left: 50%; /* 화면 가로 중앙 위치 */
+    transform: translate(-50%, -50%); /* 정확한 중앙 정렬 */
+    z-index: 9999; /* 다른 요소들 위에 표시되게 */
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+  
+  }
+  
+  .frame-101 {
+    background: #fcc813;
+    align-self: stretch;
+    flex-shrink: 0;
+    height: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .order_list {
+    color: #000000;
+    text-align: center;
+    font-family: "Roboto-Bold", sans-serif;
+    font-size: 13px;
+    letter-spacing: 1.25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: absolute;
+    left: 50%;
+    top: 12px;
+    transform: translateX(-50%);
+    width: 214px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+  
+  }
+  
+  .frame-102 {
+    border-style: solid;
+    border-color: transparent;
+    border-width: 1px;
+    /* padding: 25px 10px; */
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-self: stretch;
+    flex-shrink: 0;
+    height: 50%;
+    position: relative;
+    overflow-y: scroll;
+  }
+  
+  .menu_check, ._1 {
+    color: #000000;
+    text-align: center;
+    font-family: "Roboto-Bold", sans-serif;
+    font-size: 13px;
+    letter-spacing: 1.25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+
+  
+  .frame-103 {
+    border-style: solid;
+    border-color: #000000;
+    border-width: 1px;
+    padding: 0px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 220px;
+    height: 40px;
+    position: absolute;
+    left: calc(50% - 110px);
+    top: 240px;
+    overflow: hidden;
+  }
+  
+  
+  .amount_check {
+    color: #ff0000;
+    position: absolute;
+    left: 150px;
+    top: 22%;
+    width: 94px;
+    height: 15px;
+  }
+  
+  .final_cancel, .final_okay {
+    flex-shrink: 0;
+    width: 110px;
+    height: 30px;
+    position: absolute;
+    overflow: hidden;
+  }
+  
+  .final_cancel {
+    background: #979797;
+    left: 8px;
+    top: 310px;
+  }
+  
+  .final_okay {
+    background: #fc1313;
+    left: 130px;
+    top: 310px;
+  }
+  
+  .final {
+    color: #ffffff;
+    text-align: center;
+    font-family: "Roboto-SemiBold", sans-serif;
+    font-size: 17px;
+    line-height: 30px;
+    font-weight: 600;
+    position: absolute;
+    left: 13px;
+    top: 3px;
+    width: 83px;
+    height: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   

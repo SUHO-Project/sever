@@ -4,11 +4,12 @@ html,body {
   .main-2,
   .main-2 * {
     box-sizing: border-box;
+    
   }
   .main-2 {
     background: #e8e7e7;
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
     position: relative;
     overflow: hidden;
   }
@@ -1075,3 +1076,373 @@ html,body {
     font-weight: 700;
     text-transform: uppercase;
   }
+
+  #americano_popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000; /* 오버레이보다 위에 표시 */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+
+  #order-details-popup {
+    background: #ffffff;
+    border-style: solid;
+    border-color: #979797;
+    border-width: 1px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 250px;
+    height: 360px;
+    position: fixed;
+    top: 50%; /* 화면 세로 중앙 위치 */
+    left: 50%; /* 화면 가로 중앙 위치 */
+    transform: translate(-50%, -50%); /* 정확한 중앙 정렬 */
+    z-index: 9999; /* 다른 요소들 위에 표시되게 */
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+  }
+
+
+  .frame-76,
+  .frame-76 * {
+    box-sizing: border-box;
+  }
+  .frame-76 {
+    background: #ffffff;
+    border-style: solid;
+    border-color: #979797;
+    border-width: 1.5px;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    align-items: center;
+    justify-content: flex-start;
+    width: 256px;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+  }
+  .frame-77 {
+    background: #fcc813;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+    flex-shrink: 0;
+    height: 39px;
+    position: relative;
+    overflow: hidden;
+  }
+  .popupdiv {
+    color: #000000;
+    text-align: center;
+    font-family: "Roboto-Bold", sans-serif;
+    font-size: 13.5px;
+    letter-spacing: 1.25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    align-self: stretch;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .frame-78 {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+    flex-shrink: 0;
+    height: 89px;
+    position: relative;
+    overflow: hidden;
+  }
+  .popupamericano {
+    flex-shrink: 0;
+    width: 60px;
+    height: 70px;
+    position: relative;
+    object-fit: cover;
+  }
+  .popupdiv2 {
+    color: #000000;
+    text-align: left;
+    font-family: "Roboto-Bold", sans-serif;
+    font-size: 13px;
+    letter-spacing: 1.25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    flex: 1;
+    height: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .popup_2000 {
+    color: #ff0000;
+    text-align: left;
+    font-family: "Roboto-Bold", sans-serif;
+    font-size: 13px;
+    letter-spacing: 1.25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    flex: 1;
+    height: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .popupdiv3 {
+    color: #000000;
+    text-align: left;
+    font-family: "Roboto-Bold", sans-serif;
+    font-size: 13px;
+    letter-spacing: 1.25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    width: 206px;
+    height: 21px;
+    padding-left: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .frame-79 {
+    padding: 10px 10px 10px 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    justify-content: flex-start;
+    align-self: stretch;
+    flex-shrink: 0;
+    height: 47px;
+    position: relative;
+    overflow: hidden;
+  }
+  .frame-22 {
+    border-style: solid;
+    border-color: #979797;
+    border-width: 2px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 60px;
+    height: 25px;
+    position: relative;
+  }
+  .popupdiv4 {
+    color: #000000;
+    text-align: left;
+    font-family: "Roboto-Bold", sans-serif;
+    font-size: 13px;
+    letter-spacing: 1.25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .frame-23 {
+    border-style: solid;
+    border-color: #979797;
+    border-width: 2px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 60px;
+    height: 25px;
+    position: relative;
+  }
+  .frame-80 {
+    padding: 10px 10px 10px 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    height:90px;
+    align-items: center;
+    justify-content: flex-start;
+    align-self: stretch;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+  }
+  .frame-222 {
+    border-style: solid;
+    border-color: #979797;
+    border-width: 2px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+    flex-shrink: 0;
+    width: 60px;
+    position: relative;
+  }
+  ._0 {
+    color: #ff0000;
+    text-align: left;
+    font-family: "Roboto-Bold", sans-serif;
+    font-size: 13px;
+    letter-spacing: 1.25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .frame-232 {
+    border-style: solid;
+    border-color: #979797;
+    border-width: 2px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+    flex-shrink: 0;
+    width: 60px;
+    position: relative;
+  }
+  ._500 {
+    color: #ff0000;
+    text-align: left;
+    font-family: "Roboto-Bold", sans-serif;
+    font-size: 13px;
+    letter-spacing: 1.25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .frame-24 {
+    border-style: solid;
+    border-color: #979797;
+    border-width: 2px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+    flex-shrink: 0;
+    width: 60px;
+    position: relative;
+  }
+  ._2 {
+    color: #ff0000;
+    text-align: left;
+    font-family: "Roboto-Bold", sans-serif;
+    font-size: 11px;
+    letter-spacing: 1.25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  ._1000 {
+    color: #ff0000;
+    text-align: left;
+    font-family: "Roboto-Bold", sans-serif;
+    font-size: 13px;
+    letter-spacing: 1.25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .frame-81 {
+    padding: 10px 10px 10px 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-end;
+    align-self: stretch;
+    flex-shrink: 0;
+    height: 47px;
+    position: relative;
+    overflow: hidden;
+  }
+  .frame-223 {
+    background: #6b6b6b;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 69px;
+    height: 32px;
+    position: relative;
+  }
+  .popupdiv5 {
+    color: #ffffff;
+    text-align: left;
+    font-family: "Roboto-Bold", sans-serif;
+    font-size: 13px;
+    letter-spacing: 1.25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .frame-233 {
+    background: #ff2626;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 69px;
+    height: 32px;
+    position: relative;
+  }
+  
+  .selected {
+    border: 2px solid red !important; /* 선택된 경우 빨간 테두리 */
+  }
+  
+  .selected-option {
+    border: 2px solid red; /* 빨간 테두리 */
+  }
+  

@@ -64,6 +64,46 @@ def create(request):
 
     return JsonResponse({'error': 'Invalid form data'}, status=400)
 
+def createOther(request):
+    if request.method == 'POST':
+        form = CartForm(request.POST)
+        if form.is_valid():
+            menu_name = form.cleaned_data['menuName']
+            menu_quantity = form.cleaned_data['menuQuantity']
+            option1 = ""
+            option2 = ""
+
+            try:
+                menu = Menu.objects.get(menuName=menu_name)
+                try:
+                    cart_item = Cart.objects.get(menu=menu, option1=option1, option2=option2)
+                    cart_item.menuQuantity += 1
+                    
+    
+                    cart_item.totalPrice += menu.menuPrice * menu_quantity
+
+                    cart_item.save()
+
+                except Cart.DoesNotExist:
+                    total_price = menu.menuPrice * menu_quantity
+                    
+                    Cart.objects.create(
+                        menu=menu,
+                        menuQuantity=menu_quantity,
+                        option1=option1,
+                        option2=option2,
+                        totalPrice=total_price
+                    )
+
+                return JsonResponse({'message': 'Cart updated successfully!'}, status=200)
+            
+            except Menu.DoesNotExist:
+                return JsonResponse({'error': 'Menu not found'}, status=404)
+        else:
+            form = CartForm()
+
+    return JsonResponse({'error': 'Invalid form data'}, status=400)
+
 def createFastFood(request):
     if request.method == 'POST':
         form = CartForm(request.POST)
