@@ -88,10 +88,20 @@ def buger_popup(request):
     return render(request, 'buger_popup.html')
 
 def fastfood_side(request):
-    return render(request, 'fastfood_side.html')
+    carts = Cart.objects.all()
+    
+    total = 0
+    for cart in carts:
+        total += cart.totalPrice
+    return render(request, 'fastfood_side.html', {'carts':carts, 'total':total})
 
 def fastfood_drink(request):
-    return render(request, 'fastfood_drink.html')
+    carts = Cart.objects.all()
+    
+    total = 0
+    for cart in carts:
+        total += cart.totalPrice
+    return render(request, 'fastfood_drink.html', {'carts':carts, 'total':total})
 
 
 

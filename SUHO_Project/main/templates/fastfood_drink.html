@@ -34,18 +34,18 @@
       <div class="text-bold">햄버거</div>
     </div>
     
-    <div id="burger-button" class="teriburger-button" onclick="openMenuConfirmationPopup(this, '콜라', false, false)">
+    <div id="burger-button" class="teriburger-button" onclick="openMenuConfirmationPopup('콜라')">
       <div class="teriburger-retangle"></div>
       <img class="teriburger" src="static/img/coke.png" />
       <div class="price-3300">
         <span>
-          <span class="text-bold-3300">콜라</span>
+          <span class="text-bold-500">콜라</span>
           <span class="price-red-3300"><br/>2000원</span>
         </span>
       </div>
     </div>
     <!-- Other burger buttons... -->
-    <div id="burger-button" class="chicken-button" onclick="openMenuConfirmationPopup(this, '사이다', false, false)">
+    <div id="burger-button" class="chicken-button" onclick="openMenuConfirmationPopup('사이다')">
       <div class="chicken-retangle"></div>
       <img class="chicken" src="static/img/sprite.png" />
       <div class="price-4000">
@@ -56,7 +56,7 @@
       </div>
     </div>
 
-    <div id="burger-button" class="shrimpburger-button" onclick="openMenuConfirmationPopup(this, '아이스티', false, false)">
+    <div id="burger-button" class="shrimpburger-button" onclick="openMenuConfirmationPopup('아이스티')">
       <div class="shrimp-retangle"></div>
       <div class="price-4500">
         <span>
@@ -67,7 +67,7 @@
       <img class="shrimpburger" src="static/img/icedtea.png" />
     </div>
 
-    <div id="burger-button" class="bulgogiburger-button" onclick="openMenuConfirmationPopup(this, '오렌지주스', false, false)">
+    <div id="burger-button" class="bulgogiburger-button" onclick="openMenuConfirmationPopup('오렌지주스')">
       <div class="bulgogiburger-retangle"></div>
       <div class="price-45002">
         <span>
@@ -78,7 +78,7 @@
       <img class="bulgogiburger" src="static/img/orange_juice.png" />
     </div>
 
-    <div id="burger-button" class="cheeseburger-button" onclick="openMenuConfirmationPopup(this, '레몬에이드', false, false)">
+    <div id="burger-button" class="cheeseburger-button" onclick="openMenuConfirmationPopup('레몬에이드')">
       <div class="cheeseburger-retangle"></div>
       <div class="price-5200">
         <span>
@@ -89,7 +89,7 @@
       <img class="cheeseburger" src="static/img/lemonade.png" />
     </div>
 
-    <div id="burger-button" class="doubleteriburger-button" onclick="openMenuConfirmationPopup(this, '환타', false, false)">
+    <div id="burger-button" class="doubleteriburger-button" onclick="openMenuConfirmationPopup('환타')">
       <div class="doubleteriburger-retangle"></div>
       <div class="price-45003">
         <span>
@@ -177,7 +177,7 @@
       아니면 <span class="highlight">취소</span> 버튼을 눌러주세요</span>
     </div>
     <div class="button-container">
-      <div class="frame-98" onclick="confirmMenu()">확인</div>
+      <div class="frame-98" onclick="complete()">확인</div>
       <div class="frame-99" onclick="closeMenuConfirmationPopup()">취소</div>
     </div>
   </div>
@@ -242,14 +242,12 @@
     
     let isBurger = true;
 
-    function openMenuConfirmationPopup(element, menuName, isOption1, isOption2) {
+    function openMenuConfirmationPopup(menuName) {
 
       document.getElementById("selected_menu_name").textContent = menuName;
       document.getElementById("menu_confirmation_popup").style.display = "block";
       
       menuNameGlobal = menuName;
-      isOptionGlobal1 = isOption1;
-      isOptionGlobal2 = isOption2;
 
     }
 
@@ -293,21 +291,16 @@
     }
 
     function complete() {
-      if(option1 == "" || option2 == "") {
-        alert("옵션을 선택하세요.");
-        return;
-      }
 
       var formData = new FormData();
-      formData.append('menuName', burger);
+      formData.append('menuName', menuNameGlobal);
       formData.append('menuQuantity', 1);
-      formData.append('option1', option1);
-      formData.append('option2', option2);
-        console.log(burger);
-        console.log(option1);
-        console.log(option2);
+      formData.append('option1', null);
+      formData.append('option2', null);
+
+
       $.ajax({
-        url: '/api/cart/fastfood/create', // 서버에 요청을 보낼 URL
+        url: '/api/cart/fastfood/side/create', // 서버에 요청을 보낼 URL
         type: 'POST',
         data: formData,
         contentType: false,

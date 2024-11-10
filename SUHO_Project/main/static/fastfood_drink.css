@@ -225,6 +225,10 @@ html,body {
       align-items: center;
       justify-content: center;
     }
+
+    .price-3300 {
+      margin-left:20px;
+    }
     
     .price-red-4000,
     .price-red-4500,
@@ -240,7 +244,7 @@ html,body {
         color: #ff0000;
         font-size: 13px;
         text-transform: uppercase; 
-        margin-left: -30px;
+        margin-left: 0px;
     }
 
     .text-bold-3300 {
