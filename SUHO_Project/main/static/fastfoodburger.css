@@ -62,30 +62,93 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
   .board {
     background: #fcc813;
     width: 100%;
-    height: 88px;
+    height: 18.66%;
     position: absolute;
-    left: 0px;
-    top: 0px;
-  }
+    right: 0%;
+    left: 0%;
+    bottom: 81.34%;
+    top: 0%;
+}
+
+.suho-coffee {
+  color: #000000;
+  text-align: center;
+  font-family: "Roboto-Bold", sans-serif;
+  font-size: 18px;
+  letter-spacing: 1.25px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  right: 34.69%;
+  left: 35%;
+  width: 30.31%;
+  bottom: 94.01%;
+  top: 3.35%;
+  height: 2.64%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
   
   /* 햄버거 버튼 */
   .hamburguer-button {
-    background: #ffffff;
-    padding: 9px 17px;
+    background: #e8e7e7;
+    width: 33.12%;
+    height: 6%;
+    position: absolute;
+    right: 66.88%;
+    left: 0%;
+    bottom: 81.34%;
+    top: 12.68%;
+    cursor: pointer;
     display: flex;
-    flex-direction: row;
-    gap: 10px;
     align-items: center;
     justify-content: center;
-    width: 33%;
-    height:5%;
-    position: absolute;
-    right: 70.94%;
-    left: 0%;
-    bottom: 84.51%;
-    top: 8.5%;
-    white-space: nowrap;
-  }
+}
+
+.side-button {
+  background: #fcc813;
+  width: 33.12%;
+  height: 5.99%;
+  position: absolute;
+  right: 33.75%;
+  left: 33.12%;
+  bottom: 81.34%;
+  top: 12.6%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.side-button {
+  background: #fcc813;
+  width: 33.12%;
+  height: 5.99%;
+  position: absolute;
+  right: 33.75%;
+  left: 33.12%;
+  bottom: 81.34%;
+  top: 12.6%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drink-button {
+  background: #fcc813;
+  width: 33.12%;
+  height: 5.99%;
+  position: absolute;
+  right: 33.75%;
+  bottom: 81.34%;
+  top: 12.6%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 66.5%;
+}
+
   
   /* 텍스트 공통 스타일 */
   .text-bold,
@@ -95,18 +158,28 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
   .text-bold-45002,
   .text-bold-5200,
   .text-bold-45003,
-  .text-bold-0,
-  .text-bold-0-2,
-  .text-bold-0-3,
   .text-bold-0-4,
   .text-bold-0-5 {
     color: #000000;
-    font-family: "Roboto-Bold", sans-serif;
     font-size: 13px;
     letter-spacing: 1.25px;
     font-weight: 700;
     text-transform: uppercase;
+    white-space: nowrap;
   }
+
+  .text-bold-0, .text-bold-0-3 {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .text-bold-0-2 {
+    color: red;
+    font-weight: 600;
+
+  }
+
+
   
   .text-right {
     text-align: right;
@@ -121,30 +194,32 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
     height: 76px;
     position: absolute;
     left: 20px;
-    top: 114px;
+    top: 130px;
   }
   
   .teriburger-retangle,
-  .chicken-retangle,
   .shrimp-retangle,
   .bulgogiburger-retangle,
+  .chicken-retangle,
   .cheeseburger-retangle,
   .doubleteriburger-retangle {
     background: #ffffff;
     width: 144px;
     height: 76px;
     position: absolute;
+    z-index: -1;
 
   }
+
   
   .teriburger {
-    width: 64px;
-    height: 63px;
+    width: 70px;
+    height: 90px;
     position: absolute;
     left: 7px;
-    top: 7px;
+    top: -10px;
     object-fit: cover;
-  }
+}
   
   /* 가격 텍스트 */
   .price-3300,
@@ -154,7 +229,6 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
   .price-5200,
   .price-45003 {
     text-align: center;
-    font-family: "Roboto-Bold", sans-serif;
     font-size: 13px;
     letter-spacing: 1.25px;
     font-weight: 700;
@@ -183,41 +257,41 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
     height: 76px;
     position: absolute;
     left: 200px;
-    top: 113px;
+    top: 130px;
   }
   
   .chicken {
-    width: 70px;
-    height: 63px;
+    width: 62px;
+    height: 60px;
     position: absolute;
     left: 4px;
-    top: 3px;
+    top: 10px;
     object-fit: cover;
-  }
+}
   
   .shrimpburger-button {
     width: 170px;
     height: 76px;
     position: absolute;
     left: 20px;
-    top: 208px;
+    top: 220px;
   }
   
   .shrimpburger {
-    width: 66px;
-    height: 58.86px;
+    width: 120px;
+    height: 50px;
     position: absolute;
-    left: 6px;
-    top: 0px;
+    left: -18px;
+    top: 15px;
     object-fit: cover;
-  }
+}
   
   .bulgogiburger-button {
     width: 144px;
     height: 76px;
     position: absolute;
     left: 200px;
-    top: 207px;
+    top: 220px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -225,47 +299,48 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
   }
   
   .bulgogiburger {
-    width: 67px;
-    height: 59.65px;
+    width: 70px;
+    height: 50px;
     position: absolute;
-    left: 6px;
-    top: 7px;
+    left: 0px;
+    top: 18px;
     object-fit: cover;
-  }
+}
   
   .cheeseburger-button {
     width: 170px;
     height: 76px;
     position: absolute;
     left: 20px;
-    top: 302px;
+    top: 305px;
   }
   
   .cheeseburger {
-    width: 66px;
+    width: 105px;
     height: 59.45px;
     position: absolute;
-    left: 6px;
-    top: 6px;
+    left: -10px;
+    top: 12px;
     object-fit: cover;
-  }
+}
   
   .doubleteriburger-button {
     width: 144px;
     height: 76px;
     position: absolute;
     left: 200px;
-    top: 302px;
+    top: 305px;
   }
   
   .doubleteriburger {
-    width: 62px;
-    height: 56.2px;
+    width: 80px;
+    height: 50px;
     position: absolute;
-    left: 10px;
-    top: 8px;
+    left: -5px;
+    top: 17px;
     object-fit: cover;
-  }
+}
+
 
   
   .text-right-div2,
@@ -283,7 +358,8 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
     justify-content: flex-end;
  
   }
-  
+
+
   .text-right-div2 {
     left: 180px;
   }
@@ -295,29 +371,29 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
   .gray-rectangle {
     background: rgba(217, 217, 217, 0.63);
     width: 100%;
-    height: 6%;
+    height: 8%;
     position: absolute;
     left: 0px;
-    top: 410px;
-  }
-  
+    top: 400px;
+}
+
   /* 주문 내역 */
-  .order-summary {
+.order-summary {
     text-align: center;
     text-transform: uppercase;
     position: absolute;
     left: 40px;
-    top: 415px;
+    top: 410px;
     width: 279px;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
+}
+
   /* 취소하기 & 결제하기 버튼 */
   .cancel-button,
   .payment-button {
-    width: 110px;
+    width: 150px;
     height: 40px;
     position: absolute;
     top: 92.5%;
@@ -328,16 +404,17 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
     font-weight: 600;
     text-transform: uppercase;
     border-radius: 5px;
+    transform: translateX(8%);
   }
   
   .cancel-button {
-    left: 97px;
+    left: 180px;
     background-color: #ffffff;
-    border: 2px solid #000000;
-  }
+    border: 1.5px solid #979797;
+}
   
   .payment-button {
-    left: 209px;
+    left: 20px;
     background-color: #ff0000;
     color: #ffffff;
   }
@@ -367,11 +444,13 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     z-index: 1000;
+    border-style: solid;
+    border-color: #979797;
+    border-width: 1px;
   }
   
   .div {
     text-align: center;
-    font-family: "Roboto-SemiBold", sans-serif;
     font-size: 17px;
     line-height: 24px;
     font-weight: 600;
@@ -380,7 +459,6 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
   
   .div-span {
     color: #b16000;
-    font-family: "Roboto-SemiBold", sans-serif;
     font-size: 17px;
     line-height: 24px;
     font-weight: 600;
@@ -388,7 +466,6 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
   
   .div-span3 {
     color: #000000;
-    font-family: "Roboto-SemiBold", sans-serif;
     font-size: 17px;
     line-height: 24px;
     font-weight: 600;
@@ -396,7 +473,6 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
   
   .div3 {
     text-align: center;
-    font-family: "Roboto-Medium", sans-serif;
     font-size: 17px;
     line-height: 24px;
     font-weight: 500;
@@ -417,20 +493,19 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
   .frame-98,
   .frame-99 {
     background: #fcc813;
-    border-radius: 20px;
+    border-radius: 5px;
     padding: 6px 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 110px;
-    height: 28px;
+    height: 30px;
     cursor: pointer;
   }
   
   .div2 {
     color: #ffffff;
     text-align: center;
-    font-family: "Roboto-SemiBold", sans-serif;
     font-size: 15px;
     line-height: 16px;
     font-weight: 600;
@@ -493,11 +568,11 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
   }
   
   .popup-group-68 .popup-item-image {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 55px;
     margin-bottom: 5px;
     object-fit: contain;
-  }
+}
   
   .popup-group-68 .popup-item-text {
     font-size: 13px;
@@ -524,12 +599,15 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
   }
   
   .popup-group-68 .popup-buttons {
+    left: 0.8%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 5px;
     position: absolute;
     bottom: 20px;
+    top: 355px;
     width: 100%;
-  }
+}
   
   .popup-group-68 .popup-cancel-btn,
   .popup-group-68 .popup-confirm-btn {
@@ -539,6 +617,7 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
     font-weight: 700;
     border: none;
     border-radius: 5px;
+    margin-right: 5px; 
   }
   
   .popup-group-68 .popup-cancel-btn {
@@ -853,6 +932,7 @@ body, a, button, input, select, h1, h2, h3, h4, h5, * {
     padding: 1em .5em;
     vertical-align: middle;
     height:10px;
+    top: 5px;
   }
     
    td {

@@ -145,16 +145,12 @@ html,body {
 .frame-70 {
   background: #ffffff;
   border-style: solid;
-  border-color: #000000;
-  border-width: 1.6px;
+  border-color: #979797;
+  border-width: 1.5px;
   display: flex;
-  flex-direction: column;
-  gap: 0px;
-  align-items: center;
   justify-content: flex-start;
   width: 241px;
   height: 138px;
-  position: relative;
   overflow: hidden;
 }
 .frame-71 {
@@ -202,11 +198,13 @@ html,body {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 70px;
-  height: 29px;
+  width: 90px;
+  height: 30px;
   position: relative;
   overflow: hidden;
+  left: -2%;
 }
+
 .popupdiv2 {
   color: #ffffff;
   text-align: center;
@@ -230,10 +228,11 @@ html,body {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 70px;
-  height: 29px;
+  width: 90px;
+  height: 30px;
   position: relative;
   overflow: hidden;
+  left: 2%;
 }
 
 

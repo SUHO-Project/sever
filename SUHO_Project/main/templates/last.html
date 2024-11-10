@@ -90,7 +90,7 @@
       url: '/api/stt/speak', // 서버에 요청을 보낼 URL
       type: 'POST',
       data: JSON.stringify({ page:"", question:  "축하합니다! 키오스크 교육이 성공적으로 완료되셨습니다~~" }),
-      contentType: false,
+      contentType: 'application/json',
       processData: false,
       success: function(response) {
         window.location.href='/';
@@ -100,6 +100,11 @@
           console.log('실패했습니다.[selectedContinue function]');
       }
     });
+
+    setTimeout(function() {
+      window.location.href = '/';
+    }, 5000);
+  
 
   </script>
 </html>
