@@ -225,6 +225,10 @@ html,body {
       align-items: center;
       justify-content: center;
     }
+
+    .price-3300 {
+      margin-left:20px;
+    }
     
     .price-red-4000,
     .price-red-4500,
@@ -240,7 +244,7 @@ html,body {
         color: #ff0000;
         font-size: 13px;
         text-transform: uppercase; 
-        margin-left: -30px;
+        margin-left: 0px;
     }
 
     .text-bold-3300 {
@@ -443,6 +447,9 @@ html,body {
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       text-align: center;
       z-index: 1000;
+      border-style: solid;
+      border-color: #979797;
+      border-width: 1px;
     }
     
     .div {
@@ -489,13 +496,13 @@ html,body {
     .frame-98,
     .frame-99 {
       background: #fcc813;
-      border-radius: 20px;
+      border-radius: 5px;
       padding: 6px 8px;
       display: flex;
       align-items: center;
       justify-content: center;
       width: 110px;
-      height: 28px;
+      height: 30px;
       cursor: pointer;
     }
     
