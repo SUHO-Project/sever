@@ -2,9 +2,6 @@
 
 > 고령층이 키오스크 사용법을 쉽고 익힐 수 있도록 음성(STT/TTS) 기반 학습 환경을 제공하는 대화형 교육 시스템입니다.
 
-[![🎥 시연 영상 보기](./images/thumbnail.png)](https://drive.google.com/file/d/1hqrVp58GPIEAkL7ACWudB-fUo6VItSXc/view?usp=drive_link)  
-> 클릭 시 Google Drive 시연 영상으로 이동
-
 ---
 
 ## 📖 개요
